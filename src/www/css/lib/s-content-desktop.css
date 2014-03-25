@@ -1,0 +1,24 @@
+#content {padding: 20px 0;}
+
+#content ul {font-size: 0; padding: 0 20px 20px;}
+#content li {display: inline-block; vertical-align: top;}
+
+#content dl {padding: 0 20px 20px; overflow: hidden;} 
+#content dt,
+#content dd {float: left;}
+
+#content dt {clear: left; padding: 0 10px 3px 0;}
+#content dd {clear: right; padding: 0 0 3px;}
+
+#content .parameters dt {text-align: right; width: 80px; font-weight: bold; font-style: italic;}
+#content .parameters dd {width: 830px;}
+
+#content .segments dt {text-align: right; width: 110px; font-weight: bold; font-style: italic;}
+#content .segments dd {width: 800px; padding: 0 0 12px;}
+
+#content .prices dt {width: 500px; padding: 0 0 22px;}
+#content .prices dd {width: 210px; padding: 0 0 22px; font-weight: bold; font-style: italic;}
+
+#content code {display: block; padding: 0 20px 20px; font-size: 13px;
+	font-family: monaco;
+}
