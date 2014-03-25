@@ -27,7 +27,6 @@
 <div id="page" class="i:page">
 	<div id="header">
 		<ul class="servicenavigation">
-			<li class="keynav front"><a href="/">Conductor</a></li>
 			<li class="keynav navigation nofollow"><a href="#navigation" rel="nofollow">Navigation</a></li>
 		</ul>
 	</div>

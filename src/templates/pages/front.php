@@ -17,4 +17,5 @@
 		your frontend code into natural device segments, leaving the complexity of intertwined responsive states
 		as a curious remnant of the past.
 	</p>
+
 </div>

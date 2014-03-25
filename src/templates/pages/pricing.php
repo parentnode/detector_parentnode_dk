@@ -1,6 +1,10 @@
 <div class="scene i:pricing pricing">
 	<h1>Pricing</h1>
 
+	<p>
+		introduction to prices
+	</p>
+
 	<dl class="prices">
 		<dt>Sponsor plan<br />Unlimited requests, high priority, custom segments</dt>
 		<dd>Donation</dd>

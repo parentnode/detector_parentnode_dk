@@ -16,7 +16,7 @@ $page->pageTitle("Conductor - Giving your frontend head");
 // APIs
 if(count($action) > 0 && $action[0] == "apis") {
 
-	$page->header();
+	$page->header(array("body_class" => "apis"));
 	$page->template("pages/apis.php");
 	$page->footer();
 	exit();
@@ -25,7 +25,7 @@ if(count($action) > 0 && $action[0] == "apis") {
 // segments
 else if(count($action) > 0 && $action[0] == "segments") {
 
-	$page->header();
+	$page->header(array("body_class" => "segments"));
 	$page->template("pages/segments.php");
 	$page->footer();
 	exit();
@@ -34,7 +34,7 @@ else if(count($action) > 0 && $action[0] == "segments") {
 // pricing
 else if(count($action) > 0 && $action[0] == "pricing") {
 
-	$page->header();
+	$page->header(array("body_class" => "pricing"));
 	$page->template("pages/pricing.php");
 	$page->footer();
 	exit();
@@ -43,7 +43,7 @@ else if(count($action) > 0 && $action[0] == "pricing") {
 // implementation
 else if(count($action) > 0 && $action[0] == "implement") {
 
-	$page->header();
+	$page->header(array("body_class" => "apis"));
 	$page->template("pages/implement.php");
 	$page->footer();
 	exit();
@@ -52,7 +52,7 @@ else if(count($action) > 0 && $action[0] == "implement") {
 // implementation
 else if(count($action) > 0 && $action[0] == "about") {
 
-	$page->header();
+	$page->header(array("body_class" => "about"));
 	$page->template("pages/about.php");
 	$page->footer();
 	exit();
