@@ -6,5 +6,4 @@
 #content .scene.about div.vcard {padding: 25px 50px;}
 #content .scene.about div.vcard .name {padding: 0 0 15px;}
 #content .scene.about div.vcard .tel,
-#content .scene.about div.vcard .email,
-#content .scene.about div.vcard .city {font-size: 13px;}
+#content .scene.about div.vcard .email {font-size: 13px;}
