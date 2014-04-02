@@ -12,13 +12,12 @@
 	<meta name="viewport" content="width=1024" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<meta http-equiv="imagetoolbar" content="no" />
-<? if(Session::value("dev") == "true") { ?>
+<? if(Session::value("dev")) { ?>
 	<link type="text/css" rel="stylesheet" media="all" href="/css/lib/seg_<?= $this->segment() ?>_include.css" />
 	<script type="text/javascript" src="/js/lib/seg_<?= $this->segment() ?>_include.js"></script>
 <? } else { ?>
-	<link type="text/css" rel="stylesheet" media="all" href="/css/lib/seg_<?= $this->segment() ?>_include.css" />
-	<script type="text/javascript" src="/js/lib/seg_<?= $this->segment() ?>_include.js"></script>
+	<link type="text/css" rel="stylesheet" media="all" href="/css/seg_<?= $this->segment() ?>.css" />
+	<script type="text/javascript" src="/js/seg_<?= $this->segment() ?>.js"></script>
 <? } ?>
 </head>
 
