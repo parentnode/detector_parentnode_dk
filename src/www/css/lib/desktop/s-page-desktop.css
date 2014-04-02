@@ -1,4 +1,4 @@
-* {font-family: "OpenSans", Verdana, Arial, sans-serif; color: #000000;
+* {font-family: "OpenSans", Verdana, Arial, sans-serif; color: #cccccc;
 	-webkit-text-size-adjust: none;
 	-webkit-font-smoothing: antialiased;
 
@@ -10,7 +10,7 @@
 }
 
 html {min-height: 100%;}
-body {background: #ffffff; margin: 0; overflow-y: scroll; overflow-x: hidden;}
+body {background: #333333; margin: 0; overflow-y: scroll; overflow-x: hidden;}
 
 
 /* BASE */

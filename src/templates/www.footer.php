@@ -2,10 +2,10 @@
 
 	<div id="navigation">
 		<ul>
-			<li class="segments"><a href="/conductor/segments">Segments</a></li>
-			<li class="apis"><a href="/conductor/apis">APIs</a></li>
-			<li class="pricing"><a href="/conductor/pricing">Pricing</a></li>
-			<li class="about"><a href="/conductor/about">About</a></li>
+			<li class="segments"><a href="/detector/segments">Segments</a></li>
+			<li class="apis"><a href="/detector/apis">APIs</a></li>
+			<li class="pricing"><a href="/detector/pricing">Pricing</a></li>
+			<li class="about"><a href="/detector/about">About</a></li>
 		</ul>
 	</div>
 

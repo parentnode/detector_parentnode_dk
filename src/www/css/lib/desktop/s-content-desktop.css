@@ -1,5 +1,5 @@
 #content {position: relative;}
-#content .scene {position: relative; padding: 30px 0 0;}
+#content .scene {position: relative; padding: 30px 0;}
 
 
 /* BASIC CONTENT */
@@ -32,9 +32,9 @@
 
 /* DEFINITION LIST */
 #content .scene dl {padding: 0 50px 15px; overflow: hidden; width: 500px;}
-#content .scene dt {width: 100px; text-align: right; text-transform: uppercase; padding: 0 5px 0 0; color: #999999;} 
+#content .scene dt {width: 100px; text-align: right; padding: 0 5px 0 0; color: #999999;} 
 #content .scene dt:after {content: ":";}
-#content .scene dd {padding: 0 0 7px; width: 395px;}
+#content .scene dd {padding: 0 0 12px; width: 395px;}
 #content .scene dt span {text-transform: none;}
 #content .scene dl dl {padding: 0 0 10px; margin-left: -30px; width: 425px;}
 #content .scene dl dl dt {width: 80px;}
@@ -54,7 +54,9 @@
 
 
 /* CODE AND TYPECASTING */
-#content .scene code {min-width: 460px; padding: 10px 20px; margin: 0 50px 5px; position: relative; top: -15px; background-color: #ededed; font-size: 13px; display: inline-block; white-space: pre;
+#content .scene code {min-width: 480px; padding: 10px 10px; margin: 0 50px 5px; position: relative; top: -15px; background-color: #ededed; font-size: 12px; display: inline-block; white-space: pre;
+	color: #333333;
+
 	font-family: "Monaco", "Courier New", "Courier";
 }
 #content .scene span.type,

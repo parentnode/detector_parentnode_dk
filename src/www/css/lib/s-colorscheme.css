@@ -5,14 +5,16 @@ http://colorschemedesigner.com/#3s51Tw0w0w0w0
 #7B1E10 - PRIMARY DARK
 */
 
-* {color: #7B1E10;}
+* {color: #cccccc;}
 
 #header .logo {color: #A0746D;}
 #navigation ul li {color: #A0746D;}
 #content .scene a {color: #A0746D;}
 
+#footer p {color: #A0746D;}
+
 .front #header .logo,
 .segments #navigation ul li.segments,
 .about #navigation ul li.about,
 .apis #navigation ul li.apis,
-.pricing #navigation ul li.pricing {color: #7B1E10;}
+.pricing #navigation ul li.pricing {color: #cccccc;}

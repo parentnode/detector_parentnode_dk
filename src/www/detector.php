@@ -10,7 +10,7 @@ $action = $page->actions();
 
 
 $page->bodyClass("front");
-$page->pageTitle("Conductor - Giving your frontend head");
+$page->pageTitle("Detector - Giving your frontend head");
 
 
 // APIs
