@@ -11,10 +11,11 @@ Util.Objects["page"] = new function() {
 
 			// add logo to navigation
 			page.logo = u.ie(page.hN, "div", {"class":"logo", "html":"Detector"});
-			u.ce(page.logo);
-			page.logo.clicked = function(event) {
-				location.href = '/';
-			}
+			page.logo.url = '/';
+//			u.ce(page.logo);
+			// page.logo.clicked = function(event) {
+			// 	location.href = '/';
+			// }
 
 			// content reference
 			page.cN = u.qs("#content", page);
@@ -97,99 +98,97 @@ Util.Objects["page"] = new function() {
 					this.initNavigation();
 
 					this.resized();
-				}
-			}
 
-			// close navigation
-			page.closeNav = function() {
+					// show terms notification
+					if(!u.getCookie("terms_v1")) {
+						var terms = u.ae(document.body, "div", {"class":"terms_notification"});
+						u.ae(terms, "h3", {"html":"We love <br />cookies and privacy"});
+						var bn_accept = u.ae(terms, "a", {"class":"accept", "html":"Accept"});
+						bn_accept.terms = terms;
+						u.ce(bn_accept);
+						bn_accept.clicked = function() {
+							this.terms.parentNode.removeChild(this.terms);
+							u.saveCookie("terms_v1", true, {"expiry":new Date(new Date().getTime()+(1000*60*60*24*365)).toGMTString()});
+						}
 
-				u.t.resetTimer(page.t_nav);
+						if(!location.href.match(/\/terms/)) {
+							var bn_details = u.ae(terms, "a", {"class":"details", "html":"Details"});
+							bn_details.url = "/terms";
+							u.ce(bn_details, {"type":"link"});
+						}
 
-				var open_nodes = u.qsa(".open", page.hN);
-				if(open_nodes) {
-					var i, node;
-					for(i = 0; node = open_nodes[i]; i++) {
 
-						u.a.transition(node.submenu, "all 0.2s linear");
-						u.a.setOpacity(node.submenu, 0);
-						u.rc(node, "open");
 					}
 				}
-
-				u.a.transition(page.hN, "all 0.2s ease-out");
-				u.a.setHeight(page.hN, page.hN.org_height);
-
-				this.open_nav = false;
 			}
 
-			// open/close controller
-			page.navController = function(li) {
-//				u.bug("navcontroller:" + u.nodeId(li) + "; " + (this.open_nav ? u.nodeId(this.open_nav) : ''))
-
-				if(this.open_nav != li) {
-
-					if(this.open_nav) {
-						u.a.transition(this.open_nav.submenu, "all 0.2s linear");
-						u.a.setOpacity(this.open_nav.submenu, 0);
-						u.rc(this.open_nav, "open");
-					}
-
-					u.a.transition(page.hN, "all 0.3s ease-in-out");
-					u.a.setHeight(page.hN, li.submenu.offsetHeight + page.hN.org_height);
-
-					u.a.transition(li.submenu, "all 0.3s linear 0.3s");
-					u.a.setOpacity(li.submenu, 1);
-
-					u.ac(li, "open");
-					this.open_nav = li;
-				}
-				else {
-					this.closeNav();
-				}
-			}
 
 			// initialize navigation elements
 			page.initNavigation = function() {
-
+				u.bug("initNavigation")
 
 				this.hN.org_height = this.hN.offsetHeight;
 
 				var i, node;
 				// enable submenus where relevant
-				this.hN.nodes = u.qsa("h6", page.hN);
+				this.hN.nodes = u.qsa("#navigation li,.servicenavigation li,div.logo", page.hN);
 				for(i = 0; node = this.hN.nodes[i]; i++) {
 
-					var li = node.parentNode;
-
-					// get submenu and position it correctly
-					li.submenu = u.qs("ul.subjects", li);
-					li.submenu.li = li;
+					// build first living proof model of CEL clickableElementLink
+					u.ce(node, {"type":"link"});
 
 					// enable mouseover if mouse events are available
 					if(u.e.event_pref == "mouse") {
-						li._mousedover = function() {
+						node._mousedover = function() {
 //							u.bug("mouseover")
+							this.transitioned = function() {
 
-							u.t.resetTimer(page.t_nav);
+								this.transitioned = function() {
+									u.a.transition(this, "none");
+									// 
+									// u.a.transition(this, "all 0.1s ease-in-out");
+									// u.a.scale(this, 1.3);
 
-							if(!u.hc(this, "open")) {
-								page.navController(this);
+									this.transitioned = function() {
+										// u.a.transition(this, "all 0.3s ease-in-out");
+										u.a.transition(this, "none");
+										// u.a.scale(this, 1.3);
+								
+									}
+								
+								}
+
+//								u.a.transition(this, "none");
+								u.a.transition(this, "all 0.1s ease-in-out");
+								u.a.scale(this, 1.15);
+								
 							}
+
+							u.a.transition(this, "all 0.1s ease-in-out");
+							u.a.scale(this, 1.22);
 						}
 
-						li._mousedout = function() {
+						node._mousedout = function() {
 //							u.bug("mouseout")
-							page.t_nav = u.t.setTimer(this, page.closeNav, 500);
+							this.transitioned = function() {
+
+								this.transitioned = function() {
+									u.a.transition(this, "none");
+								}
+
+								u.a.transition(this, "all 0.1s ease-in-out");
+								u.a.scale(this, 1);
+							}
+
+
+							u.a.transition(this, "all 0.1s ease-in-out");
+							u.a.scale(this, 0.9);
 						}
 
-						u.e.addEvent(li, "mouseover", li._mousedover);
-						u.e.addEvent(li, "mouseout", li._mousedout);
+						u.e.addEvent(node, "mouseover", node._mousedover);
+						u.e.addEvent(node, "mouseout", node._mousedout);
 					}
 
-					u.e.click(li);
-					li.clicked = function() {
-						page.navController(this);
-					}
 				}
 
 

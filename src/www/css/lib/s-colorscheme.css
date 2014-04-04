@@ -5,12 +5,19 @@ http://colorschemedesigner.com/#3s51Tw0w0w0w0
 #7B1E10 - PRIMARY DARK
 */
 
+
 * {color: #cccccc;}
+
+body {background: #333333;}
 
 #header .logo {color: #A0746D;}
 #navigation ul li {color: #A0746D;}
 #content .scene a {color: #A0746D;}
 
+#content .scene hr {border-color: #505050;}
+#content .scene code {color: #333333;}
+
+#footer {border-color: #505050;}
 #footer p {color: #A0746D;}
 
 .front #header .logo,
@@ -18,3 +25,9 @@ http://colorschemedesigner.com/#3s51Tw0w0w0w0
 .about #navigation ul li.about,
 .apis #navigation ul li.apis,
 .pricing #navigation ul li.pricing {color: #cccccc;}
+
+
+.terms_notification {background: #333333;}
+.terms_notification .accept,
+.terms_notification .details {color: #A0746D;}
+.terms_notification {border: 1px solid #505050;}

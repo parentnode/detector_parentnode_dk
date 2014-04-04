@@ -12,9 +12,3 @@
 #navigation ul li {padding: 0 0 0 20px; font-size: 20px; color: #888888;
 	font-family: "PT Serif", Times, serif;
 }
-
-
-/* NAVIGATION STATES */
-.front #header .logo,
-.plain #navigation ul li.plain,
-.geek #navigation ul li.geek {color: #000000;}

@@ -16,6 +16,9 @@
 		<a href="mailto:martin@parentnode.dk">martin@parentnode.dk</a> to set up an account with 
 		unlimited requests.
 	</p>
+	<p>
+		Until you get your own account, you should be aware of our <a href="/terms">terms</a>.
+	</p>
 
 	<hr />
 
@@ -49,13 +52,13 @@
 		<div class="returns">
 			<p>Returns HTML formatted segment.</p>
 			<code>&lt;!DOCTYPE html&gt;
-	&lt;html&gt;
-	&lt;body&gt;
-	&lt;div id=&quot;device&quot;&gt;
-		&lt;span id=&quot;segment&quot; class=&quot;proporty&quot;&gt;<?= $this->segment() ?>&lt;/span&gt;
-	&lt;/div&gt;
-	&lt;/body&gt;
-	&lt;/html&gt;</code>
+&lt;html&gt;
+&lt;body&gt;
+&lt;div id=&quot;device&quot;&gt;
+	&lt;span id=&quot;segment&quot; class=&quot;proporty&quot;&gt;<?= $this->segment() ?>&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
 
 			<p><a href="http://detector.dearapi.com" target="_blank">Test this API</a></p>
 		</div>
@@ -94,9 +97,9 @@
 		<div class="returns">
 			<p>Returns XML formatted segment.</p>
 			<code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-	&lt;device&gt;
-	    &lt;segment&gt;<?= $this->segment() ?>&lt;/segment&gt;
-	&lt;/device&gt;</code>
+&lt;device&gt;
+    &lt;segment&gt;<?= $this->segment() ?>&lt;/segment&gt;
+&lt;/device&gt;</code>
 
 			<p><a href="http://detector.dearapi.com/xml" target="_blank">Test this API</a></p>
 		</div>
@@ -198,7 +201,7 @@
 		<div class="returns">
 			<p>Returns JavaScript document.write's with JavaScript and CSS segment includes.</p>
 			<code>document.write(&#x27;&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;/css/seg_<?= $this->segment() ?>.css&quot; /&gt;&#x27;);
-	document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/seg_<?= $this->segment() ?>.js&quot;&gt;&lt;/script&gt;&#x27;);</code>
+document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/seg_<?= $this->segment() ?>.js&quot;&gt;&lt;/script&gt;&#x27;);</code>
 
 			<p><a href="http://detector.dearapi.com/js-include" target="_blank">Test this API</a></p>
 		</div>

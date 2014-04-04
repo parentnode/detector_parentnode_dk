@@ -11,6 +11,10 @@
 		The number of requests you make to our API defines which 
 		<a href="/detector/pricing">pricing</a> category you will fit into.
 	</p> 
+	<p>
+		Until you get your own account, you should be aware of our <a href="/terms">terms</a>.
+	</p>
+
 
 	<h2>PHP</h2>
 	<code>$request = "http://detector.dearapi.com/xml";

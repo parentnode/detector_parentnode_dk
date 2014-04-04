@@ -55,8 +55,6 @@
 
 /* CODE AND TYPECASTING */
 #content .scene code {min-width: 480px; padding: 10px 10px; margin: 0 50px 5px; position: relative; top: -15px; background-color: #ededed; font-size: 12px; display: inline-block; white-space: pre;
-	color: #333333;
-
 	font-family: "Monaco", "Courier New", "Courier";
 }
 #content .scene span.type,
