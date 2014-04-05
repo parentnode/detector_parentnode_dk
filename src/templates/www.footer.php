@@ -2,6 +2,7 @@
 
 	<div id="navigation">
 		<ul>
+			<li class="front"><a href="/">Frontpage</a></li>
 			<li class="segments"><a href="/detector/segments">Segments</a></li>
 			<li class="apis"><a href="/detector/apis">APIs</a></li>
 			<li class="pricing"><a href="/detector/pricing">Pricing</a></li>

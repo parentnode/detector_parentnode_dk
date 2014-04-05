@@ -10,12 +10,8 @@ Util.Objects["page"] = new function() {
 			page.hN.service = u.qs(".servicenavigation", page.hN);
 
 			// add logo to navigation
-			page.logo = u.ie(page.hN, "div", {"class":"logo", "html":"Detector"});
+			page.logo = u.ie(page.hN, "a", {"class":"logo", "html":"Detector"});
 			page.logo.url = '/';
-//			u.ce(page.logo);
-			// page.logo.clicked = function(event) {
-			// 	location.href = '/';
-			// }
 
 			// content reference
 			page.cN = u.qs("#content", page);
@@ -101,7 +97,7 @@ Util.Objects["page"] = new function() {
 
 					// show terms notification
 					if(!u.getCookie("terms_v1")) {
-						var terms = u.ae(document.body, "div", {"class":"terms_notification"});
+						var terms = u.ie(document.body, "div", {"class":"terms_notification"});
 						u.ae(terms, "h3", {"html":"We love <br />cookies and privacy"});
 						var bn_accept = u.ae(terms, "a", {"class":"accept", "html":"Accept"});
 						bn_accept.terms = terms;
@@ -116,8 +112,6 @@ Util.Objects["page"] = new function() {
 							bn_details.url = "/terms";
 							u.ce(bn_details, {"type":"link"});
 						}
-
-
 					}
 				}
 			}
@@ -125,72 +119,60 @@ Util.Objects["page"] = new function() {
 
 			// initialize navigation elements
 			page.initNavigation = function() {
-				u.bug("initNavigation")
-
-				this.hN.org_height = this.hN.offsetHeight;
 
 				var i, node;
 				// enable submenus where relevant
-				this.hN.nodes = u.qsa("#navigation li,.servicenavigation li,div.logo", page.hN);
+				this.hN.nodes = u.qsa("#navigation li,.servicenavigation li,a.logo", page.hN);
 				for(i = 0; node = this.hN.nodes[i]; i++) {
 
 					// build first living proof model of CEL clickableElementLink
 					u.ce(node, {"type":"link"});
 
+
+					node._mousedover = function() {
+
+						this.transitioned = function() {
+
+							this.transitioned = function() {
+								u.a.transition(this, "none");
+							}
+
+							u.a.transition(this, "all 0.1s ease-in-out");
+							u.a.scale(this, 1.15);
+						}
+
+						u.a.transition(this, "all 0.1s ease-in-out");
+						u.a.scale(this, 1.22);
+					}
+
+					node._mousedout = function() {
+						this.transitioned = function() {
+
+							this.transitioned = function() {
+								u.a.transition(this, "none");
+							}
+
+							u.a.transition(this, "all 0.1s ease-in-out");
+							u.a.scale(this, 1);
+						}
+
+						u.a.transition(this, "all 0.1s ease-in-out");
+						u.a.scale(this, 0.9);
+					}
+
 					// enable mouseover if mouse events are available
 					if(u.e.event_pref == "mouse") {
-						node._mousedover = function() {
-//							u.bug("mouseover")
-							this.transitioned = function() {
-
-								this.transitioned = function() {
-									u.a.transition(this, "none");
-									// 
-									// u.a.transition(this, "all 0.1s ease-in-out");
-									// u.a.scale(this, 1.3);
-
-									this.transitioned = function() {
-										// u.a.transition(this, "all 0.3s ease-in-out");
-										u.a.transition(this, "none");
-										// u.a.scale(this, 1.3);
-								
-									}
-								
-								}
-
-//								u.a.transition(this, "none");
-								u.a.transition(this, "all 0.1s ease-in-out");
-								u.a.scale(this, 1.15);
-								
-							}
-
-							u.a.transition(this, "all 0.1s ease-in-out");
-							u.a.scale(this, 1.22);
-						}
-
-						node._mousedout = function() {
-//							u.bug("mouseout")
-							this.transitioned = function() {
-
-								this.transitioned = function() {
-									u.a.transition(this, "none");
-								}
-
-								u.a.transition(this, "all 0.1s ease-in-out");
-								u.a.scale(this, 1);
-							}
-
-
-							u.a.transition(this, "all 0.1s ease-in-out");
-							u.a.scale(this, 0.9);
-						}
 
 						u.e.addEvent(node, "mouseover", node._mousedover);
 						u.e.addEvent(node, "mouseout", node._mousedout);
 					}
+					else {
+
+						u.e.addStartEvent(node, node._mousedover);
+						u.e.addEndEvent(node, node._mousedout);
+					}
 
 				}
-
 
 			}
 

@@ -79,6 +79,11 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 .c100 {width: 25%;}
 #page {position: relative; min-height: 100%; min-width: 600px;}
 #page.fixed {width: 1300px; margin: 0 auto;}
+.terms_notification {position: fixed; z-index: 90; top: 50%; margin-top: -100px; right: 0px; padding: 15px 20px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border: 1px solid #888888;}
+.terms_notification h3 {padding: 0; font-size: 13px;}
+.terms_notification .accept,
+.terms_notification .details {padding: 0; font-size: 12px; display: inline-block; vertical-align: bottom; padding: 0 15px 0 0;}
+.terms_notification .details {}
 
 
 /*s-header-desktop.css*/
@@ -92,17 +97,15 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 #navigation ul li {padding: 0 0 0 20px; font-size: 20px; color: #888888;
 	font-family: "PT Serif", Times, serif;
 }
-.front #header .logo,
-.plain #navigation ul li.plain,
-.geek #navigation ul li.geek {color: #000000;}
+#navigation ul li.front {display: none;}
 
 /*s-footer-desktop.css*/
-#footer {text-align: center; border-top: 1px solid #505050; margin: 0 50px;}
+#footer {text-align: center; border-top: 1px solid #888888; margin: 0 50px;}
 #footer p {padding: 10px; cursor: pointer;}
 
 /*s-content-desktop.css*/
 #content {position: relative;}
-#content .scene {position: relative; padding: 30px 0;}
+#content .scene {position: relative; padding: 50px 0;}
 #content .scene .link {cursor: pointer;}
 #content .scene a {color: #888888;}
 #content .scene h1,
@@ -140,8 +143,7 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 #content .scene div.image a {padding: 0 20px; font-size: 13px; font-style: italic; display: block; color: #cccccc;}
 #content .scene div.image.fullsize {margin: 0; max-width: 100%; cursor: zoom-out;}
 #content .scene div.image.fullsize a {padding: 0 50px;}
-#content .scene code {min-width: 480px; padding: 10px 10px; margin: 0 50px 5px; position: relative; top: -15px; background-color: #ededed; font-size: 12px; display: inline-block; white-space: pre;
-	color: #333333;
+#content .scene code {width: 480px; padding: 10px 10px; margin: 0 50px 5px; position: relative; top: -15px; background-color: #ededed; font-size: 12px; display: inline-block; white-space: pre-wrap;
 	font-family: "Monaco", "Courier New", "Courier";
 }
 #content .scene span.type,
@@ -258,10 +260,6 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 #content .field.focus div.hint {display: block;}
 
 
-/*s-front-desktop.css*/
-#content .scene.front {}
-
-
 /*s-pages-desktop.css*/
 #content .scene.segments dt {color: #cccccc; width: auto; text-align: left; padding: 0 0 5px 0; display: block; font-size: 16px;} 
 #content .scene.segments dt:after {content: ":";}
@@ -286,18 +284,28 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 
 /*s-hovers-desktop.css*/
 #header .logo:hover,
-#navigation ul li:hover {text-decoration: underline;}
+#navigation ul li:hover {text-decoration: none;}
 #content .scene a:hover {text-decoration: underline;}
+.terms_notification .accept:hover,
+.terms_notification .details:hover {text-decoration: underline;}
 
-
-/*s-colorscheme.css*/
+/*s-colorscheme-desktop.css*/
 * {color: #cccccc;}
+body {background: #333333;}
 #header .logo {color: #A0746D;}
 #navigation ul li {color: #A0746D;}
 #content .scene a {color: #A0746D;}
+#content .scene hr {border-color: #505050;}
+#content .scene code {color: #333333;}
+#footer {border-color: #505050;}
 #footer p {color: #A0746D;}
 .front #header .logo,
 .segments #navigation ul li.segments,
 .about #navigation ul li.about,
 .apis #navigation ul li.apis,
 .pricing #navigation ul li.pricing {color: #cccccc;}
+.terms_notification {background: #333333;}
+.terms_notification .accept,
+.terms_notification .details {color: #A0746D;}
+.terms_notification {border-color: #505050;}
+

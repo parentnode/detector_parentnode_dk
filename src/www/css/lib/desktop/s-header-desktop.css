@@ -12,3 +12,4 @@
 #navigation ul li {padding: 0 0 0 20px; font-size: 20px; color: #888888;
 	font-family: "PT Serif", Times, serif;
 }
+#navigation ul li.front {display: none;}

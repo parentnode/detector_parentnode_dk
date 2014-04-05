@@ -19,11 +19,15 @@
 	<p>
 		Until you get your own account, you should be aware of our <a href="/terms">terms</a>.
 	</p>
+	<p>
+		The API is available at http://detector.dearapi.com.
+	</p>
+
 
 	<hr />
 
 	<div class="plain">
-		<h2>detector.dearapi.com</h2>
+		<h2>/</h2>
 		<div class="description">
 			<p>
 				Performs segment identification based on device useragent, with the purpose of returning segment
@@ -60,14 +64,14 @@
 &lt;/body&gt;
 &lt;/html&gt;</code>
 
-			<p><a href="http://detector.dearapi.com" target="_blank">Test this API</a></p>
+			<p><a href="http://detector.dearapi.com" target="_blank" rel="nofollow">Test this API</a></p>
 		</div>
 	</div>
 
 	<hr />
 
 	<div class="xml">
-		<h2>detector.dearapi.com/xml</h2>
+		<h2>/xml</h2>
 		<div class="description">
 			<p>
 				Performs segment identification based on device useragent, with the purpose of returning segment
@@ -101,14 +105,14 @@
     &lt;segment&gt;<?= $this->segment() ?>&lt;/segment&gt;
 &lt;/device&gt;</code>
 
-			<p><a href="http://detector.dearapi.com/xml" target="_blank">Test this API</a></p>
+			<p><a href="http://detector.dearapi.com/xml" target="_blank" rel="nofollow">Test this API</a></p>
 		</div>
 	</div>
 
 	<hr />
 
 	<div class="jsonp">
-		<h2>detector.dearapi.com/jsonp</h2>
+		<h2>/jsonp</h2>
 		<div class="description">
 			<p>
 				Performs segment identification based on device useragent, with the purpose of returning segment
@@ -141,14 +145,14 @@
 			<p>Returns JSONP callback function with segment.</p>
 			<code>callback({"segment":"<?= $this->segment() ?>"});</code>
 
-			<p><a href="http://detector.dearapi.com/jsonp" target="_blank">Test this API</a></p>
+			<p><a href="http://detector.dearapi.com/jsonp" target="_blank" rel="nofollow">Test this API</a></p>
 		</div>
 	</div>
 
 	<hr />
 
 	<div class="js">
-		<h2>detector.dearapi.com/js-include</h2>
+		<h2>/js-include</h2>
 		<div class="description">
 			<p>
 				Performs segment identification based on device useragent, with the purpose of returning appropriate 
@@ -194,7 +198,7 @@
 				<dt>dev</dt>
 				<dd>
 					Optional development include. Will include */lib/segment_include.css and */lib/segment_include.js 
-					following the recommended structure from <a href="http://modulator.parentnode.dk">http://modulator.parentnode.dk.</dd>
+					following the recommended structure from <a href="http://modulator.parentnode.dk">http://modulator.parentnode.dk</a>.</dd>
 			</dl>
 		</div>
 
@@ -203,14 +207,14 @@
 			<code>document.write(&#x27;&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;/css/seg_<?= $this->segment() ?>.css&quot; /&gt;&#x27;);
 document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/seg_<?= $this->segment() ?>.js&quot;&gt;&lt;/script&gt;&#x27;);</code>
 
-			<p><a href="http://detector.dearapi.com/js-include" target="_blank">Test this API</a></p>
+			<p><a href="http://detector.dearapi.com/js-include" target="_blank" rel="nofollow">Test this API</a></p>
 		</div>
 	</div>
 
 	<hr />
 
 	<div class="debug">
-		<h2>detector.dearapi.com/debug</h2>
+		<h2>/debug</h2>
 		<div class="description">
 			<p>
 				Performs segment identification based on device useragent, but collects and sends additional 

@@ -1,5 +1,5 @@
 #content {position: relative;}
-#content .scene {position: relative; padding: 30px 0;}
+#content .scene {position: relative; padding: 50px 0;}
 
 
 /* BASIC CONTENT */
@@ -54,7 +54,7 @@
 
 
 /* CODE AND TYPECASTING */
-#content .scene code {min-width: 480px; padding: 10px 10px; margin: 0 50px 5px; position: relative; top: -15px; background-color: #ededed; font-size: 12px; display: inline-block; white-space: pre;
+#content .scene code {width: 480px; padding: 10px 10px; margin: 0 50px 5px; position: relative; top: -15px; background-color: #ededed; font-size: 12px; display: inline-block; white-space: pre-wrap;
 	font-family: "Monaco", "Courier New", "Courier";
 }
 #content .scene span.type,
