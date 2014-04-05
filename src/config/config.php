@@ -17,7 +17,7 @@ define("SITE_URL", "detector.parentnode.dk");
 
 define("DEFAULT_LANGUAGE_ISO", "en"); // Regional language English
 define("DEFAULT_COUNTRY_ISO", "dk"); // Regional country Denmark
-define("DEFAULT_PAGE_DESCRIPTION", "Detector devicesegmentation API presentation and documentation");
+define("DEFAULT_PAGE_DESCRIPTION", "Detector, devicesegmentation API - Cross-devices made simple");
 
 
 // Enable items model
