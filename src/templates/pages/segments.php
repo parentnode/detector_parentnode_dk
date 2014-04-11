@@ -7,8 +7,8 @@
 		resolution, input method, performance and scripting/styling capabilities. The segments are efficiently 
 		backed by the minimalistic and semantic markup model described at 
 		<a href="http://modulator.parentnode.dk">http://modulator.parentnode.dk</a> and empowered by the
-		a complete javascript library found af 
-		<a href="http://manipulator.parentnode.dk">http://manipulator.parentnode.dk</a>. To understand the full
+		a complete javascript library found at 
+		<a href="http://manipulator.parentnode.dk">http://manipulator.parentnode.dk.</a> To understand the full
 		potential of Detector visit these websites.
 	</p>
 
@@ -74,7 +74,7 @@
 	<div class="vcard company" itemscope itemtype="http://schema.org/Organization">
 		<div class="name fn org" itemprop="name">parentNode.dk</div>
 		<div class="tel" itemprop="telephone"><a href="callto:+4520742819">+45 2074 2819</a></div>
-		<div class="email" itemprop="email"><a href="mailto:martin@parentnode.dk">martin@parentnode.dk</a></div>
+		<div class="email" itemprop="email"><a href="mailto:info@parentnode.dk">info@parentnode.dk</a></div>
 	</div>
 
 </div>

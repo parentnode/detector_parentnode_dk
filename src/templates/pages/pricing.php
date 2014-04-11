@@ -12,7 +12,7 @@
 		economy centered businessplan. It is more important to provide solutions, than to make money.
 		You can start using our service today but we recommend you contact us, before we contact you.
 	</p>
-	<p>Contact <a href="mailto:martin@parentnode.dk">martin@parentnode.dk</a> for details.</p>
+	<p>Contact <a href="mailto:info@parentnode.dk">info@parentnode.dk</a> for details.</p>
 
 
 	<h2>Crude pricing guidelines</h2>

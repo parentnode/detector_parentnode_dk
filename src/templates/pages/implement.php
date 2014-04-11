@@ -8,7 +8,7 @@
 
 	<p>
 		Make sure you store the received segment (in session or similar), too avoid redundant requests.
-		The number of requests you make to our API defines which 
+		The number of requests you make to our API defines in which 
 		<a href="/detector/pricing">pricing</a> category you will fit into.
 	</p> 
 	<p>

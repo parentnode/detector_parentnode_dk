@@ -13,14 +13,14 @@
 	</p>
 	<p>
 		When using our API please be aware of our <a href="/detector/pricing">pricing</a> policy. Contact
-		<a href="mailto:martin@parentnode.dk">martin@parentnode.dk</a> to set up an account with 
+		<a href="mailto:info@parentnode.dk">info@parentnode.dk</a> to set up an account with 
 		unlimited requests.
 	</p>
 	<p>
 		Until you get your own account, you should be aware of our <a href="/terms">terms</a>.
 	</p>
 	<p>
-		The API is available at http://detector.dearapi.com.
+		The API is available at <a href="http://detector.dearapi.com" target="_blank">http://detector.dearapi.com.</a>
 	</p>
 
 
