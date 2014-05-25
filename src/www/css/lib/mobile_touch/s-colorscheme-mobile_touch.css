@@ -14,6 +14,8 @@ body {background: #333333;}
 #header .logo {color: #A0746D;}
 #navigation ul li {color: #A0746D;}
 
+#header .servicenavigation {background: #333333;}
+
 #header .servicenavigation li.navigation div {background: #cccccc;}
 #header .servicenavigation li.navigation.open div {background: #A0746D;}
 
