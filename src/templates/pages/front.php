@@ -10,7 +10,7 @@
 		Websites are no longer just one-size fits all and they should not be. It might seem like a jungle 
 		of different devices with different screen resolutions, input methods, rendering capabilities and
 		processing power. <span class="brand">Detector</span> is this multitude of available 
-		devices boiled down to <a href="/detector/segments">9 easy-to-manage segments</a>. You decide which
+		devices boiled down to <a href="/segments">9 easy-to-manage segments</a>. You decide which
 		segments your project needs to support.
 	</p>
 	<p>

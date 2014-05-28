@@ -16,31 +16,31 @@ print '<?xml version="1.0" encoding="UTF-8"?>';
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>http://detector.parentnode.dk/detector/segments</loc>
+		<loc>http://detector.parentnode.dk/segments</loc>
 		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/segments.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>http://detector.parentnode.dk/detector/apis</loc>
+		<loc>http://detector.parentnode.dk/apis</loc>
 		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/apis.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>http://detector.parentnode.dk/detector/implement</loc>
+		<loc>http://detector.parentnode.dk/apis/implement</loc>
 		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/implement.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>http://detector.parentnode.dk/detector/pricing</loc>
+		<loc>http://detector.parentnode.dk/pricing</loc>
 		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/pricing.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>http://detector.parentnode.dk/detector/about</loc>
+		<loc>http://detector.parentnode.dk/about</loc>
 		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/about.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>

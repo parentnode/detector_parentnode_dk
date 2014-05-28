@@ -5,14 +5,14 @@
 		The Detector API provides a range of tools for different needs. The preferred method is using a 
 		server-side request and storing the segment in the users session, as this provides the best user
 		experience and fewest possible requests to the Detector server. See 
-		<a href="/detector/implement">our implementation guide</a> for simplified examples.
+		<a href="/apis/implement">our implementation guide</a> for simplified examples.
 	</p>
 	<p>
 		If you are restrained from implementing
 		a server-side request a JavaScript include method is also available.
 	</p>
 	<p>
-		When using our API please be aware of our <a href="/detector/pricing">pricing</a> policy. Contact
+		When using our API please be aware of our <a href="/pricing">pricing</a> policy. Contact
 		<a href="mailto:info@parentnode.dk">info@parentnode.dk</a> to set up an account with 
 		unlimited requests.
 	</p>
