@@ -16,7 +16,7 @@
 	<p>
 		Detector is designed on top of a mobile-first markup approach, with no limits. Forget current design and 
 		implementation issues and focus on building optimized interfaces for each segment. 
-		<span class="brand">Detector</span> lets you separate your frontend code into naturally deducted device 
+		<span class="brand">Detector</span> lets you separate your JavaScript and CSS into naturally deducted device 
 		segments, leaving the complexity of intertwined responsive states as a curious remnant of the past.
 	</p>
 </div>

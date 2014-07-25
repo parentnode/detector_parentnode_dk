@@ -4,12 +4,7 @@
 	<p>
 		Detector is derived from an extensive, continuous and unparalleled analysis of browsers, conducted for more 
 		than 10 years. It groups browsers and devices into 9 segments, based on common denominators for screen 
-		resolution, input method, performance and scripting/styling capabilities. The segments are efficiently 
-		backed by the minimalistic and semantic markup model described at 
-		<a href="http://modulator.parentnode.dk">http://modulator.parentnode.dk</a> and empowered by the
-		a complete javascript library found at 
-		<a href="http://manipulator.parentnode.dk">http://manipulator.parentnode.dk.</a> To understand the full
-		potential of Detector visit these websites.
+		resolution, input method, performance and scripting/styling capabilities.
 	</p>
 
 	<h2>The segments</h2>
@@ -66,6 +61,14 @@
 			content aggregators, screen readers for visually impaired and entirely text-based browsers.
 		</dd>
 	</dl>
+
+	<p>
+		The segments are efficiently backed by the minimalistic and semantic markup model described at 
+		<a href="http://modulator.parentnode.dk">http://modulator.parentnode.dk</a> and empowered by the
+		a complete javascript library found at 
+		<a href="http://manipulator.parentnode.dk">http://manipulator.parentnode.dk.</a> To understand the full
+		potential of Detector visit these websites.
+	</p>
 
 	<h2>More info</h2>
 	<p>
