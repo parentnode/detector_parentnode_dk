@@ -13,10 +13,12 @@ header("Content-type: text/html; charset=UTF-8");
 */
 define("SITE_UID", "DTCR");
 define("SITE_NAME", "Detector");
-define("SITE_URL", "detector.parentnode.dk");
+define("SITE_URL", $_SERVER["SERVER_NAME"]);
+define("SITE_EMAIL", "info@parentnode.dk");
 
-define("DEFAULT_LANGUAGE_ISO", "en"); // Regional language English
-define("DEFAULT_COUNTRY_ISO", "dk"); // Regional country Denmark
+
+define("DEFAULT_LANGUAGE_ISO", "EN"); // Regional language English
+define("DEFAULT_COUNTRY_ISO", "DK"); // Regional country Denmark
 define("DEFAULT_PAGE_DESCRIPTION", "Detector, devicesegmentation API - Cross-devices made simple");
 
 

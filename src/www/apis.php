@@ -6,6 +6,7 @@ if(isset($read_access) && $read_access) {
 
 include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
+
 $action = $page->actions();
 
 
@@ -16,18 +17,15 @@ $page->pageTitle("Giving your backend peace");
 // implementation
 if(count($action) > 0 && $action[0] == "implement") {
 
-	$page->header();
-	$page->template("pages/implement.php");
-	$page->footer();
+	$page->page(array(
+		"templates" => "pages/implement.php"
+	));
 	exit();
-
 }
-else {
 
-	$page->header();
-	$page->template("pages/apis.php");
-	$page->footer();
-
-}
+$page->page(array(
+	"templates" => "pages/apis.php"
+));
+exit();
 
 ?>
