@@ -1,20 +1,30 @@
-<div class="scene i:implement implement">
-	<h1>Implementation</h1>
+<div class="scene implement i:scene">
 
-	<p>
-		Detector is easy to implement. We have collected a couple of implementation examples below.
-		Please forward additional implementations, if you wish to share them with others.
-	</p>
+	<div class="article" itemscope itemtype="http://schema.org/Article">
+		<h1 itemprop="name">Implementation</h1>
 
-	<p>
-		Make sure you store the received segment (in session or similar), too avoid redundant requests.
-		The number of requests you make to our API defines in which 
-		<a href="/pricing">pricing</a> category you will fit into.
-	</p> 
-	<p>
-		Until you get your own account, you should be aware of our <a href="/terms">terms</a>.
-	</p>
+		<dl class="info">
+			<dt class="published_at">Date published</dt>
+			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
+			<dt class="author">Author</dt>
+			<dd class="author" itemprop="author">Martin Kæstel Nielsen</dd>
+		</dl>
 
+		<div class="articlebody" itemprop="articleBody">
+			<p>
+				Detector is easy to implement. We have collected a couple of implementation examples below.
+				Please forward additional implementations, if you wish to share them with others.
+			</p>
+			<p>
+				Make sure you store the received segment (in session or similar), too avoid redundant requests.
+				The number of requests you make to our API defines in which 
+				<a href="/pricing">pricing</a> category you will fit into.
+			</p> 
+			<p>
+				Until you get your own account, you should be aware of our <a href="/terms">terms</a>.
+			</p>
+		</div>
+	</div>
 
 	<h2>PHP</h2>
 	<code>$request = "http://detector.dearapi.com/xml";

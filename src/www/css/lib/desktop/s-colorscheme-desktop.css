@@ -1,24 +1,36 @@
 /*
-http://colorschemedesigner.com/#3s51Tw0w0w0w0
-
-#A0746D - PRIMARY LIGHT
-#7B1E10 - PRIMARY DARK
+#a0746d - PRIMARY LIGHT
+#cccccc - PRIMARY DARK
 */
-
 
 * {color: #cccccc;}
 
 body {background: #333333;}
 
-#header .logo {color: #A0746D;}
-#navigation ul li {color: #A0746D;}
-#content .scene a {color: #A0746D;}
+#header .logo {color: #a0746d; background-color: rgba(51,51,51, 0.8);}
+#navigation {background-color: rgba(51,51,51, 0.8);}
+#navigation ul li {color: #a0746d;}
 
+#content .scene a,
+#content .scene dl.geo.active dd {color: #a0746d;}
 #content .scene hr {border-color: #505050;}
 #content .scene code {color: #333333;}
+#content .scene dl.geo .location:before,
+#content .scene dl.info dd.author:before {color: #999999;}
+#content ul.actions input.button.primary,
+#content ul.actions a.button.primary {background-color: #a0746d;}
+#content ul.actions input.button.primary:hover,
+#content ul.actions a.button.primary:hover {background-color: #cccccc;}
 
 #footer {border-color: #505050;}
-#footer p {color: #A0746D;}
+
+.terms_notification {background: #333333;}
+.terms_notification .accept,
+.terms_notification .details {color: #a0746d;}
+.terms_notification {border-color: #505050;}
+
+
+/* LOCAL */
 
 .front #header .logo,
 .segments #navigation ul li.segments,
@@ -27,7 +39,3 @@ body {background: #333333;}
 .pricing #navigation ul li.pricing {color: #cccccc;}
 
 
-.terms_notification {background: #333333;}
-.terms_notification .accept,
-.terms_notification .details {color: #A0746D;}
-.terms_notification {border-color: #505050;}

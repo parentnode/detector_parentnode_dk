@@ -8,18 +8,27 @@ body {background: #333333;}
 
 #content .scene hr {border-color: #505050;}
 #content .scene code {color: #333333;}
+#content ul.actions input.primary,
+#content ul.actions a.primary,
+#content .scene .pagination .next,
+#content .scene .pagination .previous {background-color: #A0746D;}
+#content ul.actions input.primary:hover,
+#content ul.actions a.primary:hover,
+#content .scene .pagination .next:hover,
+#content .scene .pagination .previous:hover {background-color: #cccccc;}
 
 #footer {border-color: #505050;}
-#footer p {color: #A0746D;}
+
+.terms_notification {background: #333333;}
+.terms_notification .accept,
+.terms_notification .details {color: #A0746D;}
+.terms_notification {border-color: #505050;}
+
+
+/* LOCAL */
 
 .front #header .logo,
 .segments #navigation ul li.segments a,
 .about #navigation ul li.about a,
 .apis #navigation ul li.apis a,
 .pricing #navigation ul li.pricing a {color: #cccccc;}
-
-
-.terms_notification {background: #333333;}
-.terms_notification .accept,
-.terms_notification .details {color: #A0746D;}
-.terms_notification {border-color: #505050;}

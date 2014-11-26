@@ -1,28 +1,39 @@
-<div class="scene i:apis apis">
+<div class="scene apis i:scene">
 
-	<h1>API Documentation</h1>
-	<p>
-		The Detector API provides a range of tools for different needs. The preferred method is using a 
-		server-side request and storing the segment in the users session, as this provides the best user
-		experience and fewest possible requests to the Detector server. See 
-		<a href="/apis/implement">our implementation guide</a> for simplified examples.
-	</p>
-	<p>
-		If you are restrained from implementing
-		a server-side request a JavaScript include method is also available.
-	</p>
-	<p>
-		When using our API please be aware of our <a href="/pricing">pricing</a> policy. Contact
-		<a href="mailto:info@parentnode.dk">info@parentnode.dk</a> to set up an account with 
-		unlimited requests.
-	</p>
-	<p>
-		Until you get your own account, you should be aware of our <a href="/terms">terms</a>.
-	</p>
-	<p>
-		The API is available at <a href="http://detector.dearapi.com" target="_blank">http://detector.dearapi.com.</a>
-	</p>
+	<div class="article" itemscope itemtype="http://schema.org/Article">
+		<h1 itemprop="name">API Documentation</h1>
 
+		<dl class="info">
+			<dt class="published_at">Date published</dt>
+			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
+			<dt class="author">Author</dt>
+			<dd class="author" itemprop="author">Martin Kæstel Nielsen</dd>
+		</dl>
+
+		<div class="articlebody" itemprop="articleBody">
+			<p>
+				The Detector API provides a range of tools for different needs. The preferred method is using a 
+				server-side request and storing the segment in the users session, as this provides the best user
+				experience and fewest possible requests to the Detector server. See 
+				<a href="/apis/implement">our implementation guide</a> for simplified examples.
+			</p>
+			<p>
+				If you are restrained from implementing
+				a server-side request a JavaScript include method is also available.
+			</p>
+			<p>
+				When using our API please be aware of our <a href="/pricing">pricing</a> policy. Contact
+				<a href="mailto:info@parentnode.dk">info@parentnode.dk</a> to set up an account with 
+				unlimited requests.
+			</p>
+			<p>
+				Until you get your own account, you should be aware of our <a href="/terms">terms</a>.
+			</p>
+			<p>
+				The API is available at <a href="http://detector.dearapi.com" target="_blank">http://detector.dearapi.com.</a>
+			</p>
+		</div>
+	</div>
 
 	<hr />
 
