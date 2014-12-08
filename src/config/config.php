@@ -13,7 +13,7 @@ header("Content-type: text/html; charset=UTF-8");
 */
 define("SITE_UID", "DTCR");
 define("SITE_NAME", "Detector");
-define("SITE_URL", $_SERVER["SERVER_NAME"]);
+define("SITE_URL", (isset($_SERVER["HTTPS"]) ? "https" : "http")."://".$_SERVER["SERVER_NAME"]);
 define("SITE_EMAIL", "info@parentnode.dk");
 
 
