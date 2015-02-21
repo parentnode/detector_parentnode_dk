@@ -11,7 +11,7 @@ body {background: #333333;}
 #header {background: #333333;}
 #header .logo {color: #a0746d;}
 #header .servicenavigation {background: #333333;}
-#header .servicenavigation li.navigation div {background: #cccccc;}
+#header .servicenavigation li.navigation div {background: #a0746d;}
 #header .servicenavigation li.navigation.open div {background: #cccccc;}
 #navigation ul li {color: #a0746d;}
 
