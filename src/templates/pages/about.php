@@ -39,11 +39,9 @@
 		comments.
 	</p>
 	<div class="vcard company" itemscope itemtype="http://schema.org/Organization">
-		<h3 class="name fn org" itemprop="name">parentNode.dk</h3>
-		<ul>
-			<li class="tel" itemprop="telephone"><a href="callto:+4520742819">+45 2074 2819</a></li>
-			<li class="email" itemprop="email"><a href="mailto:info@parentnode.dk">info@parentnode.dk</a></li>
-		</ul>
+		<div class="name fn org" itemprop="name">parentNode.dk</div>
+		<div class="tel" itemprop="telephone"><a href="callto:+4520742819">+45 2074 2819</a></div>
+		<div class="email" itemprop="email"><a href="mailto:info@parentnode.dk">info@parentnode.dk</a></div>
 	</div>
 
 </div>
