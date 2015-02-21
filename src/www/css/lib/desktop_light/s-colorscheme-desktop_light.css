@@ -1,19 +1,25 @@
+/*
+#a0746d - PRIMARY LIGHT
+#cccccc - PRIMARY DARK
+#505050 - BORDER
+*/
+
 * {color: #cccccc;}
 
 body {background: #333333;}
 
 #header .logo {color: #A0746D;}
 #navigation ul li a {color: #A0746D;}
-#content .scene a {color: #A0746D;}
 
+#content .scene a {color: #A0746D;}
 #content .scene hr {border-color: #505050;}
-#content .scene code {color: #333333;}
-#content ul.actions input.primary,
-#content ul.actions a.primary,
+
+#content ul.actions input.button.primary,
+#content ul.actions a.button.primary,
 #content .scene .pagination .next,
 #content .scene .pagination .previous {background-color: #A0746D;}
-#content ul.actions input.primary:hover,
-#content ul.actions a.primary:hover,
+#content ul.actions input.button.primary:hover,
+#content ul.actions a.button.primary:hover,
 #content .scene .pagination .next:hover,
 #content .scene .pagination .previous:hover {background-color: #cccccc;}
 

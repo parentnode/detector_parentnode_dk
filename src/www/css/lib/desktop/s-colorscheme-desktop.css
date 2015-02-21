@@ -1,6 +1,7 @@
 /*
 #a0746d - PRIMARY LIGHT
 #cccccc - PRIMARY DARK
+#505050 - BORDER
 */
 
 * {color: #cccccc;}
@@ -14,13 +15,12 @@ body {background: #333333;}
 #content .scene a,
 #content .scene dl.geo.active dd {color: #a0746d;}
 #content .scene hr {border-color: #505050;}
-#content .scene code {color: #333333;}
+
 #content .scene dl.geo .location:before,
 #content .scene dl.info dd.author:before {color: #999999;}
+
 #content ul.actions input.button.primary,
 #content ul.actions a.button.primary {background-color: #a0746d;}
-#content ul.actions input.button.primary:hover,
-#content ul.actions a.button.primary:hover {background-color: #cccccc;}
 
 #footer {border-color: #505050;}
 

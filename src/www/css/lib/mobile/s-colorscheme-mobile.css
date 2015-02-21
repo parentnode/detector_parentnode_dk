@@ -1,27 +1,31 @@
 /*
-http://colorschemedesigner.com/#3s51Tw0w0w0w0
-
-#A0746D - PRIMARY LIGHT
-#7B1E10 - PRIMARY DARK
+#a0746d - PRIMARY LIGHT
+#cccccc - PRIMARY DARK
+#505050 - BORDER
 */
-
 
 * {color: #cccccc;}
 
 body {background: #333333;}
-#header {background: #333333; z-index: 100;}
 
-#header .logo {color: #A0746D;}
+#header {background: #333333;}
+#header .logo {color: #a0746d;}
 #navigation ul {border-color: #505050;}
-#navigation ul li {color: #A0746D;}
+#navigation ul li {color: #a0746d;}
 
-#content .scene a {color: #A0746D;}
-
+#content .scene a {color: #a0746d;}
 #content .scene hr {border-color: #505050;}
-#content .scene code {color: #333333;}
+
+#content ul.actions input.button.primary,
+#content ul.actions a.button.primary {background-color: #a0746d;}
+#content ul.actions input.button.primary:active,
+#content ul.actions a.button.primary:active {background-color: #cccccc;}
 
 #footer {border-color: #505050;}
-#footer p {color: #A0746D;}
+#footer p {color: #cccccc;}
+
+
+/* LOCAL */
 
 .front #navigation .front,
 .segments #navigation ul li.segments,
