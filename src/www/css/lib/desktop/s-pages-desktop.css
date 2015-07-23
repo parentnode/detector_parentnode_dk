@@ -1,23 +1,92 @@
-#content .scene.segments dl.segments dt {color: #cccccc; width: auto; text-align: left; padding: 0 0 5px 0; display: block; font-size: 16px;} 
+/* DOCS */
+#content .scene.docs ul.topics {list-style-position: outside; margin-left: 15px; width: 485px; list-style-type: disc;}
+#content .scene.docs ul.topics li {font-size: 14px; padding-bottom: 7px; padding-left: 3px;}
+
+
+
+/* SEGMENTS */
+#content .scene.segments dl.segments dt {color: #cccccc; width: auto; text-align: left; padding: 0 0 5px 0; display: block; font-size: 16px; font-weight: 700;} 
 #content .scene.segments dl.segments dt:after {content: ":";}
 #content .scene.segments dl.segments dd {padding: 0 0 25px; width: auto; display: block;}
 
 
+/* APIS */
 #content .scene.apis dl.parameters dt {width: 50px;}
 #content .scene.apis dl.parameters dd {width: 445px;}
-
 #content .scene.apis div.jsonp dt {width: 80px;}
 #content .scene.apis div.jsonp dd {width: 415px;}
-
 #content .scene.apis div.js dt {width: 100px;}
 #content .scene.apis div.js dd {width: 395px;}
+#content .scene.apis div.build dt {width: 100px;}
+#content .scene.apis div.build dd {width: 395px;}
 
 
-#content .scene.pricing div.sponsor,
-#content .scene.pricing div.corporate,
-#content .scene.pricing div.business,
-#content .scene.pricing div.free {padding: 0 0 20px;}
+/* PRICING */
+#content .scene.pricing div.plan {padding: 0 0 20px;}
 
 #content .scene.pricing dl.price {}
 #content .scene.pricing dl.price dt,
 #content .scene.pricing dl.price dd {width: auto;}
+
+
+/* CHANGELOG */
+#content .scene.changelog ul.changes {list-style-position: outside; margin-left: 15px; width: 485px; list-style-type: disc;}
+#content .scene.changelog ul.changes li {font-size: 14px; padding-bottom: 7px; padding-left: 3px;}
+
+
+
+/* BUILD UI */
+
+#content .scene.build .customize,
+#content .scene.build .language,
+#content .scene.build .download {padding-bottom: 30px; overflow: hidden; position: relative;}
+
+#content .scene.build .customize h3 {font-size: 14px; font-weight: 700;}
+#content .scene.build .customize h4,
+#content .scene.build .customize h6 {font-size: 13px; font-weight: 400;}
+
+#content .scene.build .customize h5 {padding: 10px 20px;}
+
+#content .scene.build .customize fieldset {display: inline-block; vertical-align: top;}
+#content .scene.build .customize div.field {padding-right: 10px;}
+#content .scene.build .customize div.field input {width: 200px;}
+
+#content .scene.build .customize form ul.actions {display: inline-block; vertical-align: top; padding: 3px 0 0;}
+
+#content .scene.build .customize ul.groups {width: 500px;}
+#content .scene.build .customize ul.groups li.group {border-radius: 3px; border: 1px solid #cccccc; margin: 0 0 10px; padding: 10px;}
+#content .scene.build .customize ul.groups li.group h4:after {content: " - ";}
+#content .scene.build .customize ul.groups li.group > ul.actions {padding: 0; display: inline-block; vertical-align: top; }
+#content .scene.build .customize ul.groups li.group > ul.actions li {padding: 0;}
+#content .scene.build .customize ul.groups li.group p {padding: 10px 0 10px 20px;}
+
+#content .scene.build .customize ul.groups h4 {padding: 0; width: auto; display: inline-block;}
+
+#content .scene.build .customize ul.groups div.field {padding: 0 10px 0 18px;}
+#content .scene.build .customize ul.groups div.field select {width: 180px;}
+#content .scene.build .customize ul.groups form ul.actions {padding: 4px 0 0;}
+
+#content .scene.build .customize ul.groups ul.segments {padding: 0 20px 10px;}
+#content .scene.build .customize ul.groups li.segment h6 {padding: 0; width: auto; display: inline-block;}
+#content .scene.build .customize ul.groups li.segment h6:after {content: " - ";}
+#content .scene.build .customize ul.groups li.segment > ul.actions {padding: 0; display: inline-block; vertical-align: top; }
+#content .scene.build .customize ul.groups li.segment > ul.actions li {padding: 0;}
+
+#content .scene.build .customize ul.available_segments li {display: inline-block; vertical-align: top;}
+#content .scene.build .customize ul.available_segments li:after {content: ",\00a0";}
+#content .scene.build .customize ul.available_segments li.used {color: #777777;}
+
+#content .scene.build .custom,
+#content .scene.build .default {}
+
+
+
+
+
+/* SUBNAVIGATION */
+#content ul.subnavigation {position: absolute; top: 10px; right: 50px; padding: 0;}
+#content ul.subnavigation li {display: inline-block; padding: 5px 0 5px 20px;}
+
+#content .scene.segments ul.subnavigation li.segments a,
+#content .scene.apis ul.subnavigation li.apis a,
+#content .scene.implement ul.subnavigation li.implement a {color: #cccccc;}

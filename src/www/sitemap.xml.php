@@ -16,19 +16,25 @@ print '<?xml version="1.0" encoding="UTF-8"?>';
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>http://detector.parentnode.dk/segments</loc>
+		<loc>http://detector.parentnode.dk/docs</loc>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/docs.php")) ?></lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>http://detector.parentnode.dk/docs/segments</loc>
 		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/segments.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>http://detector.parentnode.dk/apis</loc>
+		<loc>http://detector.parentnode.dk/docs/apis</loc>
 		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/apis.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>http://detector.parentnode.dk/apis/implement</loc>
+		<loc>http://detector.parentnode.dk/docs/implement</loc>
 		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/implement.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>

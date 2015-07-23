@@ -1,7 +1,7 @@
 <div class="scene segments i:scene">
 
 	<div class="article" itemscope itemtype="http://schema.org/Article">
-		<h1 itemprop="name">Detector segmentation</h1>
+		<h1 itemprop="name">v2 - Segmentation</h1>
 
 		<dl class="info">
 			<dt class="published_at">Date published</dt>
@@ -11,13 +11,18 @@
 		</dl>
 
 		<div class="articlebody" itemprop="articleBody">
+			<p class="note">
+				v2 is deprecated - support ends in 2016. 
+				<a href="/docs/segments">v3</a> is newest verion - 
+				<a href="/docs/upgrade-v2-to-v3">Upgrade now</a>.
+			</p>
 			<p>
 				Detector is derived from an extensive, continuous and unparalleled analysis of browsers, conducted for more 
 				than 10 years. It groups browsers and devices into 9 segments, based on common denominators for screen 
 				resolution, input method, performance and scripting/styling capabilities.
 			</p>
 
-			<h2>The segments</h2>
+			<h2>The v2 segments</h2>
 			<dl class="segments">
 
 				<dt>Desktop</dt>
@@ -80,16 +85,6 @@
 				potential of Detector visit these websites.
 			</p>
 		</div>
-	</div>
-
-	<h2>More info</h2>
-	<p>
-		To aquire more information about the Detector segments, feel free to contact us.
-	</p>
-	<div class="vcard company" itemscope itemtype="http://schema.org/Organization">
-		<div class="name fn org" itemprop="name">parentNode.dk</div>
-		<div class="tel" itemprop="telephone"><a href="callto:+4520742819">+45 2074 2819</a></div>
-		<div class="email" itemprop="email"><a href="mailto:info@parentnode.dk">info@parentnode.dk</a></div>
 	</div>
 
 </div>

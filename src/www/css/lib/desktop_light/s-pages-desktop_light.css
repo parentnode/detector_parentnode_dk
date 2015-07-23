@@ -2,10 +2,8 @@
 #content .segments dl.segments dd {padding: 0 0 25px 20px; width: auto; display: block;}
 
 
-#content .pricing div.sponsor,
-#content .pricing div.corporate,
-#content .pricing div.business,
-#content .pricing div.free {padding: 0 0 20px;}
+/* PRICING */
+#content .pricing div.plan {padding: 0 0 20px;}
 
 #content .pricing dl.price {}
 #content .pricing dl.price dt,

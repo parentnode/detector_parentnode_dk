@@ -12,66 +12,50 @@
 
 		<div class="articlebody" itemprop="articleBody">
 			<p>
-				The purpose of our pricing plan is to make Detector availble to everyone, but still accepting we do need a 
-				little money to keep the service alive and ensure fast responses. Crudely speaking, our policy is: 
-				if you are in it for the money you have to pay, while idealists ride for free.
-				Startups and small businesses can hitch a freeride until they reach a certain point of success.
+				Detector is free.
 			</p>
 			<p>
-				Obviously our pricing plan considers our hosting expences, but this project is not based on an 
-				economy centered businessplan. It is more important to provide solutions, than to make money.
-				You can start using our service today but we recommend you contact us, before we contact you.
+				However, we do offer a simple subscription service to clients with specific needs. A subscription
+				entails a custom update cycle matching the needs of your business.
 			</p>
+
+			<p>
+				These subscribtions cover hosting expences and time required for continuous
+				maintenance (indexing new devices) and other improvements, but Detector is not based on an 
+				economy centered businessplan. It is more important to provide solutions, than to make money. I 
+				believe this to be true in all aspects of life.
+			</p>
+
+			<h2>Update subscriptions</h2>
+
+			<div class="plan">
+				<h3>Standard</h3>
+				<ul>
+					<li>2 annual standard updates</li>
+					<li>3 annual updates on demand</li>
+				</ul>
+
+				<dl class="price">
+					<dt>Price</dt>
+					<dd>750€ / year</dd>
+				</dl>
+			</div>
+
+			<div class="plan">
+				<h3>Priority</h3>
+				<ul>
+					<li>2 annual standard updates</li>
+					<li>10 annual updates on demand</li>
+				</ul>
+
+				<dl class="price">
+					<dt>Price</dt>
+					<dd>2.000€ / year</dd>
+				</dl>
+			</div>
+
 			<p>Contact <a href="mailto:info@parentnode.dk">info@parentnode.dk</a> for details.</p>
 
-
-			<h2>Crude pricing guidelines</h2>
-
-			<div class="sponsor">
-				<h3>Sponsor plan</h3>
-				<ul>
-					<li>Unlimited requests</li>
-					<li>Segment statistics</li>
-					<li>Custom development</li>
-					<li>Support on implementation and development for segments</li>
-				</ul>
-
-				<dl class="price">
-					<dt>Price</dt>
-					<dd>Lets talk about your needs</dd>
-				</dl>
-			</div>
-
-			<div class="corporate">
-				<h3>Corporate plan</h3>
-				<ul>
-					<li>Less than 100.000 request/month</li>
-					<li>Segment statistics</li>
-					<li>Support on implementation</li>
-				</ul>
-
-				<dl class="price">
-					<dt>Price</dt>
-					<dd>150€ / Month</dd>
-				</dl>
-			</div>
-
-			<div class="business">
-				<h3>Small business plan</h3>
-				<ul>
-					<li>Less than 5.000 requests/month</li>
-				</ul>
-
-				<dl class="price">
-					<dt>Price</dt>
-					<dd>5€ / Month</dd>
-				</dl>
-			</div>
-
-			<div class="free">
-				<h3>Free plan</h3>
-				<p>Idealists and anyone with less than 1000 requests/month</p>
-			</div>
 		</div>
 	</div>
 

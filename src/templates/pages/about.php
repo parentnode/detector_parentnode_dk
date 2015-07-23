@@ -12,22 +12,29 @@
 
 		<div class="articlebody" itemprop="articleBody">
 			<p>
-				Detector was founded to make segments available to the public. After having worked with Detector 
-				for 6 years, it has proven to be a strong and valid concept, without any real competitors in the market. Now
-				you can reap the benifits as well.
+				Detector was founded as an open source project in 2014 to make segments available to the public. 
+				After having worked professionally with Detector for 6 years (since 2008), it had proved to be a 
+				strong and valid concept, without any real competitors in the market. Now you can reap the benifits 
+				as well.
+			</p>
+			<p>
+				As of Detector v3, the detection script is also available as a static downloadable script to remove
+				the dependance of an external service, which proved problematic with corporate clients.
 			</p>
 			<p>
 				Detector is made available to improve internet solutions around the world. It's not a business and it is
 				not supposed to be a business. It is an idealistic approach, made real with a lot of patience and hard
-				work. We believe that is the best way to implement real changes.
+				work. I believe that is the best way to implement real changes.
 			</p>
 			<p>
-				In spite of this idealistic approach, the cost of running the service needs to be covered. This is done
-				through sponsors and by requiring a minimal load-based fee for corporate clients.
+				In spite of this idealistic approach, the cost of running the updated live service needs to be covered. 
+				This is done through sponsors and update subscriptions. Subscribing to updates are by no means required
+				to leverage the advantages of Detector as updates are continuously made available on this website.
+				The subscription approach instead includes an update on demand option, required by some clients.
 			</p>
 			<p>
 				The Detector service is hosted in a load-balanced environment in coorporation with Rackspace. The servers
-				are monitored and optimized for reliability and ultra fast responses, running on second year with 
+				are monitored and optimized for reliability and ultra fast responses, running on third year with 
 				zero unscheduled downtime.
 			</p>
 		</div>

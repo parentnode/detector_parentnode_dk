@@ -32,10 +32,11 @@ body {background: #333333;}
 
 /* LOCAL */
 
+#content .usedby {background-color: #cccccc;}
+
 .front #header .logo,
-.segments #navigation ul li.segments,
+.docs #navigation ul li.docs,
 .about #navigation ul li.about,
-.apis #navigation ul li.apis,
 .pricing #navigation ul li.pricing {color: #cccccc;}
 
 
