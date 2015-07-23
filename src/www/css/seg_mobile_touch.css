@@ -34,7 +34,7 @@ h3 {padding: 0 20px 10px; font-size: 18px; line-height: 1.25em;}
 h4 {padding: 0 20px 5px; font-size: 13px; line-height: 1em; font-weight: bold;}
 h5 {padding: 0 20px 2px; font-size: 13px; line-height: 1em; font-weight: bold;}
 h6 {padding: 0 20px 2px; font-size: 13px; line-height: 1em; font-weight: bold;}
-p {padding: 0 20px 18px; font-size: 13px; line-height: 1.38em;} 
+p {padding: 0 20px 18px; font-size: 13px; line-height: 1.538em;} 
 ul,
 ol {font-size: 0;}
 li {font-size: 13px; line-height: 1.25em;}
@@ -164,6 +164,18 @@ dd {display: block; vertical-align: top; font-size: 13px; line-height: 1.25em;}
 #content .scene div.categories ul.tags li:after {content: "";}
 #content .scene div.categories ul.actions {padding-bottom: 0;}
 #content .scene div.categories ul.actions li {padding-bottom: 0; font-size: 15px; display: block;}
+#content .scene ul.articles {padding: 0;}
+#content .scene.articles ul.articles {padding: 20px 0 30px;}
+#content .scene ul.articles li.article {padding: 20px 0 0; border-top: 1px solid #ccdbcd;}
+#content .scene ul.articles li.article h3 {font-size: 18px; line-height: 1em; padding-bottom: 5px;}
+#content .scene ul.articles li.article p {font-size: 13px; color: #888888;}
+#content .scene.article div.article h2 br {display: none;}
+#content .scene .article ul.tags {padding-bottom: 10px;}
+#content .scene .article ul.tags a {color: #dedede;}
+#content .scene .article ul.tags a:active {color: #00c90d;}
+#content .scene div.related {padding-top: 40px; position: relative; z-index: 1;}
+#content .scene div.comments {display: none;}
+#content .scene div.readstate {display: none;}
 #content .scene code {color: #333333; padding: 10px 20px; margin: 0 0 15px; background-color: #ededed; font-size: 11px; display: block; overflow: hidden; white-space: pre-wrap;
 	font-family: "Monaco", "Courier New", "Courier";
 	-webkit-tab-size: 4;
@@ -190,6 +202,7 @@ dd {display: block; vertical-align: top; font-size: 13px; line-height: 1.25em;}
 #content .scene div.vcard .name {padding: 0 0 15px;}
 #content .scene div.vcard .tel,
 #content .scene div.vcard .email {font-size: 13px;}
+#content .scene .usedby {display: none;}
 #content .scene.login form {padding-bottom: 20px;}
 #content .errormessage {color: #df0000;}
 
@@ -199,23 +212,27 @@ dd {display: block; vertical-align: top; font-size: 13px; line-height: 1.25em;}
 #content form {
 }
 #content fieldset {border: none; display: block;}
-#content .field {padding: 0 18px 15px; position: relative; font-size: 0; z-index: 1;}
+#content .field {padding: 0 18px 15px; position: relative; font-size: 0; z-index: 1;
+	margin-left: 18px;
+}
 #content label {display: none;}
 #content .field input,
 #content .field select,
 #content .field textarea {box-shadow: inset 0 1px 2px #dedede; background: #ffffff; border: 1px solid #dcdcdc; display: inline-block; vertical-align: top; border-radius: 3px; margin: 2px; outline: none; position: relative; z-index: 1;}
-#content .field input {width: 366px; height: 24px; padding: 2px 6px;}
-#content .field select {width: 381px; height: 33px; color: #333333; padding: 5px 3px 2px 2px;}
+#content .field input {width: 100%; height: 24px; padding: 2px 6px;
+	margin-left: -16px;
+}
+#content .field select {width: 100%; height: 33px; color: #333333; padding: 5px 3px 2px 2px;}
 #content .field select option {padding: 5px 3px 2px 6px;}
 @media all and (-webkit-min-device-pixel-ratio:0) {
-	#content .field select {width: 380px; height: 31px; padding: 2px 3px 2px 7px; 
+	#content .field select {width: 100%; height: 31px; padding: 2px 3px 2px 7px; 
 		background: #ffffff url(/janitor/admin/img/bg_icons.png) no-repeat 360px -977px;
 		-webkit-appearance: none;
 	}
 }
-#content .field textarea {width: 372px; height: 100px; overflow: auto; padding: 6px 0 2px 6px;}
+#content .field textarea {width: 100%; height: 100px; overflow: auto; padding: 6px 0 2px 6px;}
 #content .field.short textarea {height: 40px;}
-#content .field textarea.autoexpand {width: 366px; padding: 6px 6px 2px; overflow: hidden;}
+#content .field textarea.autoexpand {width: 100%; padding: 6px 6px 2px; overflow: hidden;}
 #content .field .pseudolabel {position: absolute; font-size: 14px; display: inline-block; padding: 5px 6px; z-index: 2;}
 #content .field.checkbox,
 #content .field.boolean {}
@@ -247,8 +264,9 @@ dd {display: block; vertical-align: top; font-size: 13px; line-height: 1.25em;}
 #content .field.location.geolocation div.latitude input,
 #content .field.location.geolocation div.longitude input {width: 158px;}
 iframe#geolocationmap {width: 300px; height: 300px; position: absolute; top: 0; left: 0; z-index: 100; border: 1px solid #666666; background-color: #ffffff;}
+#content .field.focus {margin-left: 18px;}
 #content .field.focus input,
-#content .field.focus textarea {margin: 0;}
+#content .field.focus textarea {margin: 0 0 0 -18px;}
 #content .field.focus select {padding: 4px 3px 1px 0px;}
 @media all and (-webkit-min-device-pixel-ratio:0) {
 	#content .field.focus select {padding: 2px 3px 3px 5px;
@@ -281,8 +299,9 @@ iframe#geolocationmap {width: 300px; height: 300px; position: absolute; top: 0; 
 #content .field.files .indicator {left: 384px; top: -1px;}
 #content .field.correct .indicator {background-position: 2px -320px;}
 #content .field.text.correct .indicator {background-position: 2px -321px;}
+#content .field.error {margin-left: 18px;}
 #content .field.error input,
-#content .field.error textarea {margin: 0;}
+#content .field.error textarea {margin: 0 0 0 -18px;}
 #content .field.error select {padding: 3px 3px 2px 0px;}
 #content .field.error input,
 #content .field.error select,
@@ -321,10 +340,12 @@ iframe#geolocationmap {width: 300px; height: 300px; position: absolute; top: 0; 
 #content ul.actions a.button.secondary {background-color: #8c9399; color: #ffffff;}
 #content ul.actions input.button.secondary:active,
 #content ul.actions a.button.secondary:active {background-color: #313942;}
-#content .field div.help {position: absolute; left: 455px; top: 6px; width: 200px;}
+#content .field div.help {width: 100%; margin-left: -15px;}
 #content .field.files div.help {left: 404px;}
 #content .field div.error,
-#content .field div.hint {display: none; padding: 5px; border-radius: 3px; font-size: 12px; margin-top: -3px;}
+#content .field div.hint {display: none; padding: 5px; border-radius: 3px; font-size: 12px; margin-top: -3px;
+	width: 100%;
+}
 #content .field div.error {border: 1px solid #a62300; color: #a62300; background: #ffddd5;}
 #content .field.error div.error {display: block;}
 #content .field div.hint {z-index: 9; border: 1px solid #007633; color: #007633; background: #d0f4e0;}
@@ -580,10 +601,7 @@ body {background: #333333;}
 #content .scene.segments dt {color: #cccccc; width: auto; text-align: left; padding: 0 0 5px 0; display: block; font-size: 16px;} 
 #content .scene.segments dt:after {content: ":";}
 #content .scene.segments dd {padding: 0 0 25px; width: auto; display: block;}
-#content .scene.pricing div.sponsor,
-#content .scene.pricing div.corporate,
-#content .scene.pricing div.business,
-#content .scene.pricing div.free {padding: 0 0 20px;}
+#content .scene.pricing div.plan {padding: 0 0 20px;}
 #content .scene.pricing dl.price {}
 #content .scene.pricing dl.price dt,
 #content .scene.pricing dl.price dd {width: auto; display: inline-block;}

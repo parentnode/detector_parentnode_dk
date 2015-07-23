@@ -20,6 +20,7 @@ fieldset {border: none;}
 input, select, textarea {font-size: 14px; color: #333333;}
 input, textarea {outline: none;}
 a, span {font-size: inherit; font-family: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; color: inherit; text-transform: inherit;}
+em, strong {font-size: inherit; font-family: inherit; line-height: inherit; color: inherit; text-transform: inherit;}
 h1 {padding: 0 50px 30px; font-size: 48px; line-height: 1.05em;
 	font-family: "PT Serif", Times, serif;
 }
@@ -56,13 +57,17 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 
 /*s-header-desktop.css*/
 #header {position: relative; height: 100px;}
-#header .logo {z-index: 10; position: absolute; top: 10px; left: 40px; font-size: 30px; padding: 10px; color: #888888; cursor: pointer;  background-color: rgba(255,255,255, 0.8); border-radius: 5px;
+#header .logo {z-index: 10; position: absolute; top: 10px; left: 40px; font-size: 30px; padding: 10px; color: #888888; cursor: pointer; background-color: rgba(255,255,255, 0.8); border-radius: 5px;
 	font-family: "PT Serif", Times, serif;
 }
 #header .logo {position: fixed;}
 #header .servicenavigation {position: absolute; top: 5px; right: 50px;}
-#header .servicenavigation li {padding-left: 10px; display: inline-block; vertical-align: top;}
+#header .servicenavigation li {display: inline-block; vertical-align: top; color: #bbbbbb; padding: 3px 0;}
 #header .servicenavigation li.navigation {display: none;}
+#header .servicenavigation li:before {content: "\00a0\00a0|\00a0\00a0";}
+#header .servicenavigation li.github:before,
+#header .servicenavigation li:nth-child(2):before {content: "";}
+#header .servicenavigation li.github {margin: 0 0 0 10px; padding: 4px 12px; background: #8c9399; border-radius: 3px; cursor: pointer; font-size: 12px; color: #ffffff;}
 #navigation {z-index: 10; position: fixed; right: 40px; top: 65px; background-color: rgba(255,255,255, 0.8); border-radius: 5px;}
 #navigation ul {}
 #navigation ul li {display: inline-block; vertical-align: top; padding: 10px; font-size: 20px; color: #888888;
@@ -73,7 +78,7 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 
 /*s-footer-desktop.css*/
 #footer {text-align: center; border-top: 1px solid #888888;}
-#footer p {padding: 10px; cursor: pointer;}
+#footer p {padding: 10px; cursor: pointer; font-size: 13px;}
 
 /*s-content-desktop.css*/
 #content {position: relative;}
@@ -118,7 +123,7 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 #content .scene dl h4,
 #content .scene dl h5,
 #content .scene dl h6 {padding-left: 0; padding-right: 0; padding-top: 10px;}
-#content .scene > ul.actions {border-top: 1px solid #dedede; margin: 0 0 20px; padding: 15px 50px;}
+#content .scene > ul.actions {margin: 0 0 20px; padding: 15px 50px;}
 #content .scene ul.tags {position: relative; z-index: 1; padding-bottom: 20px;}
 #content .scene ul.tags li {font-size: 12px; display: inline-block; vertical-align: top;}
 #content .scene ul.tags li:after {content: "\00a0|\00a0"; color: #dedede;}
@@ -142,21 +147,21 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 #content .scene div.geomap iframe {display: block; width: 100%; height: 100%; border: 1px solid #666666; background-color: #ffffff; margin: 0 30px 30px; width: 540px; border-radius: 5px; }
 #content .scene li div.geomap {}
 #content .scene div.image {position: relative; z-index: 1;}
-#content .scene div.image {cursor: zoom-in;}
-#content .scene div.image img {margin: 0 30px 30px; width: 540px; border-radius: 5px; overflow: hidden;}
+#content .scene div.image {}
+#content .scene div.image img {cursor: zoom-in; margin: 0 30px 30px; width: 540px; border-radius: 5px; overflow: hidden;}
 #content .scene div.image p {margin-top: -20px; padding: 0 50px 30px; font-size: 0;}
 #content .scene div.image p a {font-style: italic; font-size: 13px; display: block; color: #cccccc; display: none;}
 #content .scene div.image.loaded p a {display: block;}
-#content .scene div.image.fullsize {cursor: zoom-out;}
-#content .scene div.image.fullsize img {width: 100%; margin: 0 0 30px; border-radius: 0;}
+#content .scene div.image.fullsize {}
+#content .scene div.image.fullsize img {cursor: zoom-out; width: 100%; margin: 0 0 30px; border-radius: 0;}
 #content .scene div.media {position: relative; z-index: 1;}
-#content .scene div.media {cursor: zoom-in;}
-#content .scene div.media img {margin: 0 30px 30px; width: 540px; border-radius: 5px; overflow: hidden;}
+#content .scene div.media {}
+#content .scene div.media img {cursor: zoom-in;margin: 0 30px 30px; width: 540px; border-radius: 5px; overflow: hidden;}
 #content .scene div.media p {margin-top: -20px; padding: 0 50px 30px; font-size: 0;}
 #content .scene div.media p a {font-style: italic; font-size: 13px; display: block; color: #cccccc; display: none;}
 #content .scene div.media.loaded p a {display: block;}
-#content .scene div.media.fullsize {cursor: zoom-out;}
-#content .scene div.media.fullsize img {width: 100%; margin: 0 0 30px; border-radius: 0;}
+#content .scene div.media.fullsize {}
+#content .scene div.media.fullsize img {cursor: zoom-out; width: 100%; margin: 0 0 30px; border-radius: 0;}
 #content .scene .pagination {display: none;}
 #content .scene div.categories {padding-bottom: 20px; display: inline-block; vertical-align: top; width: 250px;}
 #content .scene div.categories ul {padding-right: 0;}
@@ -164,6 +169,57 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 #content .scene div.categories ul.tags li:after {content: "";}
 #content .scene div.categories ul.actions {padding-bottom: 0;}
 #content .scene div.categories ul.actions li {padding-bottom: 0; font-size: 15px; display: block;}
+#content .scene div.article ul.tags {padding-bottom: 30px;}
+#content .scene div.article ul.tags a {color: #cccccc;}
+#content .scene ul.articles {padding: 0;}
+#content .scene ul.articles li.article {padding: 20px 0 0; border-top: 1px solid #dedede; position: relative;}
+#content .scene ul.articles li.article ul.tags {padding-bottom: 15px;}
+#content .scene ul.articles li.article:first-child {border-top: none;}
+#content .scene ul.articles li.article h3 {font-size: 18px; line-height: 1em; padding-bottom: 5px;}
+#content .scene ul.articles li.article p {font-size: 13px; color: #888888;}
+#content .scene ul.articles li.article > svg.checkmark {position: absolute; top: 14px; left: 25px;}
+#content .scene ul.articles li.article > svg.checkmark line {stroke: #666666; stroke-width: 3px;}
+#content .scene div.related {border-top: 1px solid #ccdbcd; padding-top: 40px; position: relative; z-index: 1;}
+#content .scene div.related ul.articles {padding: 0;}
+#content .scene div.related li.article:first-child {border-top: none;}
+#content .scene div.sharing {padding: 0; position: relative; height: 40px;}
+#content .scene div.sharing p {padding: 0; z-index: 2; position: absolute; top: 22px; left: 100px; display: none; font-size: 11px; color: #999999;}
+#content .scene div.sharing h3 {position: absolute; top: 0px; left: 100px; padding: 0; display: none;}
+#content .scene div.sharing.hover {z-index: 2;}
+#content .scene div.sharing.hover h3,
+#content .scene div.sharing.hover p {display: block;}
+#content .scene div.sharing svg {z-index: 0; margin-left: 50px; position: absolute; width: 500px; height: 300px; top: -130px;}
+#content .scene div.sharing svg rect {cursor: pointer;}
+#content .scene div.sharing svg circle.primary {stroke: #666666; fill: #ffffff;}
+#content .scene div.sharing svg circle {fill: #ededed; stroke: #999999; stroke-width: 1px;}
+#content .scene div.sharing svg line.primary {stroke: #666666;}
+#content .scene div.sharing svg line {stroke: #cccccc; stroke-width: 1px;}
+#content .scene div.sharing svg rect.primary {fill: #ff0000;}
+#content .scene div.readstate div {margin-left: 50px; margin-bottom: 40px; padding: 10px; position: relative; z-index: 1; border-radius: 5px; border: 1px solid #dedede; width: 478px;}
+#content .scene div.readstate p {font-size: 13px; color: #dedede; padding: 0 50px 0 0; width: auto;}
+#content .scene div.readstate div {cursor: pointer;}
+#content .scene div.readstate svg {position: absolute; top: 11px; right: 10px;}
+#content .scene div.readstate svg line {stroke: #dedede; stroke-width: 3px;}
+#content .scene div.readstate.is_read svg line {stroke: #666666;}
+#content .scene div.comments {padding-bottom: 15px; position: relative; z-index: 1;}
+#content .scene div.comments h2 {font-size: 16px; padding-bottom: 25px; position: relative; color: #dedede; cursor: pointer;}
+#content .scene div.comments h2 svg.arrow {position: absolute; top: 6px; right: 55px;}
+#content .scene div.comments h2 svg.arrow line {stroke: #dedede; stroke-width: 3px;}
+#content .scene div.comments > p,
+#content .scene div.comments ul.comments,
+#content .scene div.comments ul.actions {display: none;}
+#content .scene div.comments.open h2 {color: #888888;}
+#content .scene div.comments.open > p,
+#content .scene div.comments.open ul.comments,
+#content .scene div.comments.open ul.actions {display: block;}
+#content .scene div.comments > p {color: #999999; font-size: 13px; padding-bottom: 25px;}
+#content .scene div.comments ul.comments {padding: 0; margin: 0;}
+#content .scene div.comments ul.comments > li {padding-bottom: 10px; padding-left: 0;}
+#content .scene div.comments ul.comments > li ul.info {padding-bottom: 0; margin: 0; list-style: none;}
+#content .scene div.comments ul.comments > li ul.info li {display: inline-block; vertical-align: top; color: #999999; font-size: 12px; padding-bottom: 0; padding-left: 0;}
+#content .scene div.comments ul.comments > li ul.info li.user:after {content: ",\00a0";}
+#content .scene div.comments ul.comments > li p.comment {padding-bottom: 15px; font-size: 13px;}
+#content .scene div.comments .field {padding-bottom: 10px;}
 #content .scene code {padding: 10px 10px; margin: 0 30px 15px; background-color: #ededed; color: #333333; font-size: 12px; display: block; overflow: auto; white-space: pre; border-radius: 5px;
 	font-family: "Monaco", "Courier New", "Courier";
 	-webkit-tab-size: 4;
@@ -192,19 +248,21 @@ dd {display: inline-block; vertical-align: top; font-size: 13px; line-height: 1.
 #content .scene div.vcard .name {padding: 0 0 15px;}
 #content .scene div.vcard .tel,
 #content .scene div.vcard .email {font-size: 13px; padding: 0 0 3px;}
-#content .scene li div.sharing {padding: 0; position: relative; height: 40px;}
-#content .scene li div.sharing p {padding: 0; z-index: 2; position: absolute; top: 22px; left: 100px; display: none; font-size: 11px; color: #999999;}
-#content .scene li div.sharing h3 {position: absolute; top: 0px; left: 100px; padding: 0; display: none;}
-#content .scene li div.sharing.hover {z-index: 2;}
-#content .scene li div.sharing.hover h3,
-#content .scene li div.sharing.hover p {display: block;}
-#content .scene li div.sharing svg {z-index: 0; margin-left: 50px; position: relative; width: 500px; height: 300px; top: -130px;}
-#content .scene li div.sharing svg rect {cursor: pointer;}
-#content .scene li div.sharing svg circle.primary {stroke: #666666; fill: #ffffff;}
-#content .scene li div.sharing svg circle {fill: #ededed; stroke: #999999; stroke-width: 1px;}
-#content .scene li div.sharing svg line.primary {stroke: #666666;}
-#content .scene li div.sharing svg line {stroke: #cccccc; stroke-width: 1px;}
-#content .scene li div.sharing svg rect.primary {fill: #ff0000;}
+#content .scene .usedby {min-width: 600px; margin-top: 20px; margin-bottom: -50px; padding-top: 5px; border-top: 1px solid #cccccc;}
+#content .scene .usedby h2 {display: none; text-align: center; padding-bottom: 5px; font-size: 11px; width: auto; color: #bbbbbb; text-transform: uppercase;
+	font-family: "OpenSans", Verdana, Arial, sans-serif;
+}
+#content .scene .usedby ul {padding-bottom: 0;}
+#content .scene .usedby ul li {display: inline-block; width: 20%; background-position: center center; background-repeat: no-repeat; height: 150px; text-indent: -9999px;}
+#content .scene .usedby ul li.metro {background-image: url(/img/logos/metro.png); background-size: 70px auto;}
+#content .scene .usedby ul li.soulland {background-image: url(/img/logos/soulland.png); background-size: 70px auto;}
+#content .scene .usedby ul li.cphpix {background-image: url(/img/logos/cphpix.png);}
+#content .scene .usedby ul li.tuborg {background-image: url(/img/logos/tuborg.png);}
+#content .scene .usedby ul li.distortion {background-image: url(/img/logos/distortion.png);}
+#content .scene .usedby ul li.landskabsarkitekter {background-image: url(/img/logos/landskabsarkitekter.png);}
+#content .scene .usedby ul li.urbangreen {background-image: url(/img/logos/urbangreen.png);}
+#content .scene .usedby ul li.oeo {background-image: url(/img/logos/oeo.png);}
+#content .scene .usedby ul li.peoplegroup {background-image: url(/img/logos/peoplegroup.png);}
 #content .scene.login form {padding-bottom: 20px;}
 #content .errormessage {color: #df0000;}
 
@@ -319,9 +377,9 @@ iframe#geolocationmap {width: 300px; height: 300px; position: absolute; top: 0; 
 	-webkit-user-select: none;
 	user-select: none;
 }
-#content ul.actions input.button {width: auto; height: 28px; padding: 3px 12px; display: inline-block; vertical-align: top;}
+#content ul.actions input.button {width: auto; height: 28px; padding: 3px 9px; display: inline-block; vertical-align: top;}
 @media all and (-webkit-min-device-pixel-ratio:0) {
-	#content ul.actions input.button {padding-bottom: 5px;}
+	#content ul.actions input.button {padding: 3px 12px 5px;}
 }
 #content ul.actions a.button {display: block; text-decoration: none; height: 14px; padding: 6px 12px 8px;}
 #content ul.actions input.button,
@@ -501,7 +559,7 @@ body #selection_options ul.actions a.button {background-color: #8c9399; color: #
 #content .scene div.functions .function .body .example {padding: 0 0 20px;}
 #content .scene div.functions .function .body .example p {padding-bottom: 20px;}
 #content .scene div.functions .function .body .uses {overflow: hidden; margin-bottom: 20px; position: relative;}
-#content .scene div.functions .function .body .uses svg {position: absolute; top: 3px; left: 90px; stroke: #999999; stroke-width: 2px;}
+#content .scene div.functions .function .body .uses svg {position: absolute; top: 3px; left: 90px; stroke: #999999; stroke-width: 3px;}
 #content .scene div.functions .function .body .uses .javascript {padding: 5px 0 0 20px;}
 #content .scene div.functions .function .body .uses .manipulator {padding: 5px 0 0 20px;}
 #content .scene div.functions .function .body .uses .manipulator ul {padding-bottom: 0;}
@@ -535,6 +593,9 @@ body #selection_options ul.actions a.button {background-color: #8c9399; color: #
 body #selection_options ul.actions input.button:active,
 body #selection_options ul.actions a.button:active {background-color: #313942;}
 #content .scene.docsindex .search .results .function:active {background: #ededed;}
+#content .scene div.readstate:active p {color: #000000;}
+#content .scene div.comments h2:active {color: #888888;}
+#content .scene div.comments h2:active svg.arrow line {stroke: #888888;}
 
 
 
@@ -574,7 +635,9 @@ body #selection_options ul.actions a.button:active {background-color: #313942;}
 
 
 /*s-pages-desktop.css*/
-#content .scene.segments dl.segments dt {color: #cccccc; width: auto; text-align: left; padding: 0 0 5px 0; display: block; font-size: 16px;} 
+#content .scene.docs ul.topics {list-style-position: outside; margin-left: 15px; width: 485px; list-style-type: disc;}
+#content .scene.docs ul.topics li {font-size: 14px; padding-bottom: 7px; padding-left: 3px;}
+#content .scene.segments dl.segments dt {color: #cccccc; width: auto; text-align: left; padding: 0 0 5px 0; display: block; font-size: 16px; font-weight: 700;} 
 #content .scene.segments dl.segments dt:after {content: ":";}
 #content .scene.segments dl.segments dd {padding: 0 0 25px; width: auto; display: block;}
 #content .scene.apis dl.parameters dt {width: 50px;}
@@ -583,14 +646,50 @@ body #selection_options ul.actions a.button:active {background-color: #313942;}
 #content .scene.apis div.jsonp dd {width: 415px;}
 #content .scene.apis div.js dt {width: 100px;}
 #content .scene.apis div.js dd {width: 395px;}
-#content .scene.pricing div.sponsor,
-#content .scene.pricing div.corporate,
-#content .scene.pricing div.business,
-#content .scene.pricing div.free {padding: 0 0 20px;}
+#content .scene.apis div.build dt {width: 100px;}
+#content .scene.apis div.build dd {width: 395px;}
+#content .scene.pricing div.plan {padding: 0 0 20px;}
 #content .scene.pricing dl.price {}
 #content .scene.pricing dl.price dt,
 #content .scene.pricing dl.price dd {width: auto;}
-
+#content .scene.changelog ul.changes {list-style-position: outside; margin-left: 15px; width: 485px; list-style-type: disc;}
+#content .scene.changelog ul.changes li {font-size: 14px; padding-bottom: 7px; padding-left: 3px;}
+#content .scene.build .customize,
+#content .scene.build .language,
+#content .scene.build .download {padding-bottom: 30px; overflow: hidden; position: relative;}
+#content .scene.build .customize h3 {font-size: 14px; font-weight: 700;}
+#content .scene.build .customize h4,
+#content .scene.build .customize h6 {font-size: 13px; font-weight: 400;}
+#content .scene.build .customize h5 {padding: 10px 20px;}
+#content .scene.build .customize fieldset {display: inline-block; vertical-align: top;}
+#content .scene.build .customize div.field {padding-right: 10px;}
+#content .scene.build .customize div.field input {width: 200px;}
+#content .scene.build .customize form ul.actions {display: inline-block; vertical-align: top; padding: 3px 0 0;}
+#content .scene.build .customize ul.groups {width: 500px;}
+#content .scene.build .customize ul.groups li.group {border-radius: 3px; border: 1px solid #cccccc; margin: 0 0 10px; padding: 10px;}
+#content .scene.build .customize ul.groups li.group h4:after {content: " - ";}
+#content .scene.build .customize ul.groups li.group > ul.actions {padding: 0; display: inline-block; vertical-align: top; }
+#content .scene.build .customize ul.groups li.group > ul.actions li {padding: 0;}
+#content .scene.build .customize ul.groups li.group p {padding: 10px 0 10px 20px;}
+#content .scene.build .customize ul.groups h4 {padding: 0; width: auto; display: inline-block;}
+#content .scene.build .customize ul.groups div.field {padding: 0 10px 0 18px;}
+#content .scene.build .customize ul.groups div.field select {width: 180px;}
+#content .scene.build .customize ul.groups form ul.actions {padding: 4px 0 0;}
+#content .scene.build .customize ul.groups ul.segments {padding: 0 20px 10px;}
+#content .scene.build .customize ul.groups li.segment h6 {padding: 0; width: auto; display: inline-block;}
+#content .scene.build .customize ul.groups li.segment h6:after {content: " - ";}
+#content .scene.build .customize ul.groups li.segment > ul.actions {padding: 0; display: inline-block; vertical-align: top; }
+#content .scene.build .customize ul.groups li.segment > ul.actions li {padding: 0;}
+#content .scene.build .customize ul.available_segments li {display: inline-block; vertical-align: top;}
+#content .scene.build .customize ul.available_segments li:after {content: ",\00a0";}
+#content .scene.build .customize ul.available_segments li.used {color: #777777;}
+#content .scene.build .custom,
+#content .scene.build .default {}
+#content ul.subnavigation {position: absolute; top: 10px; right: 50px; padding: 0;}
+#content ul.subnavigation li {display: inline-block; padding: 5px 0 5px 20px;}
+#content .scene.segments ul.subnavigation li.segments a,
+#content .scene.apis ul.subnavigation li.apis a,
+#content .scene.implement ul.subnavigation li.implement a {color: #cccccc;}
 
 /*s-colorscheme-desktop.css*/
 * {color: #cccccc;}
@@ -610,10 +709,10 @@ body {background: #333333;}
 .terms_notification .accept,
 .terms_notification .details {color: #a0746d;}
 .terms_notification {border-color: #505050;}
+#content .usedby {background-color: #cccccc;}
 .front #header .logo,
-.segments #navigation ul li.segments,
+.docs #navigation ul li.docs,
 .about #navigation ul li.about,
-.apis #navigation ul li.apis,
 .pricing #navigation ul li.pricing {color: #cccccc;}
 
 
