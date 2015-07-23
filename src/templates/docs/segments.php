@@ -124,7 +124,7 @@
 				<dt>mobile_light</dt>
 				<dd>
 					All older mobile phones, with even the simplest HTML capable browsers. This includes phones release
-					in the past 15 years. They have very limited CSS support and no typically no JavaScript support.
+					in the past 15 years. They have very limited CSS support and typically no JavaScript support.
 
 					<br /><br />
 					Read more about <a href="http://parentnode.dk/blog/the-mobile_light-segment" target="_blank">mobile_light</a>.
@@ -144,8 +144,8 @@
 				<dt>seo</dt>
 				<dd>
 					Semantic wellstructured content with No CSS or JavaScript. This segment is designed for 
-					search engines, content aggregators, screen readers for visually impaired and entirely t
-					ext-based browsers like Lynx.
+					search engines, content aggregators, screen readers for visually impaired and entirely 
+					text-based browsers like Lynx.
 
 					<br /><br />
 					Read more about <a href="http://parentnode.dk/blog/the-seo-segment" target="_blank">seo</a>.

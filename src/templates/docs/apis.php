@@ -285,7 +285,7 @@ document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/s
 			<p>POST or GET parameters</p>
 			<dl class="parameters">
 				<dt>language</dt>
-				<dd>Programming language to export detection script in.</dd>
+				<dd>Required - programming language to export detection script in.</dd>
 				<dt>grouping</dt>
 				<dd>Optional custom segment grouping as JSON.</dd>
 			</dl>
@@ -296,7 +296,7 @@ document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/s
 		</div>
 
 		<h4>Supported languages</h4>
-		<p><em>PHP</em>, <em>Java</em>, <em>JavaScript</em>.</p>
+		<p><em>PHP</em>, <em>JavaScript</em>. <em>Java</em> coming soon.</p>
 
 		<h4>Grouping syntax</h4>
 		<code>{

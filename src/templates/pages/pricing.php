@@ -20,7 +20,7 @@
 			</p>
 
 			<p>
-				These subscribtions cover hosting expences and time required for continuous
+				These subscribtions cover hosting expenses and time required for continuous
 				maintenance (indexing new devices) and other improvements, but Detector is not based on an 
 				economy centered businessplan. It is more important to provide solutions, than to make money. I 
 				believe this to be true in all aspects of life.
