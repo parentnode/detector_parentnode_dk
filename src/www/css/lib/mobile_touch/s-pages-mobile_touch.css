@@ -11,3 +11,10 @@
 #content .scene.pricing dl.price dd {width: auto; display: inline-block;}
 #content .scene.pricing dl.price dd {padding-left: 5px;}
 #content .scene.pricing dt:after {content: ":";}
+
+
+
+/* BUILD UI */
+#content .scene.build * {display: none;}
+#content .scene.build:after {content: "Not supported on mobile devices";}
+

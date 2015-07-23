@@ -36,7 +36,6 @@
 
 
 /* BUILD UI */
-
 #content .scene.build .customize,
 #content .scene.build .language,
 #content .scene.build .download {padding-bottom: 30px; overflow: hidden; position: relative;}
@@ -75,11 +74,6 @@
 #content .scene.build .customize ul.available_segments li {display: inline-block; vertical-align: top;}
 #content .scene.build .customize ul.available_segments li:after {content: ",\00a0";}
 #content .scene.build .customize ul.available_segments li.used {color: #777777;}
-
-#content .scene.build .custom,
-#content .scene.build .default {}
-
-
 
 
 

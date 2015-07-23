@@ -6842,3 +6842,26 @@ Util.Objects["todolist"] = new function() {
 }
 
 
+
+/*i-build-desktop.js*/
+Util.Objects["build"] = new function() {
+	this.init = function(scene) {
+		u.bug("scene init:" + u.nodeId(scene))
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			this.form_build = u.qs("form.group", this);
+			u.f.init(this.form_build);
+			this.form_build = u.qs("form.segment", this);
+			u.f.init(this.form_build);
+			this.form_download = u.qs("form.download", this);
+			u.f.init(this.form_download);
+			page.cN.scene = this;
+			page.resized();
+		}
+		scene.ready();
+	}
+}
+
