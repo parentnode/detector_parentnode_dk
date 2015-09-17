@@ -5191,6 +5191,7 @@ u.f.addField = function(node, _options) {
 	var field_name = "js_name";
 	var field_value = "";
 	var field_class = "";
+	var field_maxlength = "";
 	if(typeof(_options) == "object") {
 		var _argument;
 		for(_argument in _options) {
@@ -5200,6 +5201,7 @@ u.f.addField = function(node, _options) {
 				case "name"			: field_name			= _options[_argument]; break;
 				case "value"		: field_value			= _options[_argument]; break;
 				case "class"		: field_class			= _options[_argument]; break;
+				case "max"			: field_maxlength		= _options[_argument]; break;
 			}
 		}
 	}
@@ -5207,7 +5209,7 @@ u.f.addField = function(node, _options) {
 	var field = u.ae(node, "div", {"class":"field "+field_type+" "+field_class});
 	if(field_type == "string") {
 		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
-		var input = u.ae(field, "input", {"id":input_id, "value":field_value, "name":field_name, "type":"text"});
+		var input = u.ae(field, "input", {"id":input_id, "value":field_value, "name":field_name, "type":"text", "maxlength":field_maxlength});
 	}
 	else if(field_type == "email" || field_type == "number" || field_type == "tel") {
 		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
@@ -7238,10 +7240,14 @@ Util.Objects["build"] = new function() {
 		scene.ready = function() {
 			this.form_build = u.qs("form.group", this);
 			u.f.init(this.form_build);
-			this.form_build = u.qs("form.segment", this);
-			u.f.init(this.form_build);
+			this.form_segment = u.qs("form.segment", this);
+			if(this.form_segment) {
+				u.f.init(this.this.form_segment);
+			}
 			this.form_download = u.qs("form.download", this);
-			u.f.init(this.form_download);
+			if(this.form_download) {
+				u.f.init(this.form_download);
+			}
 			page.cN.scene = this;
 			page.resized();
 		}

@@ -22,12 +22,15 @@ Util.Objects["build"] = new function() {
 			this.form_build = u.qs("form.group", this);
 			u.f.init(this.form_build);
 
-			this.form_build = u.qs("form.segment", this);
-			u.f.init(this.form_build);
+			this.form_segment = u.qs("form.segment", this);
+			if(this.form_segment) {
+				u.f.init(this.this.form_segment);
+			}
 
 			this.form_download = u.qs("form.download", this);
-			u.f.init(this.form_download);
-
+			if(this.form_download) {
+				u.f.init(this.form_download);
+			}
 
 
 			// this.div_custom = u.qs("div.custom", this);

@@ -126,7 +126,7 @@ foreach($all_segments as $segment) {
 
 			<h2>2: Select script language</h2>
 			<fieldset>
-			<?= $model->input("language", array("label" => "Programming language", "type" => "radiobuttons", "options" => array("php" => "PHP", "javascript" => "JavaScript"), "value" => "php")) ?>
+				<?= $model->input("language", array("label" => "Programming language", "type" => "radiobuttons", "options" => array("php" => "PHP", "javascript" => "JavaScript", "java" => "Java"), "value" => "php")) ?>
 			</fieldset>
 
 		</div>

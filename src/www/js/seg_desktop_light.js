@@ -6771,7 +6771,7 @@ Util.Form.customInit["location"] = function(form, field) {
 	for(j = 0; input = field._inputs[j]; j++) {
 		input.field = field;
 		form.fields[input.name] = input;
-		input._label = u.qs("label[for="+input.id+"]", field);
+		input._label = u.qs("label[for='"+input.id+"']", field);
 		input.val = u.f._value;
 		u.e.addEvent(input, "keyup", u.f._updated);
 		u.e.addEvent(input, "change", u.f._changed);
@@ -6842,7 +6842,7 @@ Util.Form.customInit["html"] = function(form, field) {
 	field._input = u.qs("textarea", field);
 	field._input.field = field;
 	form.fields[field._input.name] = field._input;
-	field._input._label = u.qs("label[for="+field._input.id+"]", field);
+	field._input._label = u.qs("label[for='"+field._input.id+"']", field);
 	field._input.val = u.f._value;
 	u.e.addEvent(field._input, "keyup", u.f._updated);
 	u.e.addEvent(field._input, "change", u.f._changed);
