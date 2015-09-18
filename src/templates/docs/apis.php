@@ -84,6 +84,44 @@
 
 	<hr />
 
+	<div class="text">
+		<h3>http://detector-v3.dearapi.com/text</h3>
+		<div class="description">
+			<p>
+				Performs segment identification based on device useragent, with the purpose of returning segment
+				as a text string.
+			</p>
+			<p>
+				Useragent defaults to requesting device
+				but specific useragent can be sent using the <span class="parameter">ua</span> parameter.
+			</p>
+		</div>
+
+		<div class="parameters">
+			<p>POST or GET parameters</p>
+			<dl class="parameters">
+				<dt>ua</dt>
+				<dd>Optional useragent to be identified. Defaults to requesting device useragent.</dd>
+			
+				<dt>site</dt>
+				<dd>Optional origin site. We recommend you to add this parameter to your request to provide better usage statistics.</dd>
+
+				<dt>file</dt>
+				<dd>Optional origin file. We recommend you to add this parameter to your request to provide better usage statistics.</dd>
+			</dl>
+		</div>
+	
+
+		<div class="returns">
+			<p>Returns text string segment.</p>
+			<code><?= $this->segment() ?></code>
+
+			<p><a href="http://detector-v3.dearapi.com/text" target="_blank" rel="nofollow">Test this API</a></p>
+		</div>
+	</div>
+
+	<hr />
+
 	<div class="xml">
 		<h3>http://detector-v3.dearapi.com/xml</h3>
 		<div class="description">
