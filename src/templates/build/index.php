@@ -5,140 +5,78 @@ global $detector_groups;
 // all segments
 $all_segments = array("desktop_edge", "desktop_ie11", "desktop", "desktop_ie10", "desktop_ie9", "desktop_light", "tablet", "tablet_light", "smartphone", "mobile", "mobile_light", "tv", "seo");
 
-// already allocated segments
-$used_segments = array();
-if($detector_groups) {
-	foreach($detector_groups as $existing_group => $existing_segments) {
-		foreach($existing_segments as $segment) {
-			$used_segments[] = $segment;
-		}
-	}
-}
 
-
-$available_segments = array();
-foreach($all_segments as $segment) {
-	if(array_search($segment, $used_segments) === false) {
-		$available_segments[$segment] = $segment;
-	}
-}
+// TODO: print current definitions as JSON to be used for JavaScript and let JavaScript set up the grouping column
+// that way I can also have default settings sets in the backend
 
 
 ?>
 <div class="scene build i:build">
 
-	<h1>Build your script</h1>
-	<p>
-		Build your static Detector v3 script in 3 easy steps.
-	</p>
+	<h1>Build your own Detector</h1>
+
+	<div class="builder">
+
+		<p>
+			Building a static Detector includes the posibility of grouping the <a href="/docs/segments">segments</a>
+			into your own segment groups. This allows you to minimize the number of supported UIs to fit the requirements of 
+			your projcets. If you don't want to add your own segment groups, the static Detector
+			will use the default segments. 
+		</p>
+
+		<h2>Build your own Detector <br />in 3 easy steps.</h2>
 
 
-	<h2>1: Group your segments</h2>
-	<p>
-		Create your own groups and arrange the segments to fit your needs.
-		This allows you to minimize the number of supported UIs based on the requirements of your projcets.
-	</p>
-	<p>
-		Create as many groups as you need:
-	</p>
+		<h3>1: Group your segments</h3>
+		<p>
+			Drag the default segments to the grouping area to start making your segment groups (a group will magically 
+			appear when you need it).
+		</p>
 
+		<div class="customize" data-detector-groups="<?= urlencode(json_encode($detector_groups, true)) ?>">
 
-	<div class="customize">
-
-		<?= $model->formStart("addGroup", array("class" => "group labelstyle:inject")) ?>
-
-			<fieldset>
-				<?= $model->input("_group", array("type" => "string", "label" => "Group")) ?>
-			</fieldset>
+			<div class="segments">
+				<h3>Default segments</h3>
+				<ul class="segments">
+		<?		foreach($all_segments as $segment): ?>
+					<li class="<?= $segment ?>"><?= $segment ?></li>
+		<?		endforeach; ?>
+				</ul>
+			</div>
 
 			<ul class="actions">
-				<?= $model->submit("Create", array("class" => "primary", "wrapper" => "li.submit")) ?>
+				<li class="reset"><a href="/build/reset" class="button">Reset</a></li>
 			</ul>
 
-		<?= $model->formEnd() ?>
+		</div>
 
-<?		if($detector_groups): ?>
-		<h3>Groups</h3>
-		<ul class="groups">
-<?	 		foreach($detector_groups as $group => $segments): ?>
 
-			<li class="group">
-				<h4><?= $group ?></h4>
+
+		<?= $model->formStart("download", array("class" => "download")) ?>
+			<?= $model->input("grouping", array("type" => "hidden", "value" => $detector_groups ? json_encode($detector_groups) : "")) ?>
+
+			<div class="language">
+
+				<h3>2: Select language</h3>
+				<fieldset>
+					<?= $model->input("language", array("label" => "Programming language", "type" => "radiobuttons", "options" => array("php" => "PHP", "javascript" => "JavaScript", "java" => "Java"), "value" => "php")) ?>
+				</fieldset>
+
+			</div>
+
+			<div class="download">
+
+				<h3>3: And download ...</h3>
 				<ul class="actions">
-					<li class="delete"><a href="/build/removeGroup/<?= $group ?>">Delete</a></li>
+					<?= $model->submit("Download script", array("class" => "primary", "wrapper" => "li.submit")) ?>
 				</ul>
-<?				if($segments): ?>
-				<h5>Segments</h5>
-				<ul class="segments">
-<?	 				foreach($segments as $segment): ?>
 
-					<li class="segment">
-						<h6><?= $segment ?></h6>
-						<ul class="actions">
-							<li class="delete"><a href="/build/removeSegment/<?= $group ?>/<?= $segment ?>">Delete</a></li>
-						</ul>
-					</li>
-<?					endforeach; ?>
-				</ul>
-<?				else: ?>
-				<p>Add some segments to <em><?= $group ?></em></p>
-<?				endif; ?>
-
-				<?= $model->formStart("addSegment/$group", array("class" => "segment")) ?>
-
-					<fieldset>
-						<?= $model->input("_segment", array("type" => "select", "label" => "Add segment", "options" => $available_segments)) ?>
-					</fieldset>
-
-					<ul class="actions">
-						<?= $model->submit("Add segment", array("class" => "primary", "wrapper" => "li.submit")) ?>
-					</ul>
-
-				<?= $model->formEnd() ?>
-
-			<li>
-<?			endforeach; ?>
-<?		endif; ?>
-		</ul>
-
-<?		if($detector_groups): ?>
-		<h3>Available segments</h3>
-		<ul class="available_segments">
-<?		foreach($all_segments as $segment): ?>
-			<li class="<?= $segment ?><?= array_search($segment, $used_segments) !== false ? " used" : "" ?>"><?= $segment ?></li>
-<?		endforeach; ?>
-		</ul>
-
-		<ul class="actions">
-			<li class="reset"><a href="/build/resetGroups" class="button">Reset</a></li>
-		</ul>
-
-<?		endif; ?>
-
-
+			</div>
+		<?= $model->formEnd() ?>
 	</div>
 
-
-	<?= $model->formStart("download", array("class" => "download")) ?>
-		<?= $model->input("grouping", array("type" => "hidden", "value" => $detector_groups ? json_encode($detector_groups) : "")) ?>
-
-		<div class="language">
-
-			<h2>2: Select script language</h2>
-			<fieldset>
-				<?= $model->input("language", array("label" => "Programming language", "type" => "radiobuttons", "options" => array("php" => "PHP", "javascript" => "JavaScript", "java" => "Java"), "value" => "php")) ?>
-			</fieldset>
-
-		</div>
-
-		<div class="download">
-
-			<h2>3: And download ...</h2>
-			<ul class="actions">
-				<?= $model->submit("Download script", array("class" => "primary", "wrapper" => "li.submit")) ?>
-			</ul>
-
-		</div>
-	<?= $model->formEnd() ?>
+	<div class="fallback">
+		<p class="note">Building a static Detector is not supported by your browser. Your browser is <strong><?= $this->segment() ?></strong> - Please upgrade or use a Desktop device for building Detector.</p>
+	</div>
 
 </div>

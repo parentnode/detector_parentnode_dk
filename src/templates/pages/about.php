@@ -37,6 +37,10 @@
 				are monitored and optimized for reliability and ultra fast responses, running on third year with 
 				zero unscheduled downtime.
 			</p>
+			<p>
+				Detector is part of the <a href="http://parentnode.dk">parentNode</a> open source projects.
+			</p>
+
 		</div>
 	</div>
 

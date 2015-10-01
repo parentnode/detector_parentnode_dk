@@ -10,6 +10,16 @@
 		</dl>
 
 		<div class="articlebody" itemprop="articleBody">
+			<div class="build">
+				<p>
+					Detector lets you target the browsers you want to support and peacefully forget about the rest.
+					Try the custom Detector v3 generator and start using Detector today.
+				</p>
+				<ul class="actions">
+					<li class="build"><a href="/build" class="button primary">Build your Detector now</a></li>
+				</ul>
+			</div>
+
 			<p>
 				<span class="brand">Detector</span> is your one-stop solution to supporting all HTML capable 
 				devices on earth and lowering your development complexity at the same time. Yes, that includes
@@ -17,13 +27,6 @@
 				- all bundled up neatly in 13 segments with each their own defined set of charactaristics.
 			</p>
 
-			<p>
-				Detector lets you target the browsers you want to support and peacefully forget about the rest.
-				Try the custom Detector script generator and start using Detector today.
-			</p>
-			<ul class="actions">
-				<li class="build"><a href="/build" class="button primary">Build your custom Detector script now</a></li>
-			</ul>
 
 			<h2>If mobile is the new black, then what's the new mobile?</h2>
 			<p>

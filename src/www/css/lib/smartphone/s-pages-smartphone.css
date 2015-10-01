@@ -15,6 +15,5 @@
 
 
 /* BUILD UI */
-#content .scene.build * {display: none;}
-#content .scene.build:after {content: "Not supported on mobile devices";}
+#content .scene.build .builder {display: none;}
 

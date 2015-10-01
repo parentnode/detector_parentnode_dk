@@ -1,9 +1,9 @@
 
-/*seg_desktop_include.js*/
+/*seg_smartphone_include.js*/
 
-/*seg_desktop_include.js*/
+/*seg_smartphone_include.js*/
 
-/*seg_desktop.js*/
+/*seg_mobile_touch.js*/
 if(!u || !Util) {
 	var u, Util = u = new function() {};
 	u.version = 0.9;
@@ -4776,159 +4776,6 @@ if(u.ga_account) {
 }
 
 
-/*u-form-builder.js*/
-u.f.addForm = function(node, _options) {
-	var form_name = "js_form";
-	var form_action = "#";
-	var form_method = "post";
-	var form_class = "";
-	if(typeof(_options) == "object") {
-		var _argument;
-		for(_argument in _options) {
-			switch(_argument) {
-				case "name"			: form_name				= _options[_argument]; break;
-				case "action"		: form_action			= _options[_argument]; break;
-				case "method"		: form_method			= _options[_argument]; break;
-				case "class"		: form_class			= _options[_argument]; break;
-			}
-		}
-	}
-	var form = u.ae(node, "form", {"class":form_class, "name": form_name, "action":form_action, "method":form_method});
-	return form;
-}
-u.f.addFieldset = function(node) {
-	return u.ae(node, "fieldset");
-}
-u.f.addField = function(node, _options) {
-	var field_type = "string";
-	var field_label = "Value";
-	var field_name = "js_name";
-	var field_value = "";
-	var field_class = "";
-	var field_maxlength = "";
-	if(typeof(_options) == "object") {
-		var _argument;
-		for(_argument in _options) {
-			switch(_argument) {
-				case "type"			: field_type			= _options[_argument]; break;
-				case "label"		: field_label			= _options[_argument]; break;
-				case "name"			: field_name			= _options[_argument]; break;
-				case "value"		: field_value			= _options[_argument]; break;
-				case "class"		: field_class			= _options[_argument]; break;
-				case "max"			: field_maxlength		= _options[_argument]; break;
-			}
-		}
-	}
-	var input_id = "input_"+field_type+"_"+field_name;
-	var field = u.ae(node, "div", {"class":"field "+field_type+" "+field_class});
-	if(field_type == "string") {
-		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
-		var input = u.ae(field, "input", {"id":input_id, "value":field_value, "name":field_name, "type":"text", "maxlength":field_maxlength});
-	}
-	else if(field_type == "email" || field_type == "number" || field_type == "tel") {
-		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
-		var input = u.ae(field, "input", {"id":input_id, "value":field_value, "name":field_name, "type":field_type});
-	}
-	else if(field_type == "checkbox") {
-		var input = u.ae(field, "input", {"id":input_id, "value":"true", "name":field_name, "type":field_type});
-		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
-	}
-	else if(field_type == "text") {
-		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
-		var input = u.ae(field, "textarea", {"id":input_id, "html":field_value, "name":field_name});
-	}
-	else if(field_type == "select") {
-		u.bug("Select not implemented yet")
-	}
-	else {
-		u.bug("input type not implemented yet")
-	}
-	return field;
-}
-u.f.addAction = function(node, _options) {
-	var action_type = "submit";
-	var action_name = "js_name";
-	var action_value = "";
-	var action_class = "";
-	if(typeof(_options) == "object") {
-		var _argument;
-		for(_argument in _options) {
-			switch(_argument) {
-				case "type"			: action_type			= _options[_argument]; break;
-				case "name"			: action_name			= _options[_argument]; break;
-				case "value"		: action_value			= _options[_argument]; break;
-				case "class"		: action_class			= _options[_argument]; break;
-			}
-		}
-	}
-	var p_ul = node.nodeName.toLowerCase() == "ul" ? node : u.pn(node, {"include":"ul"});
-	if(!p_ul || !u.hc(p_ul, "actions")) {
-		p_ul = u.ae(node, "ul", {"class":"actions"});
-	}
-	var p_li = node.nodeName.toLowerCase() == "li" ? node : u.pn(node, {"include":"li"});
-	if(!p_li || p_ul != p_li.parentNode) {
-		p_li = u.ae(p_ul, "li", {"class":action_name});
-	}
-	else {
-		p_li = node;
-	}
-	var action = u.ae(p_li, "input", {"type":action_type, "class":action_class, "value":action_value, "name":action_name})
-	return action;
-}
-
-
-/*u-svg.js*/
-Util.svg = function(svg_object) {
-	var svg, shape, svg_shape;
-	if(svg_object.name && u._svg_cache && u._svg_cache[svg_object.name]) {
-		svg = u._svg_cache[svg_object.name].cloneNode(true);
-	}
-	if(!svg) {
-		svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-		if(svg_object.title) {
-			svg.setAttributeNS(null, "title", svg_object.title);
-		}
-		if(svg_object.class) {
-			svg.setAttributeNS(null, "class", svg_object.class);
-		}
-		if(svg_object.width) {
-			svg.setAttributeNS(null, "width", svg_object.width);
-		}
-		if(svg_object.height) {
-			svg.setAttributeNS(null, "height", svg_object.height);
-		}
-		if(svg_object.id) {
-			svg.setAttributeNS(null, "id", svg_object.id);
-		}
-		if(svg_object.node) {
-			svg.node = svg_object.node;
-		}
-		for(shape in svg_object.shapes) {
-			Util.svgShape(svg, svg_object.shapes[shape]);
-		}
-		if(svg_object.name) {
-			if(!u._svg_cache) {
-				u._svg_cache = {};
-			}
-			u._svg_cache[svg_object.name] = svg.cloneNode(true);
-		}
-	}
-	if(svg_object.node) {
-		svg_object.node.appendChild(svg);
-	}
-	return svg;
-}
-Util.svgShape = function(svg, svg_object) {
-	svg_shape = document.createElementNS("http://www.w3.org/2000/svg", svg_object["type"]);
-	svg_object["type"] = null;
-	delete svg_object["type"];
-	for(detail in svg_object) {
-		svg_shape.setAttributeNS(null, detail, svg_object[detail]);
-	}
-	return svg.appendChild(svg_shape);
-}
-
-
 /*u-form-geolocation.js*/
 Util.Form.customInit["location"] = function(form, field) {
 	field._inputs = u.qsa("input", field);
@@ -6366,300 +6213,149 @@ u.f.textEditor = function(field) {
 }
 
 
-/*beta-u-animation-to.js*/
-	u.a.parseSVGPolygon = function(value) {
-		var pairs = value.trim().split(" ");
-		var sets = [];
-		for(x in pairs) {
-			parts = pairs[x].trim().split(",");
-			for(part in parts) {
-				parts[part] = Number(parts[part]);
-			}
-			sets[x] = parts;
-		}
-		return sets;
-	}
-	u.a.parseSVGPath = function(value) {
-		var pairs = {"m":2, "l":2, "a":7, "c":6, "s":4, "q":4, "z":0};
-		value = value.replace(/-/g, " -");
-		value = value.replace(/,/g, " ");
-		value = value.replace(/(m|l|a|c|s|q|M|L|A|C|S|Q)/g, " $1 ");
-		value = value.replace(/  /g, " ");
-		sets = value.match(/(m|l|a|c|s|q|M|L|A|C|S|Q)([0-9 \-\.]+)/g);
-		for(x in sets) {
-			parts = sets[x].trim().split(" ");
-			sets[x] = parts;
-			if(parts && pairs[parts[0].toLowerCase()] == parts.length-1) {
-			}
-			else {
-			}
-		}
-		return sets;
-	}
-	u.a.getInitialValue = function(node, attribute) {
-		var value = (node.getAttribute(attribute) ? node.getAttribute(attribute) : u.gcs(node, attribute)).replace(node._unit[attribute], "")
-		if(attribute.match(/^(d|points)$/)) {
-			return value;
-		}
-		else {
-			return Number(value.replace(/auto/, 0));
-		}
-	}
-	u.a.to = function(node, transition, attributes) {
-		var transition_parts = transition.split(" ");
-		if(transition_parts.length >= 3) {
-			node._target = transition_parts[0];
-			node.duration = transition_parts[1].match("ms") ? parseFloat(transition_parts[1]) : (parseFloat(transition_parts[1]) * 1000);
-			node._ease = transition_parts[2];
-			if(transition_parts.length == 4) {
-				node.delay = transition_parts[3].match("ms") ? parseFloat(transition_parts[3]) : (parseFloat(transition_parts[3]) * 1000);
-			}
-		}
-		var value, d;
-		node._start = {};
-		node._end = {};
-		node._unit = {};
-		for(attribute in attributes) {
-			if(attribute.match(/^(d)$/)) {
-				node._start[attribute] = this.parseSVGPath(this.getInitialValue(node, attribute));
-				node._end[attribute] = this.parseSVGPath(attributes[attribute]);
-			}
-			else if(attribute.match(/^(points)$/)) {
-				node._start[attribute] = this.parseSVGPolygon(this.getInitialValue(node, attribute));
-				node._end[attribute] = this.parseSVGPolygon(attributes[attribute]);
-			}
-			else {
-				node._unit[attribute] = attributes[attribute].toString().match(/\%|px/);
-				node._start[attribute] = this.getInitialValue(node, attribute);
-				node._end[attribute] = attributes[attribute].toString().replace(node._unit[attribute], "");
-			}
-		}
-		node.easing = u.easings[node._ease];
-		node.transitionTo = function(progress) {
-			var easing = node.easing(progress);
-			for(attribute in attributes) {
-				if(attribute.match(/^(translate|rotate|scale)$/)) {
-					if(attribute == "translate") {
-						u.a.translate(this, Math.round((this._end_x - this._start_x) * easing), Math.round((this._end_y - this._start_y) * easing))
-					}
-					else if(attribute == "rotate") {
-					}
-				}
-				else if(attribute.match(/^(x1|y1|x2|y2|r|cx|cy|stroke-width)$/)) {
-					var new_value = (this._start[attribute] + ((this._end[attribute] - this._start[attribute]) * easing)) +  this._unit[attribute]
-					this.setAttribute(attribute, new_value);
-				}
-				else if(attribute.match(/^(d)$/)) {
-					var new_value = "";
-					for(x in this._start[attribute]) {
-						for(y in this._start[attribute][x]) {
-							if(parseFloat(this._start[attribute][x][y]) == this._start[attribute][x][y]) {
-								new_value += (Number(this._start[attribute][x][y]) + ((Number(this._end[attribute][x][y]) - Number(this._start[attribute][x][y])) * easing)) + " ";
-							}
-							else {
-								new_value += this._end[attribute][x][y] + " ";
-							}
-						}
-					}
-					this.setAttribute(attribute, new_value);
-				}
-				else if(attribute.match(/^(points)$/)) {
-					var new_value = "";
-					for(x in this._start[attribute]) {
-						new_value += (this._start[attribute][x][0] + ((this._end[attribute][x][0] - this._start[attribute][x][0]) * easing)) + ",";
-						new_value += (this._start[attribute][x][1] + ((this._end[attribute][x][1] - this._start[attribute][x][1]) * easing)) + " ";
-					}
-					this.setAttribute(attribute, new_value);
-				}
-				else {
-					var new_value = (this._start[attribute] + ((this._end[attribute] - this._start[attribute]) * easing)) +  this._unit[attribute]
-					u.as(node, attribute, new_value, false);
-				}
-			}
-		}
-		u.a.requestAnimationFrame(node, "transitionTo", node.duration);
-	}
-
-
-/*u-easings.js*/
-u.easings = new function() {
-	this["ease-in"] = function(progress) {
-		return Math.pow((progress*this.duration) / this.duration, 3);
-	}
-	this["linear"] = function(progress) {
-		return progress;
-	}
-	this["ease-out"] = function(progress) {
-		return 1 - Math.pow(1 - ((progress*this.duration) / this.duration), 3);
-	}
-	this["linear"] = function(progress) {
-		return (progress*this.duration) / this.duration;
-	}
-	this["ease-in-out"] = function(progress) {
-		if((progress*this.duration) > (this.duration / 2)) {
-			return 1 - Math.pow(1 - ((progress*this.duration) / this.duration), 3);
-		}
-		return Math.pow((progress*this.duration) / this.duration, 3);
-	}
-}
-
-/*i-page-desktop.js*/
+/*i-page-smartphone.js*/
+u.bug_force = true;
 u.bug_console_only = true;
 Util.Objects["page"] = new function() {
 	this.init = function(page) {
-			window.page = page;
-			page.style_tag = document.createElement("style");
-			page.style_tag.setAttribute("media", "all")
-			page.style_tag.setAttribute("type", "text/css")
-			page.style_tag = u.ae(document.head, page.style_tag);
-			page.hN = u.qs("#header");
-			page.hN.service = u.qs(".servicenavigation", page.hN);
-			page.cN = u.qs("#content", page);
-			page.nN = u.qs("#navigation", page);
-			page.nN = u.ie(page.hN, page.nN);
-			page.fN = u.qs("#footer");
-			page.fN.service = u.qs(".servicenavigation", page.fN);
-			page.fN.slogan = u.qs("p", page.fN);
-			if(page.fN.slogan) {
-				u.ce(page.fN.slogan);
-				page.fN.slogan.clicked = function(event) {
-					window.open("http://parentnode.dk");
+		page.hN = u.qs("#header");
+		page.hN.service = u.qs(".servicenavigation", page.hN);
+		u.e.drag(page.hN, page.hN);
+		page.logo = u.ie(page.hN, "a", {"class":"logo", "html":u.eitherOr(u.site_name, "Frontpage")});
+		page.logo.url = '/';
+		page.cN = u.qs("#content", page);
+		page.nN = u.qs("#navigation", page);
+		page.nN.list = u.qs("ul", page.nN);
+		page.nN = u.ie(page.hN, page.nN);
+		page.fN = u.qs("#footer");
+		page.fN.service = u.qs(".servicenavigation", page.fN);
+		page.fN.slogan = u.qs("p", page.fN);
+		u.ce(page.fN.slogan);
+		page.fN.slogan.clicked = function(event) {
+			window.open("http://parentnode.dk");
+		}
+		page.resized = function() {
+			this.calc_height = u.browserH();
+			this.calc_width = u.browserW();
+			this.available_height = this.calc_height - page.hN.offsetHeight - page.fN.offsetHeight;
+			u.as(page.cN, "height", "auto", false);
+			if(this.available_height >= page.cN.offsetHeight) {
+				u.as(page.cN, "height", this.available_height+"px", false);
+			}
+			if(this.calc_width > 1300) {
+				u.ac(page, "fixed");
+			}
+			else {
+				u.rc(page, "fixed");
+			}
+			if(page.cN && page.cN.scene) {
+				if(typeof(page.cN.scene.resized) == "function") {
+					page.cN.scene.resized();
 				}
 			}
-			page.logo = u.ie(page.hN, "a", {"class":"logo", "html":u.eitherOr(u.site_name, "Frontpage")});
-			page.logo.url = '/';
-			page.logo.font_size = parseInt(u.gcs(page.logo, "font-size"));
-			page.logo.font_size_gap = page.logo.font_size-14;
-			page.logo.top_offset = u.absY(page.nN) + parseInt(u.gcs(page.nN, "padding-top"));
-			page.style_tag.sheet.insertRule("#header a.logo {}", 0);
-			page.logo.css_rule = page.style_tag.sheet.cssRules[0];
-			if(u.github_fork) {
-				var github = u.ae(page.hN.service, "li", {"html":'<a href="'+u.github_fork.url+'">'+u.github_fork.text+'</a>', "class":"github"});
-				u.ce(github, {"type":"link"});
+		}
+		page.scrolled = function() {
+			if(page.cN && page.cN.scene && typeof(page.cN.scene.scrolled) == "function") {
+				page.cN.scene.scrolled();
 			}
-			page.resized = function() {
-				u.bug("page resized")
-				page.browser_h = u.browserH();
-				page.browser_w = u.browserW();
-				page.available_height = page.browser_h - page.hN.offsetHeight - page.fN.offsetHeight;
-				u.as(page.cN, "min-height", "auto", false);
-				if(page.available_height >= page.cN.offsetHeight) {
-					u.as(page.cN, "minHeight", page.available_height+"px", false);
+		}
+		page.orientationchanged = function() {
+			if(u.hc(page.bn_nav, "open")) {
+				u.as(page.hN, "height", window.innerHeight + "px");
+			}
+		}
+		page.ready = function() {
+			if(!u.hc(this, "ready")) {
+				u.addClass(this, "ready");
+				u.e.addEvent(window, "resize", page.resized);
+				u.e.addEvent(window, "scroll", page.scrolled);
+				u.e.addEvent(window, "orientationchange", page.orientationchanged);
+				this.initNavigation();
+				this.resized();
+				if(!u.getCookie("terms_v1")) {
+					var terms = u.ie(page.cN, "div", {"class":"terms_notification"});
+					u.ae(terms, "h3", {"html":"We love <br />cookies and privacy"});
+					var bn_accept = u.ae(terms, "a", {"class":"accept", "html":"Accept"});
+					bn_accept.terms = terms;
+					u.ce(bn_accept);
+					bn_accept.clicked = function() {
+						this.terms.parentNode.removeChild(this.terms);
+						u.saveCookie("terms_v1", true, {"expiry":new Date(new Date().getTime()+(1000*60*60*24*365)).toGMTString()});
+					}
+					if(!location.href.match(/\/terms/)) {
+						var bn_details = u.ae(terms, "a", {"class":"details", "html":"Details"});
+						bn_details.url = "/terms";
+						u.ce(bn_details, {"type":"link"});
+					}
 				}
-				if(page.browser_w > 1300) {
-					u.ac(page, "fixed");
+			}
+		}
+		page.initNavigation = function() {
+			this.bn_nav = u.qs(".servicenavigation li.navigation", this.hN);
+			u.ae(this.bn_nav, "div");
+			u.ae(this.bn_nav, "div");
+			u.ae(this.bn_nav, "div");
+			u.ce(this.bn_nav);
+			this.bn_nav.clicked = function(event) {
+				if(u.hc(this, "open")) {
+					u.rc(this, "open");
+					u.as(page.hN, "height", "60px");
+					u.as(page.nN, "display", "none");
 				}
 				else {
-					u.rc(page, "fixed");
-				}
-				if(page.cN && page.cN.scene) {
-					if(typeof(page.cN.scene.resized) == "function") {
-						page.cN.scene.resized();
-					}
-				}
-			}
-			page.scrolled = function() {
-				page.scrolled_y = u.scrollY();
-				if(page.scrolled_y < page.logo.top_offset) {
-					page.logo.is_reduced = false;
-					var reduce_font = (1-(page.logo.top_offset-page.scrolled_y)/page.logo.top_offset) * page.logo.font_size_gap;
-					page.logo.css_rule.style.setProperty("font-size", (page.logo.font_size-reduce_font)+"px", "important");
-				}
-				else if(!page.logo.is_reduced) {
-					page.logo.is_reduced = true;
-					page.logo.css_rule.style.setProperty("font-size", (page.logo.font_size-page.logo.font_size_gap)+"px", "important");
-				}
-				if(page.nN.top_offset && page.scrolled_y < page.nN.top_offset) {
-					page.nN.is_reduced = false;
-					var factor = (1-(page.nN.top_offset-page.scrolled_y)/page.nN.top_offset);
-					var reduce_font = factor * page.nN.font_size_gap;
-					page.nN.list.css_rule.style.setProperty("font-size", (page.nN.font_size-reduce_font)+"px", "important");
-					var reduce_top = factor * page.nN.top_offset_gap;
-					page.nN.css_rule.style.setProperty("top", (page.nN.top_offset-reduce_top)+"px", "important");
-				}
-				else if(page.nN.top_offset && !page.nN.is_reduced) {
-					page.nN.is_reduced = true;
-					page.nN.list.css_rule.style.setProperty("font-size", (page.nN.font_size-page.nN.font_size_gap)+"px", "important");
-					page.nN.css_rule.style.setProperty("top", (page.nN.top_offset-page.nN.top_offset_gap)+"px", "important");
-				}
-				if(page.cN && page.cN.scene && typeof(page.cN.scene.scrolled) == "function") {
-					page.cN.scene.scrolled();
+					u.ac(this, "open");
+					u.as(page.hN, "height", window.innerHeight + "px");
+					u.as(page.nN, "display", "block");
+					page.nN.start_drag_y = (window.innerHeight - 100) - page.nN.offsetHeight;
+					page.nN.end_drag_y = page.nN.offsetHeight;
 				}
 			}
-			page.ready = function() {
-				if(!this.is_ready) {
-					this.is_ready = true;
-					u.e.addEvent(window, "resize", page.resized);
-					u.e.addEvent(window, "scroll", page.scrolled);
-					this.initNavigation();
-					this.resized();
-					if(!u.getCookie("terms_v1")) {
-					}
-				}
-			}
-			page.initNavigation = function() {
-				var i, node;
-				page.nN.list = u.qs("ul", page.nN);
-				page.nN.list.nodes = u.qsa("li", page.nN);
-				if(page.nN.list.nodes.length) {
-					page.nN.font_size = parseInt(u.gcs(page.nN.list.nodes[1], "font-size"));
-					page.nN.font_size_gap = page.nN.font_size-14;
-					page.nN.top_offset = u.absY(page.nN) + parseInt(u.gcs(page.nN, "padding-top"));
-					page.nN.top_offset_gap = page.nN.top_offset-10;
-					page.style_tag.sheet.insertRule("#navigation {}", 0);
-					page.nN.css_rule = page.style_tag.sheet.cssRules[0];
-					page.style_tag.sheet.insertRule("#navigation ul li {}", 0);
-					page.nN.list.css_rule = page.style_tag.sheet.cssRules[0];
-				}
-				this.hN.nodes = u.qsa("#navigation li,a.logo", page.hN);
-				for(i = 0; node = this.hN.nodes[i]; i++) {
+			u.e.drag(this.nN, [0, (window.innerHeight - 100) - this.nN.offsetHeight, this.hN.offsetWidth, this.nN.offsetHeight], {"strict":false, "elastica":200, "vertical_lock":true});
+			var i, node;
+			this.hN.nodes = u.qsa("#navigation li,a.logo", page.hN);
+			for(i = 0; node = this.hN.nodes[i]; i++) {
 				u.ce(node, {"type":"link"});
-					node._mousedover = function() {
+				node._mousedover = function() {
+					this.transitioned = function() {
 						this.transitioned = function() {
-							this.transitioned = function() {
-								this.transitioned = function() {
-									u.a.transition(this, "none");
-								}
-								u.a.transition(this, "all 0.1s ease-in-out");
-								u.a.scale(this, 1.2);
-							}
-							u.a.transition(this, "all 0.1s ease-in-out");
-							u.a.scale(this, 1.15);
+							u.a.transition(this, "none");
 						}
 						u.a.transition(this, "all 0.1s ease-in-out");
-						u.a.scale(this, 1.22);
+						u.a.scale(this, 1.15);
 					}
-					node._mousedout = function() {
+					u.a.transition(this, "all 0.1s ease-in-out");
+					u.a.scale(this, 1.22);
+				}
+				node._mousedout = function() {
+					this.transitioned = function() {
 						this.transitioned = function() {
-							this.transitioned = function() {
-								u.a.transition(this, "none");
-							}
-							u.a.transition(this, "all 0.1s ease-in");
-							u.a.scale(this, 1);
+							u.a.transition(this, "none");
 						}
-						u.a.transition(this, "all 0.1s ease-in");
-						u.a.scale(this, 0.8);
+						u.a.transition(this, "all 0.1s ease-in-out");
+						u.a.scale(this, 1);
 					}
-					if(u.e.event_pref == "mouse") {
-						u.e.addEvent(node, "mouseover", node._mousedover);
-						u.e.addEvent(node, "mouseout", node._mousedout);
-					}
-					else {
-						u.e.addStartEvent(node, node._mousedover);
-						u.e.addEndEvent(node, node._mousedout);
-					}
+					u.a.transition(this, "all 0.1s ease-in-out");
+					u.a.scale(this, 0.9);
+				}
+				if(u.e.event_pref == "mouse") {
+					u.e.addEvent(node, "mouseover", node._mousedover);
+					u.e.addEvent(node, "mouseout", node._mousedout);
+				}
+				else {
+					u.e.addEvent(node, "touchstart", node._mousedover);
+					u.e.addEvent(node, "touchend", node._mousedout);
 				}
 			}
-			page.ready();
+		}
+		page.ready();
 	}
 }
 u.e.addDOMReadyEvent(u.init);
 
 
-/*i-login-desktop.js*/
+/*i-login-smartphone.js*/
 Util.Objects["login"] = new function() {
 	this.init = function(scene) {
-		u.bug("scene init:" + u.nodeId(scene))
 		scene.resized = function() {
 		}
 		scene.scrolled = function() {
@@ -6667,7 +6363,6 @@ Util.Objects["login"] = new function() {
 		scene.ready = function() {
 			this._form = u.qs("form", this);
 			u.f.init(this._form);
-			this._form.fields["username"].focus();
 			page.cN.scene = this;
 			page.resized();
 		}
@@ -6676,10 +6371,9 @@ Util.Objects["login"] = new function() {
 }
 
 
-/*i-signup-desktop.js*/
+/*i-signup-smartphone.js*/
 Util.Objects["signup"] = new function() {
 	this.init = function(scene) {
-		u.bug("scene init:" + u.nodeId(scene))
 		scene.resized = function() {
 		}
 		scene.scrolled = function() {
@@ -6695,7 +6389,7 @@ Util.Objects["signup"] = new function() {
 }
 
 
-/*i-newsletter-desktop.js*/
+/*i-newsletter-smartphone.js*/
 Util.Objects["newsletter"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
@@ -6713,56 +6407,26 @@ Util.Objects["newsletter"] = new function() {
 }
 
 
-/*i-article-desktop.js*/
+/*i-article-smartphone.js*/
 Util.Objects["article"] = new function() {
 	this.init = function(article) {
-		u.bug("article init:" + u.nodeId(article) + "," + u.qs("h1,h2,h3", article).innerHTML)
 		var i, image;
 		article._images = u.qsa("div.image,div.media", article);
 		for(i = 0; image = article._images[i]; i++) {
-			image.node = article;
 			image._id = u.cv(image, "item_id");
 			image._format = u.cv(image, "format");
 			image._variant = u.cv(image, "variant");
+			u.ce(image);
+			u.rc(image, "link");
 			if(image._id && image._format) {
-				image._image_src = "/images/" + image._id + "/" + (image._variant ? image._variant+"/" : "") + image.offsetWidth + "x." + image._format;
+				image._image_src = "/images/" + image._id + "/" + (image._variant ? image._variant+"/" : "") + "480x." + image._format;
+				image._image = u.ie(image, "img");
 				u.a.setOpacity(image, 0);
 				image.loaded = function(queue) {
-					u.ac(this, "loaded");
-					this._image = u.ie(this, "img");
-					this._image.image = this;
+					if(u.absY(this) < u.scrollY()) {
+						window.scrollTo(0, u.scrollY()+queue[0].image.height)
+					}
 					this._image.src = queue[0].image.src;
-					if(this.node.article_list) {
-						this.node.article_list.correctScroll(this.node, this, -10);
-					}
-					u.ce(this._image);
-					this._image.clicked = function() {
-						if(u.hc(this.image, "fullsize")) {
-							u.a.transition(this, "all 0.3s ease-in-out");
-							u.rc(this.image, "fullsize");
-							this.src = this.image._image_src;
-						}
-						else {
-							u.a.transition(this, "all 0.3s ease-in-out");
-							u.ac(this.image, "fullsize");
-							if(this._fullsize_src) {
-								this.src = this._fullsize_src;
-							}
-							else {
-								this._fullsize_width = 1300;
-								this._fullsize_src = "/images/" + this.image._id + "/" + (this.image._variant ? this.image._variant+"/" : "") + this._fullsize_width + "x." + this.image._format;
-								this.response = function() {
-									this.src = this._fullsize_src;
-								}
-								this.responseError = function() {
-									this._fullsize_width = this._fullsize_width-200;
-									this._fullsize_src = "/images/" + this._id + "/" + (this.image._variant ? this.image._variant+"/" : "") + this._fullsize_width + "x." + this.image._format;
-									u.request(this, this._fullsize_src);
-								}
-								u.request(this, this._fullsize_src);
-							}
-						}
-					}
 					u.a.transition(this, "all 0.5s ease-in-out");
 					u.a.setOpacity(this, 1);
 				}
@@ -6773,1094 +6437,7 @@ Util.Objects["article"] = new function() {
 		if(article.geolocation && typeof(u.injectGeolocation) == "function") {
 			u.injectGeolocation(article);
 		}
-		var hardlink = u.qs("dd.hardlink", article);
-		article.hardlink = hardlink ? hardlink.innerHTML : false;
-		if(article.hardlink && typeof(u.injectSharing) == "function") {
-			article.shareInjected = function() {
-				this.article_list.correctScroll(this, this.sharing);
-			}
-			u.injectSharing(article);
-		}
 	}
 }
 
-
-/*i-todolist-desktop.js*/
-Util.Objects["todolist"] = new function() {
-	this.init = function(scene) {
-		scene.resized = function() {
-		}
-		scene.scrolled = function() {
-		}
-		scene.ready = function() {
-			u.bug("scene.ready:" + u.nodeId(this));
-			this.nodes = u.qsa("li.item", this);
-			if(this.nodes.length) {
-				var i, node;
-				for(i = 0; node = this.nodes[i]; i++) {
-					node.item_id = u.cv(node, "id");
-					node.actions = u.qs("ul.actions", node);
-					node.close_form = u.qs("li.close form", node);
-					u.f.init(node.close_form);
-					node.bn_close = u.qs("input[type=submit]", node.close_form);
-					node.bn_close.node = node;
-					u.e.click(node.bn_close)
-					node.bn_close.clicked = function(event) {
-						u.e.kill(event);
-						this.response = function(response) {
-							if(response.cms_status == "success") {
-								u.ac(this.node.actions, "closed");
-							}
-							else {
-							}
-						}
-						u.request(this, this.form.action, {"method":this.form.method, "params":u.f.getParams(this.form)});
-					}
-					node.open_form = u.qs("li.open form", node);
-					u.f.init(node.open_form);
-					node.bn_open = u.qs("input[type=submit]", node.open_form);
-					node.bn_open.node = node;
-					u.e.click(node.bn_open)
-					node.bn_open.clicked = function(event) {
-						u.e.kill(event);
-						this.response = function(response) {
-							if(response.cms_status == "success") {
-								u.rc(this.node.actions, "closed");
-							}
-							else {
-							}
-						}
-						u.request(this, this.form.action, {"method":this.form.method, "params":u.f.getParams(this.form)});
-					}
-				}
-			}
-			page.cN.scene = this;
-			page.resized();
-		}
-		scene.ready();
-	}
-}
-
-
-
-/*u-events.js*/
-Util.Events = u.e = new function() {
-	this.event_pref = typeof(document.ontouchmove) == "undefined" || (navigator.maxTouchPoints > 1 && navigator.userAgent.match(/Windows/i)) ? "mouse" : "touch";
-	if(navigator.maxTouchPoints > 1) {
-		if(typeof(document.ontouchmove) == "undefined" && typeof(document.onmousemove) == "undefined") {
-			this.event_support = "multi";
-		}
-	}
-	if(!this.event_support) {
-		if(typeof(document.ontouchmove) == "undefined") {
-			this.event_support = "mouse";
-		}
-		else {
-			this.event_support = "touch";
-		}
-	}
-	this.events = {
-		"mouse": {
-			"start":"mousedown",
-			"move":"mousemove",
-			"end":"mouseup",
-			"over":"mouseover",
-			"out":"mouseout"
-		},
-		"touch": {
-			"start":"touchstart",
-			"move":"touchmove",
-			"end":"touchend",
-			"over":"touchstart",
-			"out":"touchend"
-		}
-	}
-	this.kill = function(event) {
-		if(event) {
-			event.preventDefault();
-			event.stopPropagation();
-		}
-	}
-	this.addEvent = function(node, type, action) {
-		try {
-			node.addEventListener(type, action, false);
-		}
-		catch(exception) {
-			alert("exception in addEvent:" + node + "," + type + ":" + exception);
-		}
-	}
-	this.removeEvent = function(node, type, action) {
-		try {
-			node.removeEventListener(type, action, false);
-		}
-		catch(exception) {
-			u.bug("exception in removeEvent:" + node + "," + type + ":" + exception);
-		}
-	}
-	this.addStartEvent = this.addDownEvent = function(node, action) {
-		if(this.event_support == "multi") {
-			u.e.addEvent(node, this.events.mouse.start, action);
-			u.e.addEvent(node, this.events.touch.start, action);
-		}
-		else {
-			u.e.addEvent(node, this.events[this.event_support].start, action);
-		}
-	}
-	this.removeStartEvent = this.removeDownEvent = function(node, action) {
-		if(this.event_support == "multi") {
-			u.e.removeEvent(node, this.events.mouse.start, action);
-			u.e.removeEvent(node, this.events.touch.start, action);
-		}
-		else {
-			u.e.removeEvent(node, this.events[this.event_support].start, action);
-		}
-	}
-	this.addMoveEvent = function(node, action) {
-		if(this.event_support == "multi") {
-			u.e.addEvent(node, this.events.mouse.move, action);
-			u.e.addEvent(node, this.events.touch.move, action);
-		}
-		else {
-			u.e.addEvent(node, this.events[this.event_support].move, action);
-		}
-	}
-	this.removeMoveEvent = function(node, action) {
-		if(this.event_support == "multi") {
-			u.e.removeEvent(node, this.events.mouse.move, action);
-			u.e.removeEvent(node, this.events.touch.move, action);
-		}
-		else {
-			u.e.removeEvent(node, this.events[this.event_support].move, action);
-		}
-	}
-	this.addEndEvent = this.addUpEvent = function(node, action) {
-		if(this.event_support == "multi") {
-			u.e.addEvent(node, this.events.mouse.end, action);
-			u.e.addEvent(node, this.events.touch.end, action);
-		}
-		else {
-			u.e.addEvent(node, this.events[this.event_support].end, action);
-		}
-	}
-	this.removeEndEvent = this.removeUpEvent = function(node, action) {
-		if(this.event_support == "multi") {
-			u.e.removeEvent(node, this.events.mouse.end, action);
-			u.e.removeEvent(node, this.events.touch.end, action);
-		}
-		else {
-			u.e.removeEvent(node, this.events[this.event_support].end, action);
-		}
-	}
-	this.addOverEvent = function(node, action) {
-		if(this.event_support == "multi") {
-			u.e.addEvent(node, this.events.mouse.over, action);
-			u.e.addEvent(node, this.events.touch.over, action);
-		}
-		else {
-			u.e.addEvent(node, this.events[this.event_support].over, action);
-		}
-	}
-	this.removeOverEvent = function(node, action) {
-		if(this.event_support == "multi") {
-			u.e.removeEvent(node, this.events.mouse.over, action);
-			u.e.removeEvent(node, this.events.touch.over, action);
-		}
-		else {
-			u.e.removeEvent(node, this.events[this.event_support].over, action);
-		}
-	}
-	this.addOutEvent = function(node, action) {
-		if(this.event_support == "multi") {
-			u.e.addEvent(node, this.events.mouse.out, action);
-			u.e.addEvent(node, this.events.touch.out, action);
-		}
-		else {
-			u.e.addEvent(node, this.events[this.event_support].out, action);
-		}
-	}
-	this.removeOutEvent = function(node, action) {
-		if(this.event_support == "multi") {
-			u.e.removeEvent(node, this.events.mouse.out, action);
-			u.e.removeEvent(node, this.events.touch.out, action);
-		}
-		else {
-			u.e.removeEvent(node, this.events[this.event_support].out, action);
-		}
-	}
-	this.resetClickEvents = function(node) {
-		u.t.resetTimer(node.t_held);
-		u.t.resetTimer(node.t_clicked);
-		this.removeEvent(node, "mouseup", this._dblclicked);
-		this.removeEvent(node, "touchend", this._dblclicked);
-		this.removeEvent(node, "mousemove", this._cancelClick);
-		this.removeEvent(node, "touchmove", this._cancelClick);
-		this.removeEvent(node, "mouseout", this._cancelClick);
-		this.removeEvent(node, "mousemove", this._move);
-		this.removeEvent(node, "touchmove", this._move);
-	}
-	this.resetEvents = function(node) {
-		this.resetClickEvents(node);
-		if(typeof(this.resetDragEvents) == "function") {
-			this.resetDragEvents(node);
-		}
-	}
-	this.resetNestedEvents = function(node) {
-		while(node && node.nodeName != "HTML") {
-			this.resetEvents(node);
-			node = node.parentNode;
-		}
-	}
-	this._inputStart = function(event) {
-		this.event_var = event;
-		this.input_timestamp = event.timeStamp;
-		this.start_event_x = u.eventX(event);
-		this.start_event_y = u.eventY(event);
-		this.current_xps = 0;
-		this.current_yps = 0;
-		this.move_timestamp = event.timeStamp;
-		this.move_last_x = 0;
-		this.move_last_y = 0;
-		this._moves_cancel = 0;
-		this.swiped = false;
-		if(this.e_click || this.e_dblclick || this.e_hold) {
-			if(event.type.match(/mouse/)) {
-				var node = this;
-				while(node) {
-					if(node.e_drag || node.e_swipe) {
-						u.e.addMoveEvent(this, u.e._cancelClick);
-						break;
-					}
-					else {
-						node = node.parentNode;
-					}
-				}
-				u.e.addEvent(this, "mouseout", u.e._cancelClick);
-			}
-			else {
-				u.e.addMoveEvent(this, u.e._cancelClick);
-			}
-			u.e.addMoveEvent(this, u.e._move);
-			u.e.addEndEvent(this, u.e._dblclicked);
-		}
-		if(this.e_hold) {
-			this.t_held = u.t.setTimer(this, u.e._held, 750);
-		}
-		if(this.e_drag || this.e_swipe) {
-			u.e.addMoveEvent(this, u.e._pick);
-			u.e.addEndEvent(this, u.e._drop);
-		}
-		if(this.e_scroll) {
-			u.e.addMoveEvent(this, u.e._scrollStart);
-			u.e.addEndEvent(this, u.e._scrollEnd);
-		}
-		if(typeof(this.inputStarted) == "function") {
-			this.inputStarted(event);
-		}
-	}
-	this._cancelClick = function(event) {
-		if(event.type.match(/mouseout/) || this._moves_cancel > 1 || (event.type.match(/move/) && (Math.abs(this.current_xps) > 30 || Math.abs(this.current_yps) > 30))) {
-			u.e.resetClickEvents(this);
-			if(typeof(this.clickCancelled) == "function") {
-				this.clickCancelled(event);
-			}
-		}
-		else if(event.type.match(/move/)) {
-			this._moves_cancel++;
-		}
-	}
-	this._move = function(event) {
-		u.bug("_move:" + u.nodeId(this))
-		if(typeof(this.moved) == "function") {
-			this.current_x = u.eventX(event) - this.start_event_x;
-			this.current_y = u.eventY(event) - this.start_event_y;
-			this.current_xps = Math.round(((this.current_x - this.move_last_x) / (event.timeStamp - this.move_timestamp)) * 1000);
-			this.current_yps = Math.round(((this.current_y - this.move_last_y) / (event.timeStamp - this.move_timestamp)) * 1000);
-			this.move_timestamp = event.timeStamp;
-			this.move_last_x = this.current_x;
-			this.move_last_y = this.current_y;
-			this.moved(event);
-		}
-	}
-	this.hold = function(node) {
-		node.e_hold = true;
-		u.e.addStartEvent(node, this._inputStart);
-	}
-	this._held = function(event) {
-		u.stats.event(this, "held");
-		u.e.resetNestedEvents(this);
-		if(typeof(this.held) == "function") {
-			this.held(event);
-		}
-	}
-	this.click = this.tap = function(node) {
-		node.e_click = true;
-		u.e.addStartEvent(node, this._inputStart);
-	}
-	this._clicked = function(event) {
-		u.stats.event(this, "clicked");
-		u.e.resetNestedEvents(this);
-		if(typeof(this.clicked) == "function") {
-			this.clicked(event);
-		}
-	}
-	this.dblclick = this.doubletap = function(node) {
-		node.e_dblclick = true;
-		u.e.addStartEvent(node, this._inputStart);
-	}
-	this._dblclicked = function(event) {
-		if(u.t.valid(this.t_clicked) && event) {
-			u.stats.event(this, "dblclicked");
-			u.e.resetNestedEvents(this);
-			if(typeof(this.dblclicked) == "function") {
-				this.dblclicked(event);
-			}
-			return;
-		}
-		else if(!this.e_dblclick) {
-			this._clicked = u.e._clicked;
-			this._clicked(event);
-		}
-		else if(event.type == "timeout") {
-			this._clicked = u.e._clicked;
-			this._clicked(this.event_var);
-		}
-		else {
-			u.e.resetNestedEvents(this);
-			this.t_clicked = u.t.setTimer(this, u.e._dblclicked, 400);
-		}
-	}
-	this.hover = function(node, _options) {
-		node._hover_out_delay = 100;
-		node._callback_out = "out";
-		node._callback_over = "over";
-		if(typeof(_options) == "object") {
-			var argument;
-			for(argument in _options) {
-				switch(argument) {
-					case "over"				: node._callback_over		= _options[argument]; break;
-					case "out"				: node._callback_out		= _options[argument]; break;
-					case "delay"			: node._hover_out_delay		= _options[argument]; break;
-				}
-			}
-		}
-		node.e_hover = true;
-		u.e.addOverEvent(node, this._over);
-		u.e.addOutEvent(node, this._out);
-	}
-	this._over = function(event) {
-		u.t.resetTimer(this.t_out);
-		if(typeof(this[this._callback_over]) == "function" && !this.is_hovered) {
-			this[this._callback_over](event);
-		}
-		this.is_hovered = true;
-	}
-	this._out = function(event) {
-		this.t_out = u.t.setTimer(this, u.e.__out, this._hover_out_delay, event);
-	}
-	this.__out = function(event) {
-		this.is_hovered = false;
-		if(typeof(this[this._callback_out]) == "function") {
-			this[this._callback_out](event);
-		}
-	}
-}
-
-
-/*u-events-movements.js*/
-u.e.resetDragEvents = function(node) {
-	node._moves_pick = 0;
-	this.removeEvent(node, "mousemove", this._pick);
-	this.removeEvent(node, "touchmove", this._pick);
-	this.removeEvent(node, "mousemove", this._drag);
-	this.removeEvent(node, "touchmove", this._drag);
-	this.removeEvent(node, "mouseup", this._drop);
-	this.removeEvent(node, "touchend", this._drop);
-	this.removeEvent(node, "mouseout", this._drop_out);
-	this.removeEvent(node, "mouseover", this._drop_over);
-	this.removeEvent(node, "mousemove", this._scrollStart);
-	this.removeEvent(node, "touchmove", this._scrollStart);
-	this.removeEvent(node, "mousemove", this._scrolling);
-	this.removeEvent(node, "touchmove", this._scrolling);
-	this.removeEvent(node, "mouseup", this._scrollEnd);
-	this.removeEvent(node, "touchend", this._scrollEnd);
-}
-u.e.overlap = function(node, boundaries, strict) {
-	if(boundaries.constructor.toString().match("Array")) {
-		var boundaries_start_x = Number(boundaries[0]);
-		var boundaries_start_y = Number(boundaries[1]);
-		var boundaries_end_x = Number(boundaries[2]);
-		var boundaries_end_y = Number(boundaries[3]);
-	}
-	else if(boundaries.constructor.toString().match("HTML")) {
-		var boundaries_start_x = u.absX(boundaries) - u.absX(node);
-		var boundaries_start_y =  u.absY(boundaries) - u.absY(node);
-		var boundaries_end_x = Number(boundaries_start_x + boundaries.offsetWidth);
-		var boundaries_end_y = Number(boundaries_start_y + boundaries.offsetHeight);
-	}
-	var node_start_x = Number(node._x);
-	var node_start_y = Number(node._y);
-	var node_end_x = Number(node_start_x + node.offsetWidth);
-	var node_end_y = Number(node_start_y + node.offsetHeight);
-	if(strict) {
-		if(node_start_x >= boundaries_start_x && node_start_y >= boundaries_start_y && node_end_x <= boundaries_end_x && node_end_y <= boundaries_end_y) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	} 
-	else if(node_end_x < boundaries_start_x || node_start_x > boundaries_end_x || node_end_y < boundaries_start_y || node_start_y > boundaries_end_y) {
-		return false;
-	}
-	return true;
-}
-u.e.drag = function(node, boundaries, _options) {
-	node.e_drag = true;
-	node._moves_pick = 0;
-	if(node.childNodes.length < 2 && node.innerHTML.trim() == "") {
-		node.innerHTML = "&nbsp;";
-	}
-	node.drag_strict = true;
-	node.drag_elastica = 0;
-	node.drag_dropout = true;
-	node.show_bounds = false;
-	node.callback_picked = "picked";
-	node.callback_moved = "moved";
-	node.callback_dropped = "dropped";
-	if(typeof(_options) == "object") {
-		var _argument;
-		for(_argument in _options) {
-			switch(_argument) {
-				case "strict"			: node.drag_strict			= _options[_argument]; break;
-				case "elastica"			: node.drag_elastica		= Number(_options[_argument]); break;
-				case "dropout"			: node.drag_dropout			= _options[_argument]; break;
-				case "show_bounds"		: node.show_bounds			= _options[_argument]; break; 
-				case "vertical_lock"	: node.vertical_lock		= _options[_argument]; break;
-				case "horizontal_lock"	: node.horizontal_lock		= _options[_argument]; break;
-				case "callback_picked"	: node.callback_picked		= _options[_argument]; break;
-				case "callback_moved"	: node.callback_moved		= _options[_argument]; break;
-				case "callback_dropped"	: node.callback_dropped		= _options[_argument]; break;
-			}
-		}
-	}
-	if((boundaries.constructor && boundaries.constructor.toString().match("Array")) || (boundaries.scopeName && boundaries.scopeName != "HTML")) {
-		node.start_drag_x = Number(boundaries[0]);
-		node.start_drag_y = Number(boundaries[1]);
-		node.end_drag_x = Number(boundaries[2]);
-		node.end_drag_y = Number(boundaries[3]);
-	}
-	else if((boundaries.constructor && boundaries.constructor.toString().match("HTML")) || (boundaries.scopeName && boundaries.scopeName == "HTML")) {
-		node.start_drag_x = u.absX(boundaries) - u.absX(node);
-		node.start_drag_y = u.absY(boundaries) - u.absY(node);
-		node.end_drag_x = node.start_drag_x + boundaries.offsetWidth;
-		node.end_drag_y = node.start_drag_y + boundaries.offsetHeight;
-		// 	
-		// 	
-		// 	
-		// 	
-		// 	
-		// 	
-		// 	
-	}
-	if(node.show_bounds) {
-		var debug_bounds = u.ae(document.body, "div", {"class":"debug_bounds"})
-		debug_bounds.style.position = "absolute";
-		debug_bounds.style.background = "red"
-		debug_bounds.style.left = (u.absX(node) + node.start_drag_x - 1) + "px";
-		debug_bounds.style.top = (u.absY(node) + node.start_drag_y - 1) + "px";
-		debug_bounds.style.width = (node.end_drag_x - node.start_drag_x) + "px";
-		debug_bounds.style.height = (node.end_drag_y - node.start_drag_y) + "px";
-		debug_bounds.style.border = "1px solid white";
-		debug_bounds.style.zIndex = 9999;
-		debug_bounds.style.opacity = .5;
-		if(document.readyState && document.readyState == "interactive") {
-			debug_bounds.innerHTML = "WARNING - injected on DOMLoaded"; 
-		}
-		u.bug("node: "+u.nodeId(node)+" in (" + u.absX(node) + "," + u.absY(node) + "), (" + (u.absX(node)+node.offsetWidth) + "," + (u.absY(node)+node.offsetHeight) +")");
-		u.bug("boundaries: (" + node.start_drag_x + "," + node.start_drag_y + "), (" + node.end_drag_x + ", " + node.end_drag_y + ")");
-	}
-	node._x = node._x ? node._x : 0;
-	node._y = node._y ? node._y : 0;
-	node.locked = ((node.end_drag_x - node.start_drag_x == node.offsetWidth) && (node.end_drag_y - node.start_drag_y == node.offsetHeight));
-	node.only_vertical = (node.vertical_lock || (!node.locked && node.end_drag_x - node.start_drag_x == node.offsetWidth));
-	node.only_horizontal = (node.horizontal_lock || (!node.locked && node.end_drag_y - node.start_drag_y == node.offsetHeight));
-	u.e.addStartEvent(node, this._inputStart);
-}
-u.e._pick = function(event) {
-	var init_speed_x = Math.abs(this.start_event_x - u.eventX(event));
-	var init_speed_y = Math.abs(this.start_event_y - u.eventY(event));
-	if((init_speed_x > init_speed_y && this.only_horizontal) || 
-	   (init_speed_x < init_speed_y && this.only_vertical) ||
-	   (!this.only_vertical && !this.only_horizontal)) {
-		if(this._moves_pick > 1) {
-			u.e.resetNestedEvents(this);
-			u.e.kill(event);
-			if(u.hasFixedParent(this)) {
-				this.has_fixed_parent = true;
-			}
-			else {
-				this.has_fixed_parent = false;
-			}
-			this.move_timestamp = event.timeStamp;
-			this.move_last_x = this._x;
-			this.move_last_y = this._y;
-			if(u.hasFixedParent(this)) {
-				this.start_input_x = u.eventX(event) - this._x - u.scrollX(); 
-				this.start_input_y = u.eventY(event) - this._y - u.scrollY();
-			}
-			else {
-				this.start_input_x = u.eventX(event) - this._x; 
-				this.start_input_y = u.eventY(event) - this._y;
-			}
-			this.current_xps = 0;
-			this.current_yps = 0;
-			u.a.transition(this, "none");
-			u.e.addMoveEvent(this, u.e._drag);
-			u.e.addEndEvent(this, u.e._drop);
-			if(typeof(this[this.callback_picked]) == "function") {
-				this[this.callback_picked](event);
-			}
-			if(this.drag_dropout && event.type.match(/mouse/)) {
-				// 	
-				// 	
-				// 	
-				// 	
-				// 	
-				// 
-				// 
-				// 	
-				this._dropOutDrag = u.e._drag;
-				u.e.addOutEvent(this, u.e._drop_out);
-			}
-		}
-		else {
-			this._moves_pick++;
-		}
-	}
-}
-u.e._drag = function(event) {
-	if(this.has_fixed_parent) {
-		this.current_x = u.eventX(event) - this.start_input_x - u.scrollX();
-		this.current_y = u.eventY(event) - this.start_input_y - u.scrollY();
-	}
-	else {
-		this.current_x = u.eventX(event) - this.start_input_x;
-		this.current_y = u.eventY(event) - this.start_input_y;
-	}
-	this.current_xps = Math.round(((this.current_x - this.move_last_x) / (event.timeStamp - this.move_timestamp)) * 1000);
-	this.current_yps = Math.round(((this.current_y - this.move_last_y) / (event.timeStamp - this.move_timestamp)) * 1000);
-	this.move_timestamp = event.timeStamp;
-	this.move_last_x = this.current_x;
-	this.move_last_y = this.current_y;
-	if(!this.locked && this.only_vertical) {
-		this._y = this.current_y;
-	}
-	else if(!this.locked && this.only_horizontal) {
-		this._x = this.current_x;
-	}
-	else if(!this.locked) {
-		this._x = this.current_x;
-		this._y = this.current_y;
-	}
-	if(this.e_swipe) {
-		if(this.only_horizontal) {
-			if(this.current_xps < 0) {
-				this.swiped = "left";
-			}
-			else {
-				this.swiped = "right";
-			}
-		}
-		else if(this.only_vertical) {
-			if(this.current_yps < 0) {
-				this.swiped = "up";
-			}
-			else {
-				this.swiped = "down";
-			}
-		}
-		else {
-			if(Math.abs(this.current_xps) > Math.abs(this.current_yps)) {
-				if(this.current_xps < 0) {
-					this.swiped = "left";
-				}
-				else {
-					this.swiped = "right";
-				}
-			}
-			else if(Math.abs(this.current_xps) < Math.abs(this.current_yps)) {
-				if(this.current_yps < 0) {
-					this.swiped = "up";
-				}
-				else {
-					this.swiped = "down";
-				}
-			}
-		}
-	}
-	if(!this.locked) {
-		if(u.e.overlap(this, [this.start_drag_x, this.start_drag_y, this.end_drag_x, this.end_drag_y], true)) {
-			u.a.translate(this, this._x, this._y);
-		}
-		else if(this.drag_elastica) {
-			this.swiped = false;
-			this.current_xps = 0;
-			this.current_yps = 0;
-			var offset = false;
-			if(!this.only_vertical && this._x < this.start_drag_x) {
-				offset = this._x < this.start_drag_x - this.drag_elastica ? - this.drag_elastica : this._x - this.start_drag_x;
-				this._x = this.start_drag_x;
-				this.current_x = this._x + offset + (Math.round(Math.pow(offset, 2)/this.drag_elastica));
-			}
-			else if(!this.only_vertical && this._x + this.offsetWidth > this.end_drag_x) {
-				offset = this._x + this.offsetWidth > this.end_drag_x + this.drag_elastica ? this.drag_elastica : this._x + this.offsetWidth - this.end_drag_x;
-				this._x = this.end_drag_x - this.offsetWidth;
-				this.current_x = this._x + offset - (Math.round(Math.pow(offset, 2)/this.drag_elastica));
-			}
-			else {
-				this.current_x = this._x;
-			}
-			if(!this.only_horizontal && this._y < this.start_drag_y) {
-				offset = this._y < this.start_drag_y - this.drag_elastica ? - this.drag_elastica : this._y - this.start_drag_y;
-				this._y = this.start_drag_y;
-				this.current_y = this._y + offset + (Math.round(Math.pow(offset, 2)/this.drag_elastica));
-			}
-			else if(!this.horizontal && this._y + this.offsetHeight > this.end_drag_y) {
-				offset = (this._y + this.offsetHeight > this.end_drag_y + this.drag_elastica) ? this.drag_elastica : (this._y + this.offsetHeight - this.end_drag_y);
-				this._y = this.end_drag_y - this.offsetHeight;
-				this.current_y = this._y + offset - (Math.round(Math.pow(offset, 2)/this.drag_elastica));
-			}
-			else {
-				this.current_y = this._y;
-			}
-			if(offset) {
-				u.a.translate(this, this.current_x, this.current_y);
-			}
-		}
-		else {
-			this.swiped = false;
-			this.current_xps = 0;
-			this.current_yps = 0;
-			if(this._x < this.start_drag_x) {
-				this._x = this.start_drag_x;
-			}
-			else if(this._x + this.offsetWidth > this.end_drag_x) {
-				this._x = this.end_drag_x - this.offsetWidth;
-			}
-			if(this._y < this.start_drag_y) {
-				this._y = this.start_drag_y;
-			}
-			else if(this._y + this.offsetHeight > this.end_drag_y) { 
-				this._y = this.end_drag_y - this.offsetHeight;
-			}
-			u.a.translate(this, this._x, this._y);
-		}
-	}
-	if(typeof(this[this.callback_moved]) == "function") {
-		this[this.callback_moved](event);
-	}
-}
-u.e._drop = function(event) {
-	u.e.resetEvents(this);
-	if(this.e_swipe && this.swiped) {
-		u.bug("_drop swiped:"+this.swiped);
-		if(this.swiped == "left" && typeof(this.swipedLeft) == "function") {
-			this.swipedLeft(event);
-		}
-		else if(this.swiped == "right" && typeof(this.swipedRight) == "function") {
-			this.swipedRight(event);
-		}
-		else if(this.swiped == "down" && typeof(this.swipedDown) == "function") {
-			this.swipedDown(event);
-		}
-		else if(this.swiped == "up" && typeof(this.swipedUp) == "function") {
-			this.swipedUp(event);
-		}
-	}
-	else if(!this.drag_strict && !this.locked) {
-		this.current_x = Math.round(this._x + (this.current_xps/2));
-		this.current_y = Math.round(this._y + (this.current_yps/2));
-		if(this.only_vertical || this.current_x < this.start_drag_x) {
-			this.current_x = this.start_drag_x;
-		}
-		else if(this.current_x + this.offsetWidth > this.end_drag_x) {
-			this.current_x = this.end_drag_x - this.offsetWidth;
-		}
-		if(this.only_horizontal || this.current_y < this.start_drag_y) {
-			this.current_y = this.start_drag_y;
-		}
-		else if(this.current_y + this.offsetHeight > this.end_drag_y) {
-			this.current_y = this.end_drag_y - this.offsetHeight;
-		}
-		this.transitioned = function() {
-			this.transitioned = null;
-			u.a.transition(this, "none");
-			if(typeof(this.projected) == "function") {
-				this.projected(event);
-			}
-		}
-		if(this.current_xps || this.current_yps) {
-			u.a.transition(this, "all 1s cubic-bezier(0,0,0.25,1)");
-		}
-		else {
-			u.a.transition(this, "all 0.2s cubic-bezier(0,0,0.25,1)");
-		}
-		u.a.translate(this, this.current_x, this.current_y);
-	}
-	if(typeof(this[this.callback_dropped]) == "function") {
-		this[this.callback_dropped](event);
-	}
-}
-u.e._drop_out = function(event) {
-	this._drop_out_id = u.randomString();
-	document["_DroppedOutNode" + this._drop_out_id] = this;
-	eval('document["_DroppedOut' + this._drop_out_id + '"] = function(event) {document["_DroppedOutNode' + this._drop_out_id + '"]._dropOutDrag(event);}');
-	eval('document["_DroppedOutExpire' + this._drop_out_id + '"] = function(event) {u.e.removeEvent(document, "mousemove", document["_DroppedOut' + this._drop_out_id + '"]);u.e.removeEvent(document, "mouseup", document["_DroppedOutExpire' + this._drop_out_id + '"]);u.e.removeEvent(document["_DroppedOutNode' + this._drop_out_id + '"], "mouseover", document["_DroppedOutExpire' + this._drop_out_id + '"]);}');
-	u.e.addEvent(document, "mousemove", document["_DroppedOut" + this._drop_out_id]);
-	u.e.addEvent(document, "mouseup", document["_DroppedOutExpire" + this._drop_out_id]);
-	u.e.addEvent(this, "mouseover", document["_DroppedOutExpire" + this._drop_out_id]);
-}
-u.e.swipe = function(node, boundaries, _options) {
-	node.e_swipe = true;
-	u.e.drag(node, boundaries, _options);
-}
-
-
-/*u-events-browser.js*/
-u.e.addDOMReadyEvent = function(action) {
-	if(document.readyState && document.addEventListener) {
-		if((document.readyState == "interactive" && !u.browser("ie")) || document.readyState == "complete" || document.readyState == "loaded") {
-			action();
-		}
-		else {
-			var id = u.randomString();
-			window["DOMReady_" + id] = action;
-			eval('window["_DOMReady_' + id + '"] = function() {window["DOMReady_'+id+'"](); u.e.removeEvent(document, "DOMContentLoaded", window["_DOMReady_' + id + '"])}');
-			u.e.addEvent(document, "DOMContentLoaded", window["_DOMReady_" + id]);
-		}
-	}
-	else {
-		u.e.addOnloadEvent(action);
-	}
-}
-u.e.addOnloadEvent = function(action) {
-	if(document.readyState && (document.readyState == "complete" || document.readyState == "loaded")) {
-		action();
-	}
-	else {
-		var id = u.randomString();
-		window["Onload_" + id] = action;
-		eval('window["_Onload_' + id + '"] = function() {window["Onload_'+id+'"](); u.e.removeEvent(window, "load", window["_Onload_' + id + '"])}');
-		u.e.addEvent(window, "load", window["_Onload_" + id]);
-	}
-}
-u.e.addWindowResizeEvent = function(node, action) {
-	var id = u.randomString();
-	u.ac(node, id);
-	eval('window["_Onresize_' + id + '"] = function() {var node = u.qs(".'+id+'"); node._Onresize_'+id+' = '+action+'; node._Onresize_'+id+'();}');
-	u.e.addEvent(window, "resize", window["_Onresize_" + id]);
-	return id;
-}
-u.e.removeWindowResizeEvent = function(node, id) {
-	u.rc(node, id);
-	u.e.removeEvent(window, "resize", window["_Onresize_" + id]);
-}
-u.e.addWindowScrollEvent = function(node, action) {
-	var id = u.randomString();
-	u.ac(node, id);
-	eval('window["_Onscroll_' + id + '"] = function() {var node = u.qs(".'+id+'"); node._Onscroll_'+id+' = '+action+'; node._Onscroll_'+id+'();}');
-	u.e.addEvent(window, "scroll", window["_Onscroll_" + id]);
-	return id;
-}
-u.e.removeWindowScrollEvent = function(node, id) {
-	u.rc(node, id);
-	u.e.removeEvent(window, "scroll", window["_Onscroll_" + id]);
-}
-u.e.addWindowMoveEvent = function(node, action) {
-	var id = u.randomString();
-	u.ac(node, id);
-	eval('window["_Onmove_' + id + '"] = function(event) {var node = u.qs(".'+id+'"); node._Onmove_'+id+' = '+action+'; node._Onmove_'+id+'(event);}');
-	u.e.addMoveEvent(window, window["_Onmove_" + id]);
-	return id;
-}
-u.e.removeWindowMoveEvent = function(node, id) {
-	u.rc(node, id);
-	u.e.removeMoveEvent(window, window["_Onmove_" + id]);
-}
-u.e.addWindowEndEvent = function(node, action) {
-	var id = u.randomString();
-	u.ac(node, id);
-	eval('window["_Onend_' + id + '"] = function(event) {var node = u.qs(".'+id+'"); node._Onend_'+id+' = '+action+'; node._Onend_'+id+'(event);}');
-	u.e.addEndEvent(window, window["_Onend_" + id]);
-	return id;
-}
-u.e.removeWindowEndEvent = function(node, id) {
-	u.rc(node, id);
-	u.e.removeEndEvent(window, window["_Onend_" + id]);
-}
-
-
-/*i-build-desktop.js*/
-Util.Objects["build"] = new function() {
-	this.init = function(scene) {
-		u.bug("scene init:" + u.nodeId(scene))
-		scene.resized = function() {
-		}
-		scene.scrolled = function() {
-		}
-		scene.ready = function() {
-			var i, segment, draggable, li, _default, x;
-			this.customize_div = u.qs("div.customize", this);
-			this.customize_defaults = [
-				{
-					"name":"Detector v2",
-					"groupings":{
-						"desktop":[
-							"desktop",
-							"desktop_edge"
-						],
-						"desktop_ie":[
-							"desktop_ie9",
-							"desktop_ie10",
-							"desktop_ie11"
-						],
-						"tablet":[
-							"tablet",
-							"tablet_light"
-						],
-						"mobile_touch":[
-							"smartphone"
-						],
-						"basic":[
-							"seo"
-						]
-					}
-				},
-				{
-					"name":"Modern desktop-only site",
-					"groupings":{
-						"desktop": [
-							"desktop",
-							"desktop_edge",
-							"desktop_ie11",
-							"desktop_ie10"
-						],
-						"unsupported":[
-							"desktop_ie9",
-							"desktop_light",
-							"tablet",
-							"tablet_light",
-							"smartphone",
-							"mobile_light",
-							"mobile",
-							"tv",
-							"seo"
-						]
-					}
-				}
-			];
-			this.bn_reset = u.qs("ul.actions li.reset", this.customize_div);
-			this.segments_div = u.qs("div.segments", this.customize_div);
-			this.segments = u.qsa("ul.segments li", this.segments_div);
-			this.groups_div = u.ae(this.customize_div, "div", {"class":"groups"});
-			this.customize_div.insertBefore(this.groups_div, this.bn_reset.parentNode);
-			u.ae(this.groups_div, "h3", {"html":"Grouping area"});
-			this.groups_div.list = u.ae(this.groups_div, "ul", {"class":"groups"});
-			this.defaults_div = u.ae(this.customize_div, "div", {"class":"defaults"});
-			u.ae(this.defaults_div, "h4", {"html":"Predefined groupings"});
-			this.defaults_div.list = u.ae(this.defaults_div, "ul", {"class":"defaults"});
-			for(i = 0; _default = this.customize_defaults[i]; i++) {
-				li = u.ae(this.defaults_div.list, "li", {"html":_default.name});
-				li.definition = _default.groupings;
-				u.ce(li);
-				li.clicked = function() {
-					var form = new FormData();
-					form.append("detector_groups", JSON.stringify(this.definition));
-					this.response = function(response) {
-						u.bug("done - should reload")
-						location.reload();
-					}
-					u.request(this, "/build/groups", {"params":form, "method":"post"});
-				}
-			}
-			this.current_definition = JSON.parse(decodeURIComponent(this.customize_div.getAttribute("data-detector-groups")));
-			this.groups = [];
-			this.segment_names = [];
-			for(i = 0; segment = this.segments[i]; i++) {
-				segment._name = segment.innerHTML;
-				segment.scene = this;
-				this.segment_names[segment._name] = segment;
-				u.wc(segment, "div", {"class":"name"})
-				segment.drag_node = u.ae(segment, "div", {"class":"draggable", "html":segment._name});
-				segment.drag_node._name = segment._name;
-				segment.drag_node.segment = segment;
-				segment.drag_node.scene = this;
-				u.e.drag(segment.drag_node, this, {"dropout":true});
-				segment.drag_node.picked = function(event) {
-					u.as(this, "zIndex", 20);
-					this.segment.is_dragged = true;
-					this.scene.segmentPicked();
-				}
-				segment.drag_node.moved = function(event) {
-					var i, group;
-					for(i = 0; group = this.scene.groups[i]; i++) {
-						if(u.e.overlap(this, group.segments)) {
-							if(this.segment.group != group) {
-								this.scene.addToGroup(this.segment, group);
-							}
-							return;
-						}
-					}
-					if(this.segment.group) {
-						this.scene.removeFromGroup(this.segment);
-					}
-					else if(!this.segment.group && !this.scene.temp_group) {
-						this.scene.temp_group = this.scene.addGroup("click_to_rename_group_"+(this.scene.groups.length+1));
-					}
-				}
-				segment.drag_node.dropped = function(event) {
-					u.bug("dropped on:" + this.segment.group );
-					u.as(this, "zIndex", 10);
-					this.segment.is_dragged = false;
-					this.scene.segmentDropped();
-					this.scene.updateGroupDefinitions();
-					this.scene.alignHeights();
-				}
-			}
-			if(this.current_definition) {
-				for(x in this.current_definition) {
-					u.bug("add group:" + this.current_definition[x])
-					group = this.addGroup(x);
-					for(i = 0; segment = this.current_definition[x][i]; i++) {
-						u.bug("find segment:" + segment)
-						this.addToGroup(this.segment_names[segment], group);
-					}
-				}
-				this.segmentDropped();
-			}
-			this.alignHeights();
-			page.cN.scene = this;
-			page.resized();
-		}
-		scene.segmentPicked = function() {
-			var i, segment;
-			for(i = 0; segment = this.segments[i]; i++) {
-				if(!segment.is_dragged && segment.group) {
-					u.as(segment.drag_node, "display", "none", false);
-				}
-				else if(segment.is_dragged) {
-					u.as(segment.drag_node, "opacity", 1, false);
-				}
-			}
-		}
-		scene.segmentDropped = function() {
-			var i, segment, group;
-			for(i = 0; group = this.groups[i]; i++) {
-				if(!group.segments.childNodes.length) {
-					this.removeGroup(group);
-					i--;
-				}
-			}
-			this.temp_group = false;
-			for(i = 0; segment = this.segments[i]; i++) {
-				if(!segment.is_dragged && segment.group) {
-					u.a.translate(segment.drag_node, u.absX(segment.group_segment) - u.absX(segment), u.absY(segment.group_segment) - u.absY(segment));
-					u.as(segment.drag_node, "opacity", 0);
-					u.as(segment.drag_node, "display", "block");
-				}
-				else {
-					u.as(segment.drag_node, "opacity", 1);
-					u.a.translate(segment.drag_node, 0, 0);
-				}
-			}
-		}
-		scene.addGroup = function(name) {
-			var group = u.ae(this.groups_div.list, "li", {"class":"group"});
-			group.scene = this;
-			group._name = name;
-			group.header = u.ae(group, "h4", {"html":group._name, "contentEditable":"true"});
-			group.header.group = group;
-			group.segments = u.ae(group, "ul", {"class":"segments"});
-			group._focus = function(event) {
-				var selection = window.getSelection();
-				range = selection.getRangeAt(0);
-				range.selectNodeContents(this);
-				selection.addRange(range);
-				this.is_focused = true;
-				u.ac(this, "focus");
-			}
-			group._blur = function(event) {
-				this.is_focused = false;
-				u.rc(this, "focus");
-				this.group._name = this.innerHTML.replace(/<br.*>/, "").replace(/[^a-zA-Z1-9_]+/g, "_");
-				this.innerHTML = this.group._name;
-				this.group.scene.updateGroupDefinitions();
-			}
-			u.e.addEvent(group.header, "focus", group._focus);
-			u.e.addEvent(group.header, "blur", group._blur);
-			this.groups.push(group);
-			this.alignHeights();
-			return group;
-		}
-		scene.removeGroup = function(group) {
-			group.parentNode.removeChild(group);
-			this.groups.splice(this.groups.indexOf(group), 1);
-		}
-		scene.addToGroup = function(segment, group) {
-			this.removeFromGroup(segment);
-			segment.group = group;
-			segment.group_segment = u.ae(group.segments, "li", {"class":"segment", "html":segment._name});
-			u.wc(segment.group_segment, "div", {"class":"name"});
-			segment.group_segment.segment = segment;
-			var bn_remove;
-			bn_remove = u.ae(segment.group_segment, "span", {"class":"remove", "html":"x"});
-			bn_remove.segment = segment;
-			bn_remove.scene = this;
-			u.ce(bn_remove);
-			bn_remove.clicked = function() {
-				this.scene.removeFromGroup(this.segment);
-			}
-			this.alignHeights();
-		}
-		scene.removeFromGroup = function(segment) {
-			u.bug("remove from group:" + segment._name + ", " + (segment.group ? segment.group._name : "no group"))
-			// 
-			if(segment.group) {
-				segment.group.segments.removeChild(segment.group_segment);
-				segment.group = false;
-				segment.group_segment = false;
-			}
-		}
-		scene.updateGroupDefinitions = function() {
-			u.bug("update group definitions")
-			var definition = {};
-			var groups = u.qsa("ul.groups li.group", this.groups_div);
-			var i, group, j, group_segment;
-			for(i = 0; group = groups[i]; i++) {
-				definition[group._name] = [];
-				var segments = u.qsa("ul.segments li.segment", group);
-				for(j = 0; group_segment = segments[j]; j++) {
-					definition[group._name].push(group_segment.segment._name);
-				}
-			}
-			var form = new FormData();
-			form.append("detector_groups", JSON.stringify(definition));
-			this.response = function(response) {
-			}
-			u.request(this, "/build/groups", {"params":form, "method":"post"});
-			u.xInObject(definition);
-		}
-		scene.alignHeights = function() {
-			u.as(this.groups_div, "minHeight", "auto", false);
-			u.as(this.segments_div, "minHeight", "auto", false);
-			if(this.segments_div.offsetHeight > this.groups_div.offsetHeight) {
-				u.as(this.groups_div, "minHeight", this.segments_div.offsetHeight+"px", false);
-			}
-			else {
-				u.as(this.segments_div, "minHeight", this.groups_div.offsetHeight+"px", false);
-			}
-		}
-		scene.ready();
-	}
-}
 
