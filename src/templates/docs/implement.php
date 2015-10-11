@@ -1,16 +1,9 @@
 <div class="scene implement i:scene">
 
-	<div class="article" itemscope itemtype="http://schema.org/Article">
+	<div class="article" itemscope itemtype="http://schema.org/CreativeWork">
 		<h1 itemprop="name">Detector v3 - Implementation</h1>
 
-		<dl class="info">
-			<dt class="published_at">Date published</dt>
-			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
-			<dt class="author">Author</dt>
-			<dd class="author" itemprop="author">Martin Kæstel Nielsen</dd>
-		</dl>
-
-		<div class="articlebody" itemprop="articleBody">
+		<div class="articlebody" itemprop="text">
 			<p class="note">
 				As of Detector v3 we recommend you build your own static version for local implementation.
 			</p>

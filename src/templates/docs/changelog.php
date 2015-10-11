@@ -9,6 +9,7 @@ $this->pageTitle("It's just improvements");
 	<h2>Version 3.1</h2>
 	<ul class="changes">
 		<li>Can now output static Detector in Java</li>
+		<li>Advanced drag'n'drop Detector groupings builder</li>
 		<li>New /text api endpoint - returning segment as just a text string</li>
 	</ul>
 

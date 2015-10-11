@@ -16,26 +16,38 @@ print '<?xml version="1.0" encoding="UTF-8"?>';
 		<priority>1</priority>
 	</url>
 	<url>
+		<loc>http://detector.parentnode.dk/build</loc>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/build/index.php")) ?></lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
 		<loc>http://detector.parentnode.dk/docs</loc>
-		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/docs.php")) ?></lastmod>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/docs.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
 		<loc>http://detector.parentnode.dk/docs/segments</loc>
-		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/segments.php")) ?></lastmod>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/segments.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
 		<loc>http://detector.parentnode.dk/docs/apis</loc>
-		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/apis.php")) ?></lastmod>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/apis.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
 		<loc>http://detector.parentnode.dk/docs/implement</loc>
-		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/implement.php")) ?></lastmod>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/implement.php")) ?></lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>http://detector.parentnode.dk/docs/changelog</loc>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/changelog.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
