@@ -11,7 +11,7 @@
 				as well.
 			</p>
 			<p>
-				As of Detector v3, the detection script is available as a static downloadable script to remove
+				As of Detector v3, the detection is available as a static downloadable script/class to remove
 				the dependance of an external service.
 			</p>
 			<p>

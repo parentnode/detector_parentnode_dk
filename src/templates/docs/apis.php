@@ -5,8 +5,8 @@
 
 		<div class="articlebody" itemprop="text">
 			<p class="note">
-				As of Detector v3 we recommend you <a href="/build">build a static version</a> of the Detection v3
-				script for production implementations to reduce dependencies of the API.
+				As of Detector v3 we recommend you <a href="/build">build a static version</a> of Detection v3
+				for production implementations to reduce dependencies of the API.
 			</p>
 			<p>
 				The Detector v3 API provides tools for identification, submission, building and debugging. 
@@ -304,7 +304,7 @@ document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/s
 		<h3>http://detector-v3.dearapi.com/build</h3>
 		<div class="description">
 			<p>
-				Build static Detector-v3 script, using the latest available data.
+				Build static Detector-v3, using the latest available data.
 			</p>
 			<p>
 				Add optional custom grouping of segments to make the detection return exactly what you need.
@@ -316,14 +316,14 @@ document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/s
 			<p>POST or GET parameters</p>
 			<dl class="parameters">
 				<dt>language</dt>
-				<dd>Required - programming language to export detection script in.</dd>
+				<dd>Required - programming language to export detector v3 in.</dd>
 				<dt>grouping</dt>
 				<dd>Optional custom segment grouping as JSON.</dd>
 			</dl>
 		</div>
 
 		<div class="returns">
-			<p>Returns static standalone Detector-v3 script in specified language.</p>
+			<p>Returns static standalone Detector v3 in specified language.</p>
 		</div>
 
 		<h4>Supported languages</h4>

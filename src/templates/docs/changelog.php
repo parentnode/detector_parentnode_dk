@@ -26,7 +26,7 @@ $this->pageTitle("It's just improvements");
 	</p>
 
 	<ul class="changes">
-		<li>Static script generation for API independent use</li>
+		<li>Static Detector generation for API independent use</li>
 		<li>Groupable segments</li>
 		<li>Optional custom include settings</li>
 		<li>New <em>/submit</em> <a href="/docs/api">API</a> endpoint</li>

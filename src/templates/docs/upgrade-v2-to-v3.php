@@ -25,17 +25,17 @@ $this->pageTitle("It's just improvements");
 
 			<h2>Step 1</h2>
 			<p>
-				<a href="/build">Build</a> a custom Detector v3 script, which maps the new segments to the ones you 
+				<a href="/build">Build</a> a custom Detector v3, which maps the new segments to the ones you 
 				support in your existing project.
 			</p>
 
 			<h2>Step 2</h2>
 			<p>
-				Update your local Detector v2 request method to use the new static script for detection.
+				Update your local Detector v2 request method to use the new static Detector v3 for detection.
 			</p>
 			<p>
-				Shifting from the API service to the static Detector v3 script, will be a matter of upgrading your CMS or
-				make the update manually in your project. Instead of requesting the segment from the API, the static script
+				Shifting from the API service to the static Detector v3, will be a matter of upgrading your CMS or
+				make the update manually in your project. Instead of requesting the segment from the API, the static Detector v3
 				provides a method which handles the segment detection.
 			</p>
 

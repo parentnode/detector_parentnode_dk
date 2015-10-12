@@ -68,7 +68,7 @@ $all_segments = array("desktop_edge", "desktop_ie11", "desktop", "desktop_ie10",
 
 				<h3>3: And download ...</h3>
 				<ul class="actions">
-					<?= $model->submit("Download script", array("class" => "primary", "wrapper" => "li.submit")) ?>
+					<?= $model->submit("Download", array("class" => "primary", "wrapper" => "li.submit")) ?>
 				</ul>
 
 			</div>
