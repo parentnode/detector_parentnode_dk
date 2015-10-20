@@ -1,7 +1,7 @@
 <div class="scene i:front front">
 
 	<div class="article" itemscope itemtype="http://schema.org/Article">
-		<h1 itemprop="name">Detector is devices made simple</h1>
+		<h1 itemprop="headline">Detector is devices made simple</h1>
 
 		<dl class="info">
 			<dt class="published_at">Published</dt>
