@@ -5,7 +5,7 @@ $this->pageTitle("It's just improvements");
 <div class="scene changelog i:scene">
 
 	<div class="article" itemscope itemtype="http://schema.org/Article">
-		<h1 itemprop="name">Upgade from v2 to v3</h1>
+		<h1 itemprop="headline">Upgade from v2 to v3</h1>
 
 		<dl class="info">
 			<dt class="published_at">Published</dt>
@@ -15,7 +15,7 @@ $this->pageTitle("It's just improvements");
 		</dl>
 		<div itemprop="image" content="/img/logo.png"></div>
 
-		<div class="articlebody" itemprop="text">
+		<div class="articlebody" itemprop="articleBody">
 
 			<p>
 				Detector v2 and v3 are quite different and yet very similar. Upgrading can typically be done in a couple of 

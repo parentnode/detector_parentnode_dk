@@ -6,10 +6,6 @@ global $detector_groups;
 $all_segments = array("desktop_edge", "desktop_ie11", "desktop", "desktop_ie10", "desktop_ie9", "desktop_light", "tablet", "tablet_light", "smartphone", "mobile", "mobile_light", "tv", "seo");
 
 
-// TODO: print current definitions as JSON to be used for JavaScript and let JavaScript set up the grouping column
-// that way I can also have default settings sets in the backend
-
-
 ?>
 <div class="scene build i:build">
 

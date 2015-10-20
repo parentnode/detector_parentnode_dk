@@ -9,7 +9,6 @@
 			<dt class="author">Author</dt>
 			<dd class="author" itemprop="author">Martin Kæstel Nielsen</dd>
 		</dl>
-
 		<div itemprop="image" content="<?= SITE_URL ?>/img/logo.png"></div>
 
 		<div class="articlebody" itemprop="articleBody">

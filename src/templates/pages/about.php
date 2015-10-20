@@ -1,9 +1,17 @@
 <div class="scene about i:scene">
 
-	<div class="article" itemscope itemtype="http://schema.org/CreativeWork">
-		<h1 itemprop="name">About Detector</h1>
+	<div class="article" itemscope itemtype="http://schema.org/Article">
+		<h1 itemprop="headline">About Detector</h1>
 
-		<div class="articlebody" itemprop="text">
+		<dl class="info">
+			<dt class="published_at">Published</dt>
+			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
+			<dt class="author">Author</dt>
+			<dd class="author" itemprop="author">Martin Kæstel Nielsen</dd>
+		</dl>
+		<div itemprop="image" content="<?= SITE_URL ?>/img/logo.png"></div>
+
+		<div class="articlebody" itemprop="articleBody">
 			<p>
 				Detector was made open source in 2014 to make segments available to the public. 
 				After having worked professionally with Detector for 6 years (since 2008), it had proved to be a 
