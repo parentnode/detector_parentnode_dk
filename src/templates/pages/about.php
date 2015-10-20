@@ -7,12 +7,12 @@
 			<p>
 				Detector was made open source in 2014 to make segments available to the public. 
 				After having worked professionally with Detector for 6 years (since 2008), it had proved to be a 
-				strong and valid concept, without any real competitors in the market. Now you can reap the benifits 
+				strong and valid concept, without any real competitors in the market. Now you can reap the benefits 
 				as well.
 			</p>
 			<p>
-				As of Detector v3, the detection is available as a static downloadable script/class to remove
-				the dependance of an external service.
+				As of Detector v3, the detection is available as a static downloadable script/class to make detection 
+				independent of the external service.
 			</p>
 			<p>
 				Detector is made available to improve internet solutions around the world. It's not a business and it is
@@ -21,7 +21,7 @@
 			</p>
 			<p>
 				In spite of this idealistic approach, the cost of running the updated live service needs to be covered. 
-				This is done through sponsors and update subscriptions. Subscribing to updates are by no means required
+				This is done through sponsors and update subscriptions. Subscribing to updates is by no means required
 				to leverage the advantages of Detector as updates are continuously made available on this website.
 				The subscription approach instead includes an update on demand option, required by some clients.
 			</p>

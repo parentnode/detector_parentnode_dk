@@ -7,6 +7,9 @@ $this->pageTitle("It's just improvements");
 	<h1>ChangeLog</h1>
 
 	<h2>Version 3.1</h2>
+	<p>
+		Released in October 2015.
+	</p>
 	<ul class="changes">
 		<li>Can now output static Detector in Java</li>
 		<li>Advanced drag'n'drop Detector groupings builder</li>
@@ -16,7 +19,7 @@ $this->pageTitle("It's just improvements");
 
 	<h2>Version 3</h2>
 	<p>
-		Detector v3 was released in July, 2015, introducing flexible segment grouping and 
+		Detector v3 was released in July 2015, introducing flexible segment grouping and 
 		supporting static output for local implementations.
 	</p>
 	<p>

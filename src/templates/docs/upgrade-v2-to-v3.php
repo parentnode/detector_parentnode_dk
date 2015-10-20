@@ -4,8 +4,16 @@ $this->pageTitle("It's just improvements");
 ?>
 <div class="scene changelog i:scene">
 
-	<div class="article" itemscope itemtype="http://schema.org/CreativeWork">
+	<div class="article" itemscope itemtype="http://schema.org/Article">
 		<h1 itemprop="name">Upgade from v2 to v3</h1>
+
+		<dl class="info">
+			<dt class="published_at">Published</dt>
+			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
+			<dt class="author">Author</dt>
+			<dd class="author" itemprop="image">Martin Kæstel Nielsen</dd>
+		</dl>
+		<div itemprop="image" content="/img/logo.png"></div>
 
 		<div class="articlebody" itemprop="text">
 
@@ -34,7 +42,7 @@ $this->pageTitle("It's just improvements");
 				Update your local Detector v2 request method to use the new static Detector v3 for detection.
 			</p>
 			<p>
-				Shifting from the API service to the static Detector v3, will be a matter of upgrading your CMS or
+				Shifting from the API service to the static Detector v3 is a matter of upgrading your CMS or
 				make the update manually in your project. Instead of requesting the segment from the API, the static Detector v3
 				provides a method which handles the segment detection.
 			</p>
@@ -44,7 +52,7 @@ $this->pageTitle("It's just improvements");
 				for additional information. You can also contact us at 
 				<a href="mailto:support@parentnode.dk">support@parentnode.dk</a> if you need help upgrading.
 			</p>
-		</p>
+		</div>
 	</div>
 
 </div>

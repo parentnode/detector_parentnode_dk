@@ -203,8 +203,8 @@
 		<div class="description">
 			<p>
 				Performs segment identification based on device useragent, with the purpose of returning appropriate 
-				JavaScript and CSS segment includes without using local server-side technology. This method uses the
-				original Detector filenaming conventions.
+				segment without using local server-side technology. This method uses the
+				original Detector/Janitor filenaming conventions.
 			</p>
 			<p>
 				Requesting page should save segment in client-side cookie to avoid making repeating requests from same
@@ -251,7 +251,7 @@
 		</div>
 
 		<div class="returns">
-			<p>Returns JavaScript document.write's with JavaScript and CSS segment includes.</p>
+			<p>Returns a JavaScript snippet with the appropriate JavaScript and CSS include statements.</p>
 			<code>document.write(&#x27;&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;/css/seg_<?= $this->segment() ?>.css&quot; /&gt;&#x27;);
 document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/seg_<?= $this->segment() ?>.js&quot;&gt;&lt;/script&gt;&#x27;);</code>
 
@@ -269,7 +269,7 @@ document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/s
 		<h3>http://detector-v3.dearapi.com/submit</h3>
 		<div class="description">
 			<p>
-				Submit useragent to Detectors indexing system. Useragents submitted here, will be considered
+				Submit useragent to Detectors indexing system. Useragents submitted here will be considered
 				when the Detector core is updated.
 			</p>
 		</div>

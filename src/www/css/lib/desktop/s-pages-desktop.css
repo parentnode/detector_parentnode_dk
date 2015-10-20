@@ -1,3 +1,7 @@
+/* ARTICLES */
+#content .scene .article dl.info {display: none;}
+
+
 /* DOCS */
 #content .scene.docs ul.topics {list-style-position: outside; margin-left: 15px; width: 485px; list-style-type: disc;}
 #content .scene.docs ul.topics li {font-size: 14px; padding-bottom: 7px; padding-left: 3px;}

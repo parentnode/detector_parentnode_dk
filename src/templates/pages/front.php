@@ -1,9 +1,18 @@
 <div class="scene i:front front">
 
-	<div class="article" itemscope itemtype="http://schema.org/CreativeWork">
+	<div class="article" itemscope itemtype="http://schema.org/Article">
 		<h1 itemprop="name">Detector is devices made simple</h1>
 
-		<div class="articlebody" itemprop="text">
+		<dl class="info">
+			<dt class="published_at">Published</dt>
+			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
+			<dt class="author">Author</dt>
+			<dd class="author" itemprop="image">Martin Kæstel Nielsen</dd>
+		</dl>
+
+		<div itemprop="image" content="/img/logo.png"></div>
+
+		<div class="articlebody" itemprop="articleBody">
 			<div class="build">
 				<p>
 					Detector lets you target the browsers you want to support and peacefully forget about the rest.
@@ -15,7 +24,7 @@
 			</div>
 
 			<p>
-				<span class="brand">Detector</span> is your one-stop solution to supporting all HTML capable 
+				<span class="brand">Detector</span> is your one-stop solution to support all HTML capable 
 				devices on earth and lowering your development complexity at the same time. Yes, that includes
 				old mobile phones dominating 3rd world countries as well as the latest WebGL enabled browsers
 				- all bundled up neatly in 13 segments with each their own defined set of charactaristics.

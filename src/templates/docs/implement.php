@@ -12,7 +12,7 @@
 				examples below. Please forward additional implementations, if you wish to share them with others.
 			</p>
 			<p>
-				Make sure you store the received segment (in session or similar), too avoid redundant requests.
+				Make sure you store the received segment (in session or similar), to avoid redundant requests.
 			</p> 
 			<p>
 				Be aware of our <a href="/terms">terms</a>.
@@ -23,8 +23,8 @@
 	<h2>PHP</h2>
 	<code>$request = "http://detector-v3.dearapi.com/xml";
 $request .= "?ua=".urlencode($_SERVER["HTTP_USER_AGENT"]);
-$request .= "&site=#SITE_ID#";
-$request .= "&file=".urlencode($_SERVER["SCRIPT_NAME"]);
+$request .= "&amp;site=#SITE_ID#";
+$request .= "&amp;file=".urlencode($_SERVER["SCRIPT_NAME"]);
 
 $response = file_get_contents($request);
 $device = simplexml_load_string($response);

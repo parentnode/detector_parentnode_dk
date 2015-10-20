@@ -18,9 +18,9 @@ $all_segments = array("desktop_edge", "desktop_ie11", "desktop", "desktop_ie10",
 	<div class="builder">
 
 		<p>
-			Building a static Detector includes the posibility of grouping the <a href="/docs/segments">segments</a>
+			Building a static Detector includes the possibility of grouping the <a href="/docs/segments">segments</a>
 			into your own segment groups. This allows you to minimize the number of supported UIs to fit the requirements of 
-			your projcets. If you don't want to add your own segment groups, the static Detector
+			your projects. If you don't want to add your own segment groups, the static Detector
 			will use the default segments. 
 		</p>
 

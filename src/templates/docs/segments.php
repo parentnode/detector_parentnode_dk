@@ -6,9 +6,11 @@
 		<div class="articlebody" itemprop="text">
 			<p>
 				Detector is unique device identification derived from an extensive, continuous and unparalleled analysis 
-				of browsers, conducted for more than 10 years. It groups browsers and devices into 13 segments, based on common denominators for screen 
+				of browsers, conducted for more than 10 years. It groups browsers and devices into 13 segments, based on 
+				common denominators for screen 
 				resolution, input method, performance and scripting/styling capabilities. You can read more about
-				segments and <a href="http://parentnode.dk/blog/tag/Segments" target="_blank">the segmentation model</a> on parentnode.dk.
+				segments and <a href="http://parentnode.dk/blog/tag/Segments" target="_blank">the segmentation model</a> on 
+				parentnode.dk.
 			</p>
 
 			<h2>The segments</h2>
@@ -64,7 +66,7 @@
 				<dt>desktop_light</dt>
 				<dd>
 					All older browsers for desktop or laptop computers. Internet Explorer &lt;= 8 , Firefox &lt;= 6, 
-					Chrome &lt;= 6, Safari &lt;= 5, Opera, Netscape. You get the idea. Just keep it simple and its 
+					Chrome &lt;= 6, Safari &lt;= 5, Opera, Netscape. You get the idea. Just keep it simple and it's 
 					all gonna work out fine.
 
 					<br /><br />

@@ -12,12 +12,12 @@
 
 		<div class="articlebody" itemprop="articleBody">
 			<p>
-				By using this website and the Detector API service you accept the terms as specified below. If you cannot accept
+				By using this website and the Detector API service you accept the terms as specified below. If you do not accept
 				these terms, you cannot use the website or the Detector API service.
 			</p>
 			<p>
-				This website and the Detector API service is owned by <a href="http://parentnode.dk">parentNode ApS</a> (in the 
-				following "We"), which is a registered company in Denmark, abiding Danish laws.
+				This website and the Detector API service are part of the <a href="http://parentnode.dk">parentNode</a> toolkit,
+				legally owned by think.dk (in the following "We"), which is a registered company in Denmark, abiding Danish laws.
 			</p>
 	
 			<h2>Cookies</h2>
@@ -32,13 +32,13 @@
 				browser every time you view a new page. When you leave the website, we delete the stored information.
 			</p>
 			<p>
-				Ironically the only long term cookie we save on your computer, is the one used to remember your cookie
+				Ironically the only long term cookie we save on your computer is the one used to remember your cookie
 				and terms acceptance. This cookie is stored for 12 months and prevents the "Accept cookies" dialog from
-				reapearing on every page.
+				reappearing on every page.
 			</p>
 			<p>
 				We use Google Analytics for statistics on our website. We like statistics because it tells us how many 
-				people visit our website and if any pages are more popular than others. This information is cruzial to provide
+				people visit our website and if any pages are more popular than others. This information is crucial to provide
 				improvements where needed. 
 				<a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage" target="_blank">Google Analytics use cookies</a>
 				to provide us with this information. We do not allow Google to share this information with third parties.
@@ -61,7 +61,7 @@
 			<p>
 				Everything you read on this website is protected
 				by copyright laws, but you can freely quote or reproduce any part of our content as long as you clearly state
-				its origin or provide a link to this website in direct conjonction with the reproduced text.
+				its origin or provide a link to this website in direct conjunction with the reproduced text.
 			</p>
 			<p>
 				We maintain the right to update or change these terms as needed.
