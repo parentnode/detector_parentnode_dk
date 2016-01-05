@@ -81,7 +81,7 @@
 #content .scene.build .customize ul.actions {text-align: right; padding: 0 10px; width: 500px;}
 #content .scene.build .customize ul.actions li {padding-right: 0;}
 
-#content .scene.build .customize div.defaults {padding: 0 10px; margin-top: -40px;}
+#content .scene.build .customize div.defaults {padding: 0 10px 10px;}
 #content .scene.build .customize div.defaults h4 {padding-left: 0;}
 #content .scene.build .customize div.defaults ul {padding-left: 0; list-style: disc; margin: 0 0 0 15px;}
 #content .scene.build .customize div.defaults ul li {cursor: pointer;}

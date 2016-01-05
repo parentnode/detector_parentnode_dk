@@ -23,14 +23,11 @@ Util.Objects["build"] = new function() {
 			this.customize_div = u.qs("div.customize", this);
 			this.customize_defaults = [
 				{
-					"name":"Detector v2",
+					"name":"Modern cross-platform",
 					"groupings":{
 						"desktop":[
 							"desktop",
-							"desktop_edge"
-						],
-						"desktop_ie":[
-							"desktop_ie9",
+							"desktop_edge",
 							"desktop_ie10",
 							"desktop_ie11"
 						],
@@ -38,10 +35,15 @@ Util.Objects["build"] = new function() {
 							"tablet",
 							"tablet_light"
 						],
-						"mobile_touch":[
+						"smartphone":[
 							"smartphone"
 						],
-						"basic":[
+						"unsupported":[
+							"desktop_ie9",
+							"desktop_light",
+							"mobile",
+							"mobile_light",
+							"tv",
 							"seo"
 						]
 					}
@@ -67,6 +69,86 @@ Util.Objects["build"] = new function() {
 							"seo"
 						]
 					}
+				},
+				{
+					"name":"Cross-mobile site",
+					"groupings":{
+						"smartphone": [
+							"smartphone"
+						],
+						"mobile": [
+							"mobile"
+						],
+						"mobile_light": [
+							"mobile_light"
+						],
+						"unsupported":[
+							"desktop",
+							"desktop_edge",
+							"desktop_ie11",
+							"desktop_ie10",
+							"desktop_ie9",
+							"desktop_light",
+							"tablet",
+							"tablet_light",
+							"tv",
+							"seo"
+						]
+					}
+				},
+				{
+					"name":"Simple all devices",
+					"groupings":{
+						"desktop": [
+							"desktop",
+							"desktop_edge",
+							"desktop_ie11",
+							"desktop_ie10"
+						],
+						"desktop_light": [
+							"desktop_ie9",
+							"desktop_light",
+							"tv"
+						],
+						"tablet": [
+							"tablet",
+							"tablet_light"
+						],
+						"smartphone": [
+							"smartphone"
+						],
+						"mobile": [
+							"mobile",
+							"mobile_light"
+						],
+						"unsupported":[
+							"seo"
+						]
+					}
+				},
+				{
+					"name":"Detector v2",
+					"groupings":{
+						"desktop":[
+							"desktop",
+							"desktop_edge"
+						],
+						"desktop_ie":[
+							"desktop_ie9",
+							"desktop_ie10",
+							"desktop_ie11"
+						],
+						"tablet":[
+							"tablet",
+							"tablet_light"
+						],
+						"mobile_touch":[
+							"smartphone"
+						],
+						"basic":[
+							"seo"
+						]
+					}
 				}
 			];
 
@@ -86,8 +168,8 @@ Util.Objects["build"] = new function() {
 			this.groups_div.list = u.ae(this.groups_div, "ul", {"class":"groups"});
 
 			// create default set list
-			this.defaults_div = u.ae(this.customize_div, "div", {"class":"defaults"});
-			u.ae(this.defaults_div, "h4", {"html":"Predefined groupings"});
+			this.defaults_div = u.ie(this.customize_div, "div", {"class":"defaults"});
+//			u.ae(this.defaults_div, "h4", {"html":"Predefined groupings"});
 			this.defaults_div.list = u.ae(this.defaults_div, "ul", {"class":"defaults"});
 			for(i = 0; _default = this.customize_defaults[i]; i++) {
 				li = u.ae(this.defaults_div.list, "li", {"html":_default.name});

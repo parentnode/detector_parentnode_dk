@@ -16,8 +16,7 @@ $all_segments = array("desktop_edge", "desktop_ie11", "desktop", "desktop_ie10",
 		<p>
 			Building a static Detector includes the possibility of grouping the <a href="/docs/segments">segments</a>
 			into your own segment groups. This allows you to minimize the number of supported UIs to fit the requirements of 
-			your projects. If you don't want to add your own segment groups, the static Detector
-			will use the default segments. 
+			your projects. If you don't want to add your own segment groups, the default segments will be used. 
 		</p>
 
 		<h2>Build your own Detector <br />in 3 easy steps.</h2>
@@ -26,7 +25,7 @@ $all_segments = array("desktop_edge", "desktop_ie11", "desktop", "desktop_ie10",
 		<h3>1: Group your segments</h3>
 		<p>
 			Drag the default segments to the grouping area to start making your segment groups (a group will magically 
-			appear when you need it).
+			appear when you need it). If you need a hint, check out the predefined groups:
 		</p>
 
 		<div class="customize" data-detector-groups="<?= urlencode(json_encode($detector_groups, true)) ?>">
