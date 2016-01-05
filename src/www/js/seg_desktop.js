@@ -1,3 +1,7 @@
+/*
+Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
+js-merged @ 2016-01-05 02:31:57
+*/
 
 /*seg_desktop_include.js*/
 
