@@ -5,4 +5,4 @@ document.write('<script type="text/javascript" src="/js/manipulator/src/u-events
 document.write('<script type="text/javascript" src="/js/manipulator/src/u-events-browser.js"></script>');
 
 
-document.write('<script type="text/javascript" src="/js/lib/desktop/i-build-desktop.js"></script>');
+document.write('<script type="text/javascript" src="/js/lib/desktop/i-build.js"></script>');

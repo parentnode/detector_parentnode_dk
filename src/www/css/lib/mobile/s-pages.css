@@ -1,6 +1,6 @@
 #content .scene.segments dt {color: #cccccc; width: auto; text-align: left; padding: 0 0 5px 0; display: block; font-size: 16px;} 
 #content .scene.segments dt:after {content: ":";}
-#content .scene.segments dd {padding: 0 0 25px; width: auto; display: block;}
+#content .scene.segments dd {padding: 0 0 25px 20px; width: auto; display: block;}
 
 
 /* PRICING */
@@ -13,7 +13,8 @@
 #content .scene.pricing dt:after {content: ":";}
 
 
-
 /* BUILD UI */
 #content .scene.build .builder {display: none;}
 
+/* ARTICLES */
+#content .scene .article dl.info {display: none;}

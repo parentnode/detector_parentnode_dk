@@ -13,3 +13,5 @@
 /* BUILD UI */
 #content .scene.build .builder {display: none;}
 
+/* ARTICLES */
+#content .scene .article dl.info {display: none;}
