@@ -18,7 +18,7 @@ $this->pageTitle("It's just improvements");
 		<div class="articlebody" itemprop="articleBody">
 			<h2>Version 3.1</h2>
 			<p>
-				Released in October 2015.
+				Released in January 2016.
 			</p>
 			<ul class="changes">
 				<li>Can now output static Detector in Java</li>
