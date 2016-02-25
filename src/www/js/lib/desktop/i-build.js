@@ -521,6 +521,9 @@ Util.Objects["build"] = new function() {
 //				u.bug("response")
 			}
 			u.request(this, "/build/groups", {"params":form, "method":"post"});
+
+			// update local form
+			u.qs("form input[name=grouping]").value = JSON.stringify(definition);
 			// form.action = "/build/groups";
 			// form.method = "post";
 
