@@ -16,7 +16,7 @@
 				Detector is free.
 			</p>
 			<p>
-				However, we do offer a simple subscription service to clients with specific needs. A subscription
+				However, through <a href="http://think.dk">think.dk</a> we offer a simple subscription service to clients with specific needs. A subscription
 				entails a custom update cycle matching the needs of your business.
 			</p>
 
@@ -55,7 +55,7 @@
 				</dl>
 			</div>
 
-			<p>Contact <a href="mailto:info@parentnode.dk">info@parentnode.dk</a> for details.</p>
+			<p>Contact <a href="mailto:start@think.dk">start@think.dk</a> for details.</p>
 
 		</div>
 	</div>
