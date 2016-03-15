@@ -209,7 +209,7 @@
 				<dt>dev</dt>
 				<dd>
 					Optional development include. Will include */lib/segment_include.css and */lib/segment_include.js 
-					following the recommended structure from <a href="http://modulator.parentnode.dk">http://modulator.parentnode.dk</a>.</dd>
+					following the recommended structure from <a href="http://templator.parentnode.dk">http://templator.parentnode.dk</a>.</dd>
 			</dl>
 		</div>
 

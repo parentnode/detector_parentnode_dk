@@ -79,7 +79,7 @@
 
 			<p>
 				The segments are efficiently backed by the minimalistic and semantic markup model described at 
-				<a href="http://modulator.parentnode.dk">http://modulator.parentnode.dk</a> and empowered by the
+				<a href="http://templator.parentnode.dk">http://templator.parentnode.dk</a> and empowered by the
 				a complete javascript library found at 
 				<a href="http://manipulator.parentnode.dk">http://manipulator.parentnode.dk.</a> To understand the full
 				potential of Detector visit these websites.
