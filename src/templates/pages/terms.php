@@ -95,7 +95,7 @@
 			</p>
 			<p>
 				The source code of the Detector API is licensed under a 
-				<a rel="license" href="https://github.com/parentnode/detector/blob/master/MIT-LICENSE.txt">MIT-licence</a>.
+				<a rel="license" href="https://github.com/parentnode/detector_dearapi_com/blob/master/MIT-LICENSE.txt">MIT-licence</a>.
 			</p>
 		</div>
 	</div>
