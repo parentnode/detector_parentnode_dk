@@ -1,5 +1,7 @@
-/* ARTICLES */
-#content .scene .article dl.info {display: none;}
+#content .scene ul.info {display: none;}
+
+/* POST ARTICLE */
+#content .scene.post div.article ul.info {display: block;}
 
 
 /* DOCS */
@@ -46,7 +48,7 @@
 
 
 /* CUSTOMIZE SECTION */
-#content .scene.build .customize {padding: 0 40px 30px; font-size: 0;
+#content .scene.build .customize {padding: 0 60px 30px; font-size: 0;
 	-moz-user-select: none;
 	user-select: none;
 }

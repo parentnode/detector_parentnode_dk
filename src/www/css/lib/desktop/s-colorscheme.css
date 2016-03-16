@@ -24,10 +24,10 @@ body {background: #333333;}
 
 #footer {border-color: #505050;}
 
-.terms_notification {background: #333333;}
+.terms_notification {background: #cccccc;}
+.terms_notification h3,
 .terms_notification .accept,
-.terms_notification .details {color: #a0746d;}
-.terms_notification {border-color: #505050;}
+.terms_notification .details {color: #333333;}
 
 
 /* LOCAL */
