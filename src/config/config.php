@@ -17,9 +17,11 @@ define("SITE_URL", (isset($_SERVER["HTTPS"]) ? "https" : "http")."://".$_SERVER[
 define("SITE_EMAIL", "info@parentnode.dk");
 
 
+define("DEFAULT_PAGE_DESCRIPTION", "Detector, devicesegmentation API - Cross-devices made simple");
+define("DEFAULT_PAGE_IMAGE", "/img/logo-large.png");
+
 define("DEFAULT_LANGUAGE_ISO", "EN"); // Regional language English
 define("DEFAULT_COUNTRY_ISO", "DK"); // Regional country Denmark
-define("DEFAULT_PAGE_DESCRIPTION", "Detector, devicesegmentation API - Cross-devices made simple");
 
 
 // Enable items model
