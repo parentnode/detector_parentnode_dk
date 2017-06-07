@@ -16,7 +16,7 @@ body {background: #333333;}
 #navigation ul li {color: #a0746d;}
 
 #content .scene a,
-#content .scene dl.geo.active dd {color: #a0746d;}
+#content .scene ul.geo.active li.location {color: #a0746d;}
 #content .scene hr {border-color: #505050;}
 
 #content ul.actions input.button.primary,
