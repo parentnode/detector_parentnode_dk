@@ -23,31 +23,31 @@ print '<?xml version="1.0" encoding="UTF-8"?>';
 	</url>
 	<url>
 		<loc><?= SITE_URL ?>/docs</loc>
-		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/docs.php")) ?></lastmod>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/v4/docs.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc><?= SITE_URL ?>/docs/segments</loc>
-		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/segments.php")) ?></lastmod>
+		<loc><?= SITE_URL ?>/docs/v4/segments</loc>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/v4/segments.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc><?= SITE_URL ?>/docs/apis</loc>
-		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/apis.php")) ?></lastmod>
+		<loc><?= SITE_URL ?>/docs/v4/apis</loc>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/v4/apis.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc><?= SITE_URL ?>/docs/implement</loc>
-		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/implement.php")) ?></lastmod>
+		<loc><?= SITE_URL ?>/docs/v4/implement</loc>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/v4/implement.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
 		<loc><?= SITE_URL ?>/docs/changelog</loc>
-		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/changelog.php")) ?></lastmod>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/v4/changelog.php")) ?></lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.7</priority>
 	</url>

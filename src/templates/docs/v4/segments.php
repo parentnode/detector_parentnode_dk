@@ -1,15 +1,19 @@
 <div class="scene segments i:scene">
 
 	<div class="article" itemscope itemtype="http://schema.org/Article">
-		<h1 itemprop="headline">Detector v3 - segmentation</h1>
+		<h1 itemprop="headline">Detector v4 <br />Segmentation</h1>
 
-		<dl class="info">
-			<dt class="published_at">Published</dt>
-			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
-			<dt class="author">Author</dt>
-			<dd class="author" itemprop="author">Martin Kæstel Nielsen</dd>
-		</dl>
-		<div itemprop="image" content="<?= SITE_URL ?>/img/logo.png"></div>
+		<?= $HTML->articleInfo(
+			[
+				"user_nickname" => "Martin Kæstel Nielsen",
+			 	"published_at" => date("Y-m-d, H:i", filemtime(__FILE__)),
+				"modified_at" => date("Y-m-d, H:i", filemtime(__FILE__)),
+			 ], 
+			 "/docs/v4/segments", 
+			 [
+				 "sharing" => false
+			]
+		) ?>
 
 		<div class="articlebody" itemprop="articleBody">
 			<p>
@@ -24,13 +28,13 @@
 			<h2>The segments</h2>
 			<dl class="segments">
 
-				<dt>desktop_edge</dt>
+				<dt>desktop</dt>
 				<dd>
-					The most modern desktop browsers. Chrome 25+, Firefox 22+, Safari 7+ and Edge 12+. 
-					Support for edge technology, like 3D transforms and WebGL.
+					Modern browsers. Chrome 7+, Firefox 7+ and Safari 6+. Support for modern technology, 
+					like CSS3 transitions, FormData and FileReader.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-desktop_edge-segment" target="_blank">desktop_edge</a>.
+					Read more about <a href="http://parentnode.dk/blog/the-desktop-segment" target="_blank">desktop</a>.
 				</dd>
 
 				<dt>desktop_ie11</dt>
@@ -40,15 +44,6 @@
 
 					<br /><br />
 					Read more about <a href="http://parentnode.dk/blog/the-desktop_ie11-segment" target="_blank">desktop_ie11</a>.
-				</dd>
-
-				<dt>desktop</dt>
-				<dd>
-					Modern browsers. Chrome 7+, Firefox 7+ and Safari 6+. Support for modern technology, 
-					like CSS3 transitions, FormData and FileReader.
-
-					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-desktop-segment" target="_blank">desktop</a>.
 				</dd>
 
 				<dt>desktop_ie10</dt>
@@ -165,10 +160,11 @@
 		</div>
 	</div>
 
+
 	<ul class="subnavigation">
-		<li class="apis"><a href="/docs/apis">APIs</a></li>
-		<li class="segments"><a href="/docs/segments">Segments</a></li>
-		<li class="implement"><a href="/docs/implement">Implementation</a></li>
+		<li class="apis"><a href="/docs/v4/apis">APIs</a></li>
+		<li class="segments"><a href="/docs/v4/segments">Segments</a></li>
+		<li class="implement"><a href="/docs/v4/implement">Implementation</a></li>
 	</ul>
 </div>
 

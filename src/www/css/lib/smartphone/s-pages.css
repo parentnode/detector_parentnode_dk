@@ -1,20 +1,29 @@
-#content .scene.segments dt {color: #cccccc; width: auto; text-align: left; padding: 0 0 5px 0; display: block; font-size: 16px;} 
+#content .scene ul.info {display: none;}
+
+
+
+#content .scene.docs ul.topics {list-style-position: outside; margin-left: 15px; list-style-type: disc;}
+#content .scene.docs ul.topics li {font-size: 14px; padding-bottom: 7px; padding-left: 3px;}
+
+
+
+#content .scene.segments dt {color: #cccccc; padding: 0 0 5px 0; font-size: 16px; font-weight: 700;} 
 #content .scene.segments dt:after {content: ":";}
 #content .scene.segments dd {padding: 0 0 25px; width: auto; display: block;}
 
 
 /* PRICING */
-#content .scene.pricing div.plan {padding: 0 0 20px;}
+#content .scene.pricing p.price {padding-bottom: 35px; font-size: 14px;}
+#content .scene.pricing p.price span.label {color: #999999;}
 
-#content .scene.pricing dl.price {}
-#content .scene.pricing dl.price dt,
-#content .scene.pricing dl.price dd {width: auto; display: inline-block;}
-#content .scene.pricing dl.price dd {padding-left: 5px;}
-#content .scene.pricing dt:after {content: ":";}
+#content .scene.apis div.example {padding-bottom: 15px;}
+#content .scene.apis ul.actions li {padding-bottom: 0px;}
 
 
-/* BUILD UI */
-#content .scene.build .builder {display: none;}
+/* SUBNAVIGATION */
+#content ul.subnavigation {position: absolute; top: 10px; right: 20px; padding: 0;}
+#content ul.subnavigation li {display: inline-block; padding: 5px 0 5px 20px;}
 
-/* ARTICLES */
-#content .scene .article dl.info {display: none;}
+#content .scene.segments ul.subnavigation li.segments a,
+#content .scene.apis ul.subnavigation li.apis a,
+#content .scene.implement ul.subnavigation li.implement a {color: #cccccc;}

@@ -1,69 +1,58 @@
+<?
+global $action;
+global $IC;
+
+$page_item = $IC->getItem(array("tags" => "page:about", "extend" => array("comments" => true, "user" => true, "mediae" => true, "tags" => true)));
+
+if($page_item) {
+	$this->sharingMetaData($page_item);
+}
+
+?>
 <div class="scene about i:scene">
 
-	<div class="article" itemscope itemtype="http://schema.org/Article">
-		<h1 itemprop="headline">About Detector</h1>
+<? if($page_item && $page_item["status"]): 
+	$media = $IC->sliceMedia($page_item); ?>
+	<div class="article i:article id:<?= $page_item["item_id"] ?>" itemscope itemtype="http://schema.org/Article">
 
-		<ul class="info">
-			<li class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></li>
-			<li class="modified_at" itemprop="dateModified" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"></li>
-			<li class="author" itemprop="author">Martin Kæstel Nielsen</li>
-			<li class="main_entity share" itemprop="mainEntityOfPage" content="<?= SITE_URL."/about" ?>"></li>
-			<li class="publisher" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-				<ul class="publisher_info">
-					<li class="name" itemprop="name">parentnode.dk</li>
-					<li class="logo" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-						<span class="image_url" itemprop="url" content="<?= SITE_URL ?>/img/logo-large.png"></span>
-						<span class="image_width" itemprop="width" content="720"></span>
-						<span class="image_height" itemprop="height" content="405"></span>
-					</li>
-				</ul>
-			</li>
-			<li class="image_info" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-				<span class="image_url" itemprop="url" content="<?= SITE_URL ?>/img/logo-large.png"></span>
-				<span class="image_width" itemprop="width" content="720"></span>
-				<span class="image_height" itemprop="height" content="405"></span>
-			</li>
-		</ul>
+		<? if($media): ?>
+		<div class="image item_id:<?= $page_item["item_id"] ?> format:<?= $media["format"] ?> variant:<?= $media["variant"] ?>"></div>
+		<? endif; ?>
 
+
+		<?= $HTML->articleTags($page_item, [
+			"context" => false
+		]) ?>
+
+
+		<h1 itemprop="headline"><?= $page_item["name"] ?></h1>
+
+		<? if($page_item["subheader"]): ?>
+		<h2 itemprop="alternativeHeadline"><?= $page_item["subheader"] ?></h2>
+		<? endif; ?>
+
+
+		<?= $HTML->articleInfo($page_item, "/about", [
+			"media" => $media,
+			"sharing" => true
+		]) ?>
+
+
+		<? if($page_item["html"]): ?>
 		<div class="articlebody" itemprop="articleBody">
-			<p>
-				Detector was made open source in 2014 to make segments available to the public. 
-				After having worked professionally with Detector for 6 years (since 2008), it had proved to be a 
-				strong and valid concept, without any real competitors in the market. Now you can reap the benefits 
-				as well.
-			</p>
-			<p>
-				As of Detector v3, the detection is available as a static downloadable script/class to make detection 
-				independent of the external service.
-			</p>
-			<p>
-				Detector is made available to improve internet solutions around the world. It's not a business and it is
-				not supposed to be a business. It is an idealistic approach, made real with a lot of patience and hard
-				work. I believe that is the best way to implement real changes.
-			</p>
-			<p>
-				In spite of this idealistic approach, the cost of running the updated live service needs to be covered. 
-				This is done through sponsors and update subscriptions. Subscribing to updates is by no means required
-				to leverage the advantages of Detector as updates are continuously made available on this website.
-				The subscription approach instead includes an update on demand option, required by some clients.
-			</p>
-			<p>
-				The Detector service is hosted in a load-balanced environment in cooporation with Rackspace. The servers
-				are monitored and optimized for reliability and ultra fast responses, running on third year with 
-				zero unscheduled downtime.
-			</p>
-			<p>
-				Detector is part of the <a href="http://parentnode.dk">parentNode</a> open source projects.
-			</p>
-
-			<h2>Get in touch</h2>
-			<p>
-				We are always looking for new business or development partners, so feel free to contact us with any questions, suggestions or
-				comments.
-			</p>
-
+			<?= $page_item["html"] ?>
 		</div>
+		<? endif; ?>
+
 	</div>
+
+<? else:?>
+
+	<h1>About Detector</h1>
+	<p>This page is currently being updated.</p>
+
+<? endif; ?>
+
 
 	<div itemtype="http://schema.org/Organization" itemscope class="vcard company">
 		<h2 class="name fn org" itemprop="name">parentNode.dk</h2>

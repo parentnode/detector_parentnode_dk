@@ -1,8 +1,5 @@
 #content .scene ul.info {display: none;}
 
-/* POST ARTICLE */
-#content .scene.post div.article ul.info {display: block;}
-
 
 /* DOCS */
 #content .scene.docs ul.topics {list-style-position: outside; margin-left: 15px; width: 485px; list-style-type: disc;}
@@ -17,22 +14,27 @@
 
 
 /* APIS */
+#content .scene.apis div.article {padding-bottom: 0;}
+#content .scene.apis div.parameters {padding-bottom: 10px;}
 #content .scene.apis dl.parameters dt {width: 50px;}
 #content .scene.apis dl.parameters dd {width: 445px;}
+#content .scene.apis div.example {padding-bottom: 15px;}
+#content .scene.apis ul.actions li {padding-bottom: 0px;}
 #content .scene.apis div.jsonp dt {width: 80px;}
 #content .scene.apis div.jsonp dd {width: 415px;}
-#content .scene.apis div.js dt {width: 100px;}
-#content .scene.apis div.js dd {width: 395px;}
+#content .scene.apis div.js_include dt {width: 100px;}
+#content .scene.apis div.js_include dd {width: 395px;}
 #content .scene.apis div.build dt {width: 100px;}
 #content .scene.apis div.build dd {width: 395px;}
 
 
-/* PRICING */
-#content .scene.pricing div.plan {padding: 0 0 20px;}
+/* IMPLEMENT */
+#content .scene.implement div.article {padding-bottom: 0;}
 
-#content .scene.pricing dl.price {}
-#content .scene.pricing dl.price dt,
-#content .scene.pricing dl.price dd {width: auto;}
+
+/* PRICING */
+#content .scene.pricing p.price {padding-bottom: 35px; font-size: 14px;}
+#content .scene.pricing p.price span.label {color: #999999;}
 
 
 /* CHANGELOG */
@@ -42,13 +44,29 @@
 
 
 /* BUILD UI */
-#content .scene.build .customize,
 #content .scene.build .language,
 #content .scene.build .download {padding-bottom: 30px; overflow: hidden; position: relative;}
 
 
+/* DEFAULTS SECTION */
+#content .scene.build div.defaults p {padding-bottom: 5px;}
+#content .scene.build div.defaults ul li a {height: 13px; font-size: 13px; padding-top: 4px;}
+
+/* EXISTING PROJECTS SECTION */
+#content .scene.build div.projects {padding: 0 0 30px;}
+#content .scene.build div.projects p {padding-bottom: 5px;}
+#content .scene.build div.projects ul {padding-bottom: 0;}
+#content .scene.build div.projects ul li a {height: 13px; font-size: 13px; padding-top: 4px;}
+
+#content .scene.build div.projects ul li.selected a {background: #333333; color: #cccccc; border-color: #cccccc; border: 1px solid #cccccc; padding: 3px 11px 6px;}
+
+#content .scene.build div.projects form {padding: 10px 0;}
+#content .scene.build div.projects form div.field {display: inline-block; vertical-align: top; padding-right: 0;}
+#content .scene.build div.projects form div.field input {width: 200px;}
+#content .scene.build div.projects form ul.actions {display: inline-block; vertical-align: top; padding-left: 10px; padding-top: 2px;}
+
 /* CUSTOMIZE SECTION */
-#content .scene.build .customize {padding: 0 60px 30px; font-size: 0;
+#content .scene.build .customize {padding: 0 60px 10px; font-size: 0; overflow: hidden; position: relative;
 	-moz-user-select: none;
 	user-select: none;
 }
@@ -81,18 +99,14 @@
 #content .scene.build .customize div.groups ul.segments > li span.remove { font-size: 10px; display: block; position: absolute; right: 4px; top: 4px; width: 17px; height: 17px; box-sizing: border-box; border-radius: 8px; border: 1px solid #cccccc; color: #cccccc; line-height: 12px; text-align: center; cursor: pointer;}
 
 #content .scene.build .customize ul.actions {text-align: right; padding: 0 10px; width: 500px;}
-#content .scene.build .customize ul.actions li {padding-right: 0;}
+#content .scene.build .customize ul.actions li {padding-right: 0; padding-left: 10px;}
 
-#content .scene.build .customize div.defaults {padding: 0 10px 10px;}
-#content .scene.build .customize div.defaults h4 {padding-left: 0;}
-#content .scene.build .customize div.defaults ul {padding-left: 0; list-style: disc; margin: 0 0 0 15px;}
-#content .scene.build .customize div.defaults ul li {cursor: pointer;}
+#content .scene.build .language div.indicator {display: none;}
 
-#content .scene.build .fallback {display: none;}
 
 
 /* SUBNAVIGATION */
-#content ul.subnavigation {position: absolute; top: 10px; right: 50px; padding: 0;}
+#content ul.subnavigation {position: absolute; top: 10px; right: 43px; padding: 0;}
 #content ul.subnavigation li {display: inline-block; padding: 5px 0 5px 20px;}
 
 #content .scene.segments ul.subnavigation li.segments a,

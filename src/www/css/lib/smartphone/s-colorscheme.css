@@ -19,23 +19,29 @@ body {background: #333333;}
 #content .scene ul.geo.active li.location {color: #a0746d;}
 #content .scene hr {border-color: #505050;}
 
-#content ul.actions input.button.primary,
-#content ul.actions a.button.primary {background-color: #a0746d;}
-#content ul.actions input.button.primary:active,
+ul.actions input.button.primary,
+ul.actions a.button.primary,
+#content ul.actions a.button.primary {background-color: #a0746d; color: #ffffff;}
+
+ul.actions input.button.primary:active,
+ul.actions a.button.primary:active,
 #content ul.actions a.button.primary:active {background-color: #cccccc;}
+
+#content .scene span.var {color: #9ED29E;}
+#content .scene span.value {color: #cccccc;}
 
 #footer {border-color: #505050;}
 
-.terms_notification {background: #333333;}
+.terms_notification {background: #cccccc; color: ;}
+.terms_notification h3,
 .terms_notification .accept,
-.terms_notification .details {color: #a0746d;}
-.terms_notification {border-color: #505050;}
+.terms_notification .details {color: #333333;}
 
 
 /* LOCAL */
 
 .front #header .logo,
-.segments #navigation ul li.segments,
+.build #navigation ul li.build,
+.docs #navigation ul li.docs,
 .about #navigation ul li.about,
-.apis #navigation ul li.apis,
 .pricing #navigation ul li.pricing {color: #cccccc;}

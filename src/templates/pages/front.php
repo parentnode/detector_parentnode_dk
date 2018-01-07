@@ -1,70 +1,61 @@
+<?
+global $action;
+global $IC;
+
+$page_item = $IC->getItem(array("tags" => "page:front", "extend" => array("comments" => true, "user" => true, "mediae" => true, "tags" => true)));
+
+if($page_item) {
+	$this->sharingMetaData($page_item);
+}
+
+?>
 <div class="scene i:front front">
 
-	<div class="article" itemscope itemtype="http://schema.org/Article">
-		<h1 itemprop="headline">Detector is devices made simple</h1>
+<? if($page_item && $page_item["status"]): 
+	$media = $IC->sliceMedia($page_item); ?>
+	<div class="article i:article id:<?= $page_item["item_id"] ?>" itemscope itemtype="http://schema.org/Article">
 
-		<ul class="info">
-			<li class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></li>
-			<li class="modified_at" itemprop="dateModified" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"></li>
-			<li class="author" itemprop="author">Martin Kæstel Nielsen</li>
-			<li class="main_entity share" itemprop="mainEntityOfPage" content="<?= SITE_URL."/" ?>"></li>
-			<li class="publisher" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-				<ul class="publisher_info">
-					<li class="name" itemprop="name">parentnode.dk</li>
-					<li class="logo" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-						<span class="image_url" itemprop="url" content="<?= SITE_URL ?>/img/logo-large.png"></span>
-						<span class="image_width" itemprop="width" content="720"></span>
-						<span class="image_height" itemprop="height" content="405"></span>
-					</li>
-				</ul>
-			</li>
-			<li class="image_info" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-				<span class="image_url" itemprop="url" content="<?= SITE_URL ?>/img/logo-large.png"></span>
-				<span class="image_width" itemprop="width" content="720"></span>
-				<span class="image_height" itemprop="height" content="405"></span>
-			</li>
-		</ul>
+		<? if($media): ?>
+		<div class="image item_id:<?= $page_item["item_id"] ?> format:<?= $media["format"] ?> variant:<?= $media["variant"] ?>"></div>
+		<? endif; ?>
 
+
+		<?= $HTML->articleTags($page_item, [
+			"context" => false
+		]) ?>
+
+
+		<h1 itemprop="headline"><?= $page_item["name"] ?></h1>
+
+		<? if($page_item["subheader"]): ?>
+		<h2 itemprop="alternativeHeadline"><?= $page_item["subheader"] ?></h2>
+		<? endif; ?>
+
+
+		<?= $HTML->articleInfo($page_item, "/", [
+			"media" => $media,
+			"sharing" => true
+		]) ?>
+
+
+		<? if($page_item["html"]): ?>
 		<div class="articlebody" itemprop="articleBody">
-			<div class="build">
-				<p>
-					Detector lets you target the browsers you want to support and peacefully forget about the rest.
-					Try the custom Detector v3 generator and start using Detector today.
-				</p>
-				<ul class="actions">
-					<li class="build"><a href="/build" class="button primary">Build your Detector now</a></li>
-				</ul>
-			</div>
-
-			<p>
-				<span class="brand">Detector</span> is your one-stop solution to support all HTML capable 
-				devices on earth and lowering your development complexity at the same time. Yes, that includes
-				old mobile phones dominating 3rd world countries as well as the latest WebGL enabled browsers
-				- all bundled up neatly in 13 segments with each their own defined set of charactaristics.
-			</p>
-
-
-			<h2>If mobile is the new black, then what's the new mobile?</h2>
-			<p>
-				Internet browsing trends change faster than a typical website lifespan. Tomorrow some new browsing
-				gadget might surface and then what do you do with your old website?
-			</p>
-			<p>
-				Websites are no longer just one-size fits all and they should not be. It might seem like a jungle 
-				of different devices with different screen resolutions, input methods, rendering capabilities and
-				processing power, but we are here to help simplify things. <span class="brand">Detector</span> is this multitude of available 
-				devices boiled down to logical and groupable <a href="/docs/segments">segments</a>. On each project you 
-				individually decide which segments your project needs to support and how.
-			</p>
-			<p>
-				Detector is designed on top of a mobile-first markup approach, with no limits. Forget current design and 
-				implementation issues and focus on building optimized interfaces for each segment. 
-				<span class="brand">Detector</span> lets you separate your JavaScript and CSS into naturally deducted device 
-				segments, leaving the complexity of intertwined responsive states across platforms as a curious 
-				remnant of the troubled past.
-			</p>
+			<?= $page_item["html"] ?>
 		</div>
+		<? endif; ?>
+
 	</div>
+
+<? else:?>
+
+	<h1>Detector</h1>
+	<p>This page is currently being updated.</p>
+
+<? endif; ?>
+
+	<ul class="actions">
+		<li class="build"><a href="/build" class="button primary">Build your Detector now</a></li>
+	</ul>
 
 	<div class="usedby">
 		<h2>Selected clients</h2>

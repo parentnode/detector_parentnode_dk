@@ -8,19 +8,20 @@
 
 body {background: #333333;}
 
-#header .logo {color: #a0746d; background-color: rgba(51,51,51, 0.8);}
-#navigation {background-color: rgba(51,51,51, 0.8);}
+#header .logo {color: #a0746d; background-color: rgba(51,51,51, 0.6);}
+#navigation {background-color: rgba(51,51,51, 0.6);}
 #navigation ul li {color: #a0746d;}
 
 #content .scene a,
 #content .scene ul.geo.active li.location {color: #a0746d;}
+
 #content .scene hr {border-color: #505050;}
 
-#content .scene ul.info li.place:before,
-#content .scene ul.info li.author:before {color: #999999;}
 
-#content ul.actions input.button.primary,
-#content ul.actions a.button.primary {background-color: #a0746d;}
+ul.actions input.button.primary,
+ul.actions a.button.primary,
+#content ul.actions a.button.primary,
+#header ul.servicenavigation li.github {background-color: #a0746d; color: #ffffff;}
 
 #footer {border-color: #505050;}
 
@@ -30,11 +31,25 @@ body {background: #333333;}
 .terms_notification .details {color: #333333;}
 
 
+#content .scene div.sharing svg circle.primary {stroke: #cccccc; fill: #333333;}
+#content .scene div.sharing svg circle {fill: #cccccc; stroke: #cccccc;}
+#content .scene div.sharing svg line.primary {stroke: #cccccc;}
+#content .scene div.sharing svg line {stroke: #cccccc;}
+
+#content .scene span.var {color: #9ED29E;}
+#content .scene span.value {color: #cccccc;}
+
+#page #notifications {background: #cccccc; color: #333333;}
+#page #notifications div {color: #333333;}
+#page #notifications .error {background: #df0000; color: #ffffff;}
+
+
 /* LOCAL */
 
 #content .usedby {background-color: #cccccc;}
 
 .front #header .logo,
+.build #navigation ul li.build,
 .docs #navigation ul li.docs,
 .about #navigation ul li.about,
 .pricing #navigation ul li.pricing {color: #cccccc;}

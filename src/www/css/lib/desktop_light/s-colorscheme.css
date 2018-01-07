@@ -25,16 +25,19 @@ body {background: #333333;}
 
 #footer {border-color: #505050;}
 
-.terms_notification {background: #333333;}
+.terms_notification {background: #cccccc;}
+.terms_notification h3,
 .terms_notification .accept,
-.terms_notification .details {color: #A0746D;}
-.terms_notification {border-color: #505050;}
+.terms_notification .details {color: #333333;}
 
+#content .scene span.var {color: #9ED29E;}
+#content .scene span.value {color: #cccccc;}
 
 /* LOCAL */
+#content .usedby {background-color: #cccccc;}
 
 .front #header .logo,
-.segments #navigation ul li.segments a,
+.build #navigation ul li.build a,
+.docs #navigation ul li.docs a,
 .about #navigation ul li.about a,
-.apis #navigation ul li.apis a,
 .pricing #navigation ul li.pricing a {color: #cccccc;}

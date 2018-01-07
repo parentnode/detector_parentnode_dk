@@ -1,5 +1,6 @@
 <?php
-$access_item = false;
+$access_item["/"] = false;
+$access_item["/saveProject"] = true;
 if(isset($read_access) && $read_access) {
 	return;
 }
@@ -8,12 +9,19 @@ include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
 
 $action = $page->actions();
+$IC = new Items();
+$model = $IC->typeObject("project");
 
 
 $page->bodyClass("build");
 $page->pageTitle("Build your static Detector v3 script now");
 
-$detector_groups = stringOr(session()->value("detector_groups"), "");
+
+$project_groups = stringOr(session()->value("project_groups"), "");
+$project_name = stringOr(session()->value("project_name"), "");
+$project_id = stringOr(session()->value("project_id"), "");
+$project_language = stringOr(session()->value("project_language"), "");
+
 
 // current version
 if(count($action) > 0) {
@@ -21,27 +29,64 @@ if(count($action) > 0) {
 	// reset entire group structure
 	if(count($action) == 1 && $action[0] == "reset") {
 
-		session()->reset("detector_groups");
+		session()->reset("project_groups");
+		session()->reset("project_id");
+		session()->reset("project_name");
+		session()->reset("project_language");
 
-		header("Location: /build");
+		print "1";
 		exit();
 
 	}
-	else if(count($action) == 1 && $action[0] == "groups") {
+	else if(count($action) > 0 && $action[0] == "saveProject") {
 
-		$detector_groups = json_decode(stripSlashes(getVar("detector_groups")));
-		session()->value("detector_groups", $detector_groups);
+		if($page->validateCsrfToken() && preg_match("/^(saveProject)$/", $action[0])) {
+
+			// check if custom function exists on User class
+			if($model && method_exists($model, $action[0])) {
+
+				$output = new Output();
+				$output->screen($model->{$action[0]}($action));
+				exit();
+			}
+		}
+
+	}
+	else if(count($action) == 1 && $action[0] == "setGroups") {
+
+		print getVar("project_groups")."\n\n";
+		session()->value("project_groups", json_decode(stripslashes(getVar("project_groups"))));
+		session()->value("project_name", urldecode(getVar("project_name")));
+		session()->value("project_id", getVar("project_id"));
+
+		print_r($_SESSION);
 
 		// return something to ensure JS has some response
 		print "1";
 		exit();
 
 	}
+	else if(count($action) == 1 && $action[0] == "setLanguage") {
 
+		$project_language = getVar("project_language");
+		session()->value("project_language", $project_language);
+
+		// return something to ensure JS has some response
+		print "1";
+		exit();
+
+	}
+	// keepAlive for build process
+	else if(preg_match("/^(keepAlive)$/", $action[0])) {
+
+		print 1;
+		exit();
+
+	}
 	// // reset entire group structure
 	// if(count($action) == 1 && $action[0] == "resetGroups") {
 	//
-	// 	session()->reset("detector_groups");
+	// 	session()->reset("project_groups");
 	//
 	// 	header("Location: /build");
 	// 	exit();
@@ -52,11 +97,11 @@ if(count($action) > 0) {
 	// else if(count($action) == 2 && $action[0] == "removeGroup") {
 	//
 	// 	$group = $action[1];
-	// 	if(isset($detector_groups[$group])) {
-	// 		unset($detector_groups[$group]);
+	// 	if(isset($project_groups[$group])) {
+	// 		unset($project_groups[$group]);
 	// 	}
 	//
-	// 	session()->value("detector_groups", $detector_groups);
+	// 	session()->value("project_groups", $project_groups);
 	//
 	// 	header("Location: /build");
 	// 	exit();
@@ -70,11 +115,11 @@ if(count($action) > 0) {
 	// 	$segment = $action[2];
 	//
 	// 	// remove segment from group if it exists
-	// 	if(array_search($segment, $detector_groups[$group]) != -1) {
-	// 		unset($detector_groups[$group][array_search($segment, $detector_groups[$group])]);
+	// 	if(array_search($segment, $project_groups[$group]) != -1) {
+	// 		unset($project_groups[$group][array_search($segment, $project_groups[$group])]);
 	// 	}
 	//
-	// 	session()->value("detector_groups", $detector_groups);
+	// 	session()->value("project_groups", $project_groups);
 	//
 	// 	header("Location: /build");
 	// 	exit();
@@ -84,9 +129,9 @@ if(count($action) > 0) {
 	// else if(count($action) == 1 && $action[0] == "addGroup") {
 	//
 	// 	$group = getVar("_group");
-	// 	$detector_groups[$group] = array();
+	// 	$project_groups[$group] = array();
 	//
-	// 	session()->value("detector_groups", $detector_groups);
+	// 	session()->value("project_groups", $project_groups);
 	//
 	// 	header("Location: /build");
 	// 	exit();
@@ -100,17 +145,17 @@ if(count($action) > 0) {
 	// 	$segment = getVar("_segment");
 	//
 	// 	// clean up - remove segment from group if it exists
-	// 	foreach($detector_groups as $existing_group => $existing_segments) {
+	// 	foreach($project_groups as $existing_group => $existing_segments) {
 	// 		if(array_search($segment, $existing_segments) !== false) {
-	// 			unset($detector_groups[$existing_group][array_search($segment, $existing_segments)]);
+	// 			unset($project_groups[$existing_group][array_search($segment, $existing_segments)]);
 	// 		}
 	// 	}
 	//
 	// 	// add segment to group
-	// 	$detector_groups[$group][] = $segment;
+	// 	$project_groups[$group][] = $segment;
 	//
 	//
-	// 	session()->value("detector_groups", $detector_groups);
+	// 	session()->value("project_groups", $project_groups);
 	//
 	// 	header("Location: /build");
 	// 	exit();
@@ -137,8 +182,8 @@ if(count($action) > 0) {
 
 		$ch = curl_init();
 		curl_setopt_array($ch, array(
-//			CURLOPT_URL => "http://detector-v3.api/build",
-			CURLOPT_URL => "http://detector-v3.dearapi.com/build",
+			CURLOPT_URL => "http://detector.api/build",
+//			CURLOPT_URL => "http://detector.dearapi.com/build",
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_SSL_VERIFYPEER => false,
 			CURLOPT_SSL_VERIFYHOST => 2,
@@ -163,6 +208,9 @@ if(count($action) > 0) {
 			ob_clean();
 			flush();
 			print $result;
+
+			// notify admin
+			mailer()->send(["message" => "Detector was downloaded.\n\n".stripslashes($values["grouping"])."\n\nLanguage: ".$values["language"]]);
 
 			exit();
 		}

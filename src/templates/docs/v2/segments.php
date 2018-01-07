@@ -1,20 +1,25 @@
 <div class="scene segments i:scene">
 
 	<div class="article" itemscope itemtype="http://schema.org/Article">
-		<h1 itemprop="name">v2 - Segmentation</h1>
+		<h1 itemprop="headline">Detector v2 <br />Segmentation</h1>
 
-		<dl class="info">
-			<dt class="published_at">Date published</dt>
-			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
-			<dt class="author">Author</dt>
-			<dd class="author" itemprop="author">Martin Kæstel Nielsen</dd>
-		</dl>
+		<?= $HTML->articleInfo(
+			[
+				"user_nickname" => "Martin Kæstel Nielsen",
+			 	"published_at" => date("Y-m-d, H:i", filemtime(__FILE__)),
+				"modified_at" => date("Y-m-d, H:i", filemtime(__FILE__)),
+			 ], 
+			 "/docs/v2/segments", 
+			 [
+				 "sharing" => false
+			]
+		) ?>
 
 		<div class="articlebody" itemprop="articleBody">
 			<p class="note">
-				v2 is deprecated - support ends in 2016. 
-				<a href="/docs/segments">v3</a> is newest verion - 
-				<a href="/docs/upgrade-v2-to-v3">Upgrade now</a>.
+				v2 is deprecated - support ended in 2016. 
+				<a href="/docs/v4/segments">v4</a> is newest version - 
+				<a href="/docs/v4/upgrade-to-v4">Upgrade now</a>.
 			</p>
 			<p>
 				Detector is derived from an extensive, continuous and unparalleled analysis of browsers, conducted for more 
@@ -86,5 +91,12 @@
 			</p>
 		</div>
 	</div>
+
+
+	<ul class="subnavigation">
+		<li class="apis"><a href="/docs/v2/apis">APIs</a></li>
+		<li class="segments"><a href="/docs/v2/segments">Segments</a></li>
+		<li class="implement"><a href="/docs/v2/implement">Implementation</a></li>
+	</ul>
 
 </div>

@@ -27,8 +27,11 @@ body {background: #333333;}
 
 /* LOCAL */
 
-.front #navigation .front,
-.segments #navigation ul li.segments,
+#content .scene span.var {color: #9ED29E;}
+#content .scene span.value {color: #cccccc;}
+
+.front #header .logo,
+.build #navigation ul li.build,
+.docs #navigation ul li.docs,
 .about #navigation ul li.about,
-.apis #navigation ul li.apis,
 .pricing #navigation ul li.pricing {color: #cccccc;}

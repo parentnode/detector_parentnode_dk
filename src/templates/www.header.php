@@ -33,7 +33,20 @@
 <div id="page" class="i:page">
 	<div id="header">
 		<ul class="servicenavigation">
-			<li class="keynav navigation nofollow"><a href="#navigation" rel="nofollow">Navigation</a></li>
+			<li class="keynav navigation nofollow"><a href="#navigation">To navigation</a></li>
+<? if(defined("SITE_SHOP") && SITE_SHOP): ?>
+			<li class="keynav cart nofollow<?= $cart && $cart["total_items"] ? " used" : "" ?>"><a href="/shop/cart">Cart<?= ($cart ? ' (<span class="total">'.$cart["total_items"].'</span>)' : '') ?></a></li>
+<? endif; ?>
+<? if(session()->value("user_id") && session()->value("user_group_id") == 2): ?>
+			<li class="keynav admin nofollow"><a href="/janitor/admin/profile">Account</a></li>
+<? elseif(session()->value("user_id") && session()->value("user_group_id") > 2): ?>
+			<li class="keynav admin nofollow"><a href="/janitor">Janitor</a></li>
+<? endif; ?>
+<? if(session()->value("user_id") && session()->value("user_group_id") > 1): ?>
+			<li class="keynav user nofollow"><a href="?logoff=true">Logoff</a></li>
+<? else: ?>
+			<li class="keynav user nofollow"><a href="/login">Login</a></li>
+<? endif; ?>
 		</ul>
 	</div>
 

@@ -2,21 +2,29 @@
 $this->bodyClass("docs");
 $this->pageTitle("It's just improvements");
 ?>
-<div class="scene changelog i:scene">
+<div class="scene upgrade i:scene">
 
 	<div class="article" itemscope itemtype="http://schema.org/Article">
-		<h1 itemprop="headline">Upgade from v2 to v3</h1>
+		<h1 itemprop="headline">Upgade to v3</h1>
 
-		<dl class="info">
-			<dt class="published_at">Published</dt>
-			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
-			<dt class="author">Author</dt>
-			<dd class="author" itemprop="author">Martin Kæstel Nielsen</dd>
-		</dl>
-		<div itemprop="image" content="<?= SITE_URL ?>/img/logo.png"></div>
+		<?= $HTML->articleInfo(
+			[
+				"user_nickname" => "Martin Kæstel Nielsen",
+			 	"published_at" => date("Y-m-d, H:i", filemtime(__FILE__)),
+				"modified_at" => date("Y-m-d, H:i", filemtime(__FILE__)),
+			 ], 
+			 "/docs/v3/upgrade-to-v3", 
+			 [
+				 "sharing" => false
+			]
+		) ?>
 
 		<div class="articlebody" itemprop="articleBody">
-
+			<p class="note">
+				v3 is deprecated - support ends in 2018. 
+				<a href="/docs/v4/segments">v4</a> is newest version - 
+				<a href="/docs/v4/upgrade-to-v4">Upgrade now</a>.
+			</p>
 			<p>
 				Detector v2 and v3 are quite different and yet very similar. Upgrading can typically be done in a couple of 
 				hours. The benefit is dealing with less segments in your projects - well, and not being stranded when Detector v2
@@ -25,9 +33,7 @@ $this->pageTitle("It's just improvements");
 			<p>
 				Detector v3 comes with an updated set of segments but also allows you to flexibly group these segments to
 				match the include-layout used in Detector v2 projects, making it perfectly compatible with your existing
-				JavaScript and CSS layout. If you are using Manipulator in your project, you should consider updating 
-				Manipulator as well, using the <a href="http://manipulator.parentnode.dk/build">Manipulator builder</a>,
-				but this is by no means required.
+				JavaScript and CSS layout.
 			</p>
 			<p><a href="http://janitor.parentnode.dk">Janitor v0.7.6</a> uses Detector v3.</p>
 
