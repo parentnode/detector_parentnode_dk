@@ -22,7 +22,6 @@ $this->pageTitle("Documentation");
 	<h2>Version 3+ (v3.0, v3.1)</h2>
 	<p class="note">Released: July, 2015</p>
 	<ul class="topics">
-		<li><a href="/docs/v3/segments">Segments</a></li>
 		<li><a href="/docs/v3/apis">APIs</a></li>
 		<li><a href="/docs/v3/implement">Implementation</a></li>
 	</ul>
@@ -32,7 +31,6 @@ $this->pageTitle("Documentation");
 	<h2>Version 2 (v2.0)</h2>
 	<p class="note">Released: January, 2014</p>
 	<ul class="topics">
-		<li><a href="/docs/v2/segments">Segments</a></li>
 		<li><a href="/docs/v2/apis">APIs</a></li>
 		<li><a href="/docs/v2/implement">Implementation</a></li>
 	</ul>
@@ -41,7 +39,7 @@ $this->pageTitle("Documentation");
 
 	<h2>Version 1 (v1.0)</h2>
 	<p class="note">Released: July, 2009</p>
-	<p>Version 1 is no longer supported.</p>
+	<p>Version 1 is no longer online.</p>
 
 </div>
 

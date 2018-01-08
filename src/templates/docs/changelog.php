@@ -52,7 +52,7 @@ $this->pageTitle("It's just improvements");
 				supporting static output for local implementations.
 			</p>
 			<p>
-				The entire data set has been re-indexed in 13 <a href="/docs/v3/segments">segments</a>,
+				The entire data set has been re-indexed in 13 segments,
 				splitting <em>desktop_ie</em> into <em>desktop_ie9</em>, <em>desktop_ie10</em> and <em>desktop_ie11</em>, 
 				adding <em>tablet_light</em>, renaming <em>mobile_touch</em> to s<em>martphone</em> and introducing a
 				new <em>desktop_edge</em> segment for the newest browsers.
@@ -65,7 +65,7 @@ $this->pageTitle("It's just improvements");
 				<li>New <em>/submit</em> <a href="/docs/v3/api">API</a> endpoint</li>
 				<li>New <em>/build</em> <a href="/docs/v3/api">API</a> endpoint</li>
 				<li>Improved overall performance (again)</li>
-				<li>New <a href="/docs/v3/segments">segment definitions</a></li>
+				<li>New segment definitions</li>
 			</ul>
 
 

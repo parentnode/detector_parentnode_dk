@@ -28,6 +28,11 @@
 			</p>
 
 			<h2>The v2 segments</h2>
+			<p class="note">
+				Please note, that while v2 still returns one of the segments listed below, the actual browser specs has been 
+				updated for <a href="/docs/v4/segments">v4</a>.
+			</p>
+
 			<dl class="segments">
 
 				<dt>Desktop</dt>

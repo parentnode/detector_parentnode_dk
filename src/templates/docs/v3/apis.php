@@ -438,7 +438,7 @@ document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/s
 
 	<ul class="subnavigation">
 		<li class="apis"><a href="/docs/v3/apis">APIs</a></li>
-		<li class="segments"><a href="/docs/v3/segments">Segments</a></li>
+		<li class="segments"><a href="/docs/v4/segments">Segments</a></li>
 		<li class="implement"><a href="/docs/v3/implement">Implementation</a></li>
 	</ul>
 

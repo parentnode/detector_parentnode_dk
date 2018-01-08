@@ -18,7 +18,7 @@
 		<div class="articlebody" itemprop="articleBody">
 			<p>
 				Detector is unique device identification derived from an extensive, continuous and unparalleled analysis 
-				of browsers, conducted for more than 10 years. It groups browsers and devices into 13 segments, based on 
+				of browsers, conducted for more than 10 years. It groups browsers and devices into 12 segments, based on 
 				common denominators for screen 
 				resolution, input method, performance and scripting/styling capabilities. You can read more about
 				segments and <a href="http://parentnode.dk/blog/tag/Segments" target="_blank">the segmentation model</a> on 
@@ -30,8 +30,8 @@
 
 				<dt>desktop</dt>
 				<dd>
-					Modern browsers. Chrome 7+, Firefox 7+ and Safari 6+. Support for modern technology, 
-					like CSS3 transitions, FormData and FileReader.
+					Modern browsers. Chrome 49+, Firefox 49+, Safari 10+ and Edge 13+. Support for advanced technology, 
+					like fx. WebGL, Web Cryptography, ES6 Classes and much, much more.
 
 					<br /><br />
 					Read more about <a href="http://parentnode.dk/blog/the-desktop-segment" target="_blank">desktop</a>.
@@ -39,7 +39,7 @@
 
 				<dt>desktop_ie11</dt>
 				<dd>
-					Internet Explorer 11. Not as good as <em>dekstop_edge</em>, due to only partial 3D transform support. 
+					Internet Explorer 11. Not nearly as good as <em>dekstop</em>, due to only partial 3D transform support. 
 					As a standalone segment, you decide where it belongs.
 
 					<br /><br />
@@ -48,8 +48,7 @@
 
 				<dt>desktop_ie10</dt>
 				<dd>
-					Internet Explorer 10. Missing support for Dataset which disqualifies it for
-					the <em>desktop</em> segment. Will also typically need a few CSS hacks.
+					Internet Explorer 10. Lost in between IE9 and IE 11. Will also typically need a lot of CSS and Javascript hacks.
 					As a standalone segment, you decide where it belongs.
 
 					<br /><br />
@@ -68,8 +67,8 @@
 
 				<dt>desktop_light</dt>
 				<dd>
-					All older browsers for desktop or laptop computers. Internet Explorer &lt;= 8 , Firefox &lt;= 6, 
-					Chrome &lt;= 6, Safari &lt;= 5, Opera, Netscape. You get the idea. Just keep it simple and it's 
+					All older browsers for desktop or laptop computers. Internet Explorer &lt;= 8 , Firefox &lt;= 48, 
+					Chrome &lt;= 48, Safari &lt;= 5, Non-blink Opera, Netscape. You get the idea. Just keep it simple and it's 
 					all gonna work out fine.
 
 					<br /><br />
@@ -80,7 +79,9 @@
 
 				<dt>tablet</dt>
 				<dd>
-					Advanced tablets with 3D Transform and WebGL support. iPads using Safari 8+, Android tablets using Chrome 30+ or Firefox 22+.
+					Advanced tablets with support for advanced technology, 
+					like fx. WebGL, Web Cryptography, ES6 Classes and much, much more. 
+					iPads using Safari 10+, Android tablets using Chrome 49+ or Firefox 49+.
 					All tablets have a screen size larger than 6 inches.
 
 					<br /><br />
@@ -100,9 +101,10 @@
 
 				<dt>smartphone</dt>
 				<dd>
-					Smartphones with touchscreen and support for 3D Transforms and FileReader. Minimum 
-					screen width of 320 pixels in portrait mode. Includes iPhones/iPods with Safari 6+, Androids with
-					Chrome 12+ or the Android browser for Android 3+ and IE11 on Windows Phone 8+.
+					Smartphones with touchscreen and support for advanced technology, 
+					like fx. WebGL, Web Cryptography, ES6 Classes and much, much more. Minimum 
+					screen width of 320 pixels in portrait mode. Includes iPhones/iPods with Safari 10+, Androids with
+					Chrome 49+, Firefox mobile 49+ and Edge 13+ for mobile.
 
 					<br /><br />
 					Read more about <a href="http://parentnode.dk/blog/the-smartphone-segment" target="_blank">smartphone</a>.
@@ -131,7 +133,7 @@
 
 				<dt>tv</dt>
 				<dd>
-					TV and console devices with internet access, using the remote control or gamepad for 
+					TV and console devices with internet access, using the remote control or game pad for 
 					navigation and interaction. Like Playstation 3, Nintendo Wii and SMART-TVs.
 
 					<br /><br />
