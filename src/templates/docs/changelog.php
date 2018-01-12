@@ -27,7 +27,11 @@ $this->pageTitle("It's just improvements");
 			<ul class="changes">
 				<li>12 <a href="/docs/v4/segments">segments</a> to cover every browser on earth.</li>
 				<li>New <em>/json</em> <a href="/docs/v4/api">API</a> endpoint</li>
-				<li></li>
+				<li>Performance improvements and useragent trimming</li>
+				<li>Updated identification priority</li>
+				<li>Smaller footprint</li>
+				<li>Updated indexing UI, for much faster re-indexing of segment base</li>
+				<li>New maintannence tools, to minimize UA deduction database</li>
 			</ul>
 			<p>
 				The <em>desktop_edge</em> segment, introduced in v3.0, had become superfluous due to automatic updating 

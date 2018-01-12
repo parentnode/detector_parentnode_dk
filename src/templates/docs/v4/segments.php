@@ -68,7 +68,7 @@
 				<dt>desktop_light</dt>
 				<dd>
 					All older browsers for desktop or laptop computers. Internet Explorer &lt;= 8 , Firefox &lt;= 48, 
-					Chrome &lt;= 48, Safari &lt;= 5, Non-blink Opera, Netscape. You get the idea. Just keep it simple and it's 
+					Chrome &lt;= 48, Safari &lt;= 9, Edge 12, Non-blink Opera, Netscape. You get the idea. Just keep it simple and it's 
 					all gonna work out fine.
 
 					<br /><br />
