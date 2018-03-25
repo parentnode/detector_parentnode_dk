@@ -182,8 +182,8 @@ if(count($action) > 0) {
 
 		$ch = curl_init();
 		curl_setopt_array($ch, array(
-			CURLOPT_URL => "http://detector.api/build",
-//			CURLOPT_URL => "http://detector.dearapi.com/build",
+//			CURLOPT_URL => "http://detector.api/build",
+			CURLOPT_URL => "http://detector-v4.dearapi.com/build",
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_SSL_VERIFYPEER => false,
 			CURLOPT_SSL_VERIFYHOST => 2,
