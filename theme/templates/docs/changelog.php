@@ -22,7 +22,7 @@ $this->pageTitle("It's just improvements");
 		<div class="articlebody" itemprop="articleBody">
 			<h2>Version 4.0</h2>
 			<p>
-				Released in January 2018, with updated segment definitions and another round of performance improvements. 
+				Released in June 2018, with updated segment definitions and another round of performance improvements. 
 			</p>
 			<ul class="changes">
 				<li>12 <a href="/docs/v4/segments">segments</a> to cover every browser on earth.</li>

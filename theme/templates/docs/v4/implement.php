@@ -16,17 +16,13 @@
 		) ?>
 
 		<div class="articlebody" itemprop="articleBody">
-			<p class="note">
-				As of Detector v3 it is also possible to <a href="/build">build a static version</a> of Detector
-				for production implementations to reduce dependencies of the API.
-			</p>
 			<p>
 				The Detector v4 API is easy to use. We have collected a couple of simplified implementation 
 				examples below. Please forward additional implementations, if you wish to share them with others.
 			</p>
 			<p>
-				<a href="http://janitor.parentnode.dk">Janitor v0.8</a> uses Detector v4 - if you're using Janitor, all you need is
-				is the latest version.
+				<a href="http://janitor.parentnode.dk">Janitor v0.7.8</a> uses Detector v4 - if you're using Janitor, all you need is
+				the latest version.
 			</p>
 			<p>
 				Make sure you store the received segment (in session or similar), to avoid redundant requests/identifications
@@ -34,6 +30,10 @@
 			</p> 
 			<p>
 				Be aware of our <a href="/terms">terms</a>.
+			</p>
+			<p class="note">
+				As of Detector v3 it is also possible to <a href="/build">build a static version</a> of Detector
+				for production implementations to reduce dependencies of the API.
 			</p>
 		</div>
 	</div>

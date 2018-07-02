@@ -3,8 +3,8 @@ CREATE TABLE `SITE_DB`.`item_project` (
   `item_id` int(11) NOT NULL,
 
   `name` varchar(100) NOT NULL,
-  `grouping` text NOT NULL,
-  `language` varchar(50) NOT NULL,
+  `grouping` text NOT NULL DEFAULT '',
+  `language` varchar(50) NOT NULL DEFAULT '',
 
   PRIMARY KEY  (`id`),
   KEY `item_id` (`item_id`),

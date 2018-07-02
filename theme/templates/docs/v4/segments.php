@@ -21,7 +21,7 @@
 				of browsers, conducted for more than 10 years. It groups browsers and devices into 12 segments, based on 
 				common denominators for screen 
 				resolution, input method, performance and scripting/styling capabilities. You can read more about
-				segments and <a href="http://parentnode.dk/blog/tag/Segments" target="_blank">the segmentation model</a> on 
+				segments and <a href="https://parentnode.dk/blog/tag/Segments" target="_blank">the segmentation model</a> on 
 				parentnode.dk.
 			</p>
 
@@ -34,7 +34,7 @@
 					like fx. WebGL, Web Cryptography, ES6 Classes and much, much more.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-desktop-segment" target="_blank">desktop</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-desktop-segment" target="_blank">desktop</a>.
 				</dd>
 
 				<dt>desktop_ie11</dt>
@@ -43,7 +43,7 @@
 					As a standalone segment, you decide where it belongs.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-desktop_ie11-segment" target="_blank">desktop_ie11</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-desktop_ie11-segment" target="_blank">desktop_ie11</a>.
 				</dd>
 
 				<dt>desktop_ie10</dt>
@@ -52,7 +52,7 @@
 					As a standalone segment, you decide where it belongs.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-desktop_ie10-segment" target="_blank">desktop_ie10</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-desktop_ie10-segment" target="_blank">desktop_ie10</a>.
 				</dd>
 
 				<dt>desktop_ie9</dt>
@@ -62,7 +62,7 @@
 					As a standalone segment, you decide where it belongs.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-desktop_ie9-segment" target="_blank">desktop_ie9</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-desktop_ie9-segment" target="_blank">desktop_ie9</a>.
 				</dd>
 
 				<dt>desktop_light</dt>
@@ -72,7 +72,7 @@
 					all gonna work out fine.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-desktop_light-segment" target="_blank">desktop_light</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-desktop_light-segment" target="_blank">desktop_light</a>.
 				</dd>
 
 
@@ -85,7 +85,7 @@
 					All tablets have a screen size larger than 6 inches.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-tablet-segment" target="_blank">tablet</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-tablet-segment" target="_blank">tablet</a>.
 				</dd>
 
 				<dt>tablet_light</dt>
@@ -95,7 +95,7 @@
 					All tablets have a screen size larger than 6 inches.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-tablet_light-segment" target="_blank">tablet_light</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-tablet_light-segment" target="_blank">tablet_light</a>.
 				</dd>
 
 
@@ -107,7 +107,7 @@
 					Chrome 49+, Firefox mobile 49+ and Edge 13+ for mobile.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-smartphone-segment" target="_blank">smartphone</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-smartphone-segment" target="_blank">smartphone</a>.
 				</dd>
 
 
@@ -118,7 +118,7 @@
 					level of JavaScript and CSS.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-mobile-segment" target="_blank">mobile</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-mobile-segment" target="_blank">mobile</a>.
 				</dd>
 
 				<dt>mobile_light</dt>
@@ -127,7 +127,7 @@
 					in the past 15 years. They have very limited CSS support and typically no JavaScript support.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-mobile_light-segment" target="_blank">mobile_light</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-mobile_light-segment" target="_blank">mobile_light</a>.
 				</dd>
 
 
@@ -137,7 +137,7 @@
 					navigation and interaction. Like Playstation 3, Nintendo Wii and SMART-TVs.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-tv-segment" target="_blank">tv</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-tv-segment" target="_blank">tv</a>.
 				</dd>
 
 
@@ -148,15 +148,15 @@
 					text-based browsers like Lynx.
 
 					<br /><br />
-					Read more about <a href="http://parentnode.dk/blog/the-seo-segment" target="_blank">seo</a>.
+					Read more about <a href="https://parentnode.dk/blog/the-seo-segment" target="_blank">seo</a>.
 				</dd>
 			</dl>
 
 			<p>
 				The segments are efficiently backed by the minimalistic and semantic markup model described at 
-				<a href="http://templator.parentnode.dk" target="_blank">http://templator.parentnode.dk</a> and empowered by the
+				<a href="https://templator.parentnode.dk" target="_blank">https://templator.parentnode.dk</a> and empowered by the
 				a complete javascript library found at 
-				<a href="http://manipulator.parentnode.dk" target="_blank">http://manipulator.parentnode.dk.</a> To understand the full
+				<a href="https://manipulator.parentnode.dk" target="_blank">https://manipulator.parentnode.dk.</a> To understand the full
 				potential of Detector visit these websites.
 			</p>
 		</div>
