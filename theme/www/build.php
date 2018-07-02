@@ -83,84 +83,7 @@ if(count($action) > 0) {
 		exit();
 
 	}
-	// // reset entire group structure
-	// if(count($action) == 1 && $action[0] == "resetGroups") {
-	//
-	// 	session()->reset("project_groups");
-	//
-	// 	header("Location: /build");
-	// 	exit();
-	//
-	// }
-	// // remove group
-	// // build/removeGroup/#group#
-	// else if(count($action) == 2 && $action[0] == "removeGroup") {
-	//
-	// 	$group = $action[1];
-	// 	if(isset($project_groups[$group])) {
-	// 		unset($project_groups[$group]);
-	// 	}
-	//
-	// 	session()->value("project_groups", $project_groups);
-	//
-	// 	header("Location: /build");
-	// 	exit();
-	//
-	// }
-	// // remove segment
-	// // build/removeSegment/#group#/#segment#
-	// else if(count($action) == 3 && $action[0] == "removeSegment") {
-	//
-	// 	$group = $action[1];
-	// 	$segment = $action[2];
-	//
-	// 	// remove segment from group if it exists
-	// 	if(array_search($segment, $project_groups[$group]) != -1) {
-	// 		unset($project_groups[$group][array_search($segment, $project_groups[$group])]);
-	// 	}
-	//
-	// 	session()->value("project_groups", $project_groups);
-	//
-	// 	header("Location: /build");
-	// 	exit();
-	// }
-	// // add group
-	// // posting group
-	// else if(count($action) == 1 && $action[0] == "addGroup") {
-	//
-	// 	$group = getVar("_group");
-	// 	$project_groups[$group] = array();
-	//
-	// 	session()->value("project_groups", $project_groups);
-	//
-	// 	header("Location: /build");
-	// 	exit();
-	//
-	// }
-	// // add segment to group
-	// // build/#group# - posting segment
-	// else if(count($action) == 2 && $action[0] == "addSegment") {
-	//
-	// 	$group = $action[1];
-	// 	$segment = getVar("_segment");
-	//
-	// 	// clean up - remove segment from group if it exists
-	// 	foreach($project_groups as $existing_group => $existing_segments) {
-	// 		if(array_search($segment, $existing_segments) !== false) {
-	// 			unset($project_groups[$existing_group][array_search($segment, $existing_segments)]);
-	// 		}
-	// 	}
-	//
-	// 	// add segment to group
-	// 	$project_groups[$group][] = $segment;
-	//
-	//
-	// 	session()->value("project_groups", $project_groups);
-	//
-	// 	header("Location: /build");
-	// 	exit();
-	// }
-
+	// Download detector
 	else if($action[0] == "download") {
 
 		$values = array();
@@ -182,8 +105,8 @@ if(count($action) > 0) {
 
 		$ch = curl_init();
 		curl_setopt_array($ch, array(
-//			CURLOPT_URL => "http://detector.api/build",
-			CURLOPT_URL => "http://detector-v4.dearapi.com/build",
+			// CURLOPT_URL => "http://detector.api/build",
+			CURLOPT_URL => "http://test.detector-v4.dearapi.com/build",
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_SSL_VERIFYPEER => false,
 			CURLOPT_SSL_VERIFYHOST => 2,
