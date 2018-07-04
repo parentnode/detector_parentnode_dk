@@ -27,9 +27,9 @@
 				these terms, you cannot use the website.
 			</p>
 			<p>
-				This website is offered as is. We cannot be held responsible for
+				This website and related services is offered as is. We cannot be held responsible for
 				content submitted by our users, or consequences derived, directly or indirectly, from using this website
-				or any ideas posted on the website.
+				or any ideas or services posted or mentioned on the website.
 			</p>
 			<p>
 				We maintain the right to update or change these terms as needed.

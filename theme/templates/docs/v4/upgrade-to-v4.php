@@ -38,9 +38,9 @@ $this->pageTitle("It's just improvements");
 			<h2>Upgrade to Detector v4 API</h2>
 			<h3>Step 1</h3>
 			<p>
-				Change the request url from <span class="value">http://detector-v3.dearapi.com</span> to 
-				<span class="value">http://detector-v4.dearapi.com</span> or to 
-				<span class="value">http://detector.dearapi.com</span> if you always want to use the latest version.
+				Change the request url from <span class="value">http(s)://detector-v3.dearapi.com</span> to 
+				<span class="value">http(s)://detector-v4.dearapi.com</span> or to 
+				<span class="value">http(s)://detector.dearapi.com</span> if you always want to use the latest version.
 			</p>
 
 

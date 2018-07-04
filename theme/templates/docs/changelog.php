@@ -31,7 +31,7 @@ $this->pageTitle("It's just improvements");
 				<li>Updated identification priority</li>
 				<li>Smaller footprint</li>
 				<li>Updated indexing UI, for much faster re-indexing of segment base</li>
-				<li>New maintannence tools, to minimize UA deduction database</li>
+				<li>New maintenance tools, to minimize UA deduction database</li>
 			</ul>
 			<p>
 				The <em>desktop_edge</em> segment, introduced in v3.0, had become superfluous due to automatic updating 
@@ -64,7 +64,7 @@ $this->pageTitle("It's just improvements");
 
 			<ul class="changes">
 				<li>Static Detector generation for API independent use</li>
-				<li>Groupable segments</li>
+				<li>Group-able segments</li>
 				<li>Optional custom include settings</li>
 				<li>New <em>/submit</em> <a href="/docs/v3/api">API</a> endpoint</li>
 				<li>New <em>/build</em> <a href="/docs/v3/api">API</a> endpoint</li>
