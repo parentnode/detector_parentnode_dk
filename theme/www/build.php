@@ -119,7 +119,7 @@ if(count($action) > 0) {
 		curl_close($ch);
 
 		if($result != "invalid language") {
-			
+
 			header('Content-Description: File Transfer');
 			header('Content-Type: text/text');
 			header("Content-Type: application/force-download");
@@ -133,7 +133,7 @@ if(count($action) > 0) {
 			print $result;
 
 			// notify admin
-			mailer()->send(["message" => "Detector was downloaded.\n\n".stripslashes($values["grouping"])."\n\nLanguage: ".$values["language"]]);
+			mailer()->send(["message" => "Detector was downloaded.\n\n".print_r(json_decode(urldecode($values["grouping"]), true), true)."\n\nLanguage: ".$values["language"]]);
 
 			exit();
 		}
