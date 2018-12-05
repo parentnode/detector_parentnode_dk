@@ -25,7 +25,7 @@ $all_segments = array("desktop", "desktop_ie11", "desktop_ie10", "desktop_ie9", 
 
 ?>
 
-<div class="scene build i:build">
+<div class="scene build i:build i:scene">
 
 <? if($this->segment() == "desktop"): ?>
 

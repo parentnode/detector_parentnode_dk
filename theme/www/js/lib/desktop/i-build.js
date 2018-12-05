@@ -468,7 +468,6 @@ Util.Objects["build"] = new function() {
 			page.cN.scene = this;
 			page.resized();
 
-			u.showScene(this);
 		}
 
 
