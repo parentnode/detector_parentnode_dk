@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-asset-builder @ 2018-12-05 10:22:37
+asset-builder @ 2018-12-05 10:53:45
 */
 
 /*seg_desktop_include.js*/
@@ -5712,7 +5712,6 @@ Util.Objects["build"] = new function() {
 			u.t.setInterval(this, "keepAlive", 60000);
 			page.cN.scene = this;
 			page.resized();
-			u.showScene(this);
 		}
 		scene.initProjectLi = function(project) {
 			if(project.getAttribute("data-project-id") == this.project_id) {
