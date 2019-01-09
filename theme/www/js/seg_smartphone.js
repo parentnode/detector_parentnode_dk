@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-asset-builder @ 2019-01-09 10:56:04
+asset-builder @ 2019-01-09 11:05:00
 */
 
 /*seg_smartphone_include.js*/
@@ -4551,6 +4551,7 @@ Util.Objects["front"] = new function() {
 			if(ul_actions && place_holder) {
 				place_holder.parentNode.replaceChild(ul_actions, place_holder);
 			}
+			u.showScene(this);
 		}
 		scene.ready();
 	}
