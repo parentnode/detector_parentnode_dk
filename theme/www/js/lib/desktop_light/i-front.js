@@ -24,8 +24,6 @@ Util.Objects["front"] = new function() {
 				place_holder.parentNode.replaceChild(ul_actions, place_holder);
 			}
 
-			u.showScene(this);
-
 		}
 
 
