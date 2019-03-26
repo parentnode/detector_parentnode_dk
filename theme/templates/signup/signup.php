@@ -10,7 +10,7 @@ if($page_item) {
 
 $email = $model->getProperty("email", "value");
 ?>
-<div class="scene signup i:scene i:signup">
+<div class="scene signup i:signup">
 
 <? if($page_item && $page_item["status"]): 
 	$media = $IC->sliceMedia($page_item); ?>
