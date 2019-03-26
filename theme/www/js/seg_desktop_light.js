@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-asset-builder @ 2019-03-20 16:55:02
+asset-builder @ 2019-03-26 17:48:31
 */
 
 /*seg_desktop_light_include.js*/

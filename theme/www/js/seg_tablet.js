@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-asset-builder @ 2019-03-20 16:55:03
+asset-builder @ 2019-03-26 17:48:32
 */
 
 /*seg_tablet_include.js*/
@@ -4268,6 +4268,7 @@ Util.Objects["page"] = new function() {
 				if(typeof(u.smartphoneSwitch) == "object") {
 					u.smartphoneSwitch.init(this);
 				}
+				u.navigation();
 				this.initHeader();
 				this.initNavigation();
 				this.initFooter();
@@ -4275,7 +4276,6 @@ Util.Objects["page"] = new function() {
 			}
 		}
 		page.cN.navigate = function(url) {
-			u.bug(url)
 			location.href = url;
 		}
 		page.acceptCookies = function() {
