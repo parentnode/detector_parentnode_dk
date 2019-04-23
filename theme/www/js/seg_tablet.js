@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-asset-builder @ 2019-04-23 21:27:32
+asset-builder @ 2019-04-23 22:08:22
 */
 
 /*seg_tablet_include.js*/
@@ -4726,6 +4726,7 @@ Util.Objects["login"] = new function() {
 			this._form.fields["username"].focus();
 			page.cN.scene = this;
 			u.showScene(this);
+			page.acceptCookies();
 			page.resized();
 		}
 		scene.ready();
@@ -4907,6 +4908,8 @@ Util.Objects["front"] = new function() {
 				place_holder.parentNode.replaceChild(ul_actions, place_holder);
 			}
 			u.showScene(this);
+			page.acceptCookies();
+			page.resized();
 		}
 		scene.ready();
 	}

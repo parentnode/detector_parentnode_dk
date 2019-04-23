@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-asset-builder @ 2019-04-23 21:27:32
+asset-builder @ 2019-04-23 22:08:22
 */
 
 /*seg_desktop_light_include.js*/
@@ -4780,7 +4780,7 @@ Util.Objects["page"] = new function() {
 				u.ac(this, "ready");
 				this.initNavigation();
 				this.resized();
-				page.acceptCookies();
+				this.acceptCookies();
 			}
 		}
 		page.acceptCookies = function() {
