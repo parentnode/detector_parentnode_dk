@@ -466,6 +466,13 @@ Util.Objects["build"] = new function() {
 
 
 			page.cN.scene = this;
+
+
+			u.showScene(this);
+
+			// accept cookies?
+			page.acceptCookies();
+
 			page.resized();
 
 		}
