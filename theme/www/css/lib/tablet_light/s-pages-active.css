@@ -1,3 +1,4 @@
-ul.actions input.button.primary:active,
-ul.actions a.button.primary:active,
-#content ul.actions a.button.primary:active {background-color: #cccccc;}
+#content ul.actions input.button.primary:active,
+#content ul.actions a.button.primary:active,
+#content .scene .pagination .next:active,
+#content .scene .pagination .previous:active {background-color: #cccccc;}
