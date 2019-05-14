@@ -1,5 +1,5 @@
 /*
-asset-builder @ 2019-05-14 11:42:48
+asset-builder @ 2019-05-14 12:41:00
 */
 
 /*seg_tablet_light_include.css*/
@@ -389,7 +389,8 @@ body {background: #333333;}
 .pricing #navigation ul li.pricing a {color: #cccccc;}
 
 /*s-pages-active.css*/
-ul.actions input.button.primary:active,
-ul.actions a.button.primary:active,
-#content ul.actions a.button.primary:active {background-color: #cccccc;}
+#content ul.actions input.button.primary:active,
+#content ul.actions a.button.primary:active,
+#content .scene .pagination .next:active,
+#content .scene .pagination .previous:active {background-color: #cccccc;}
 
