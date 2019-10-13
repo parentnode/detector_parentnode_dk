@@ -49,7 +49,7 @@ Util.Objects["build"] = new function() {
 
 
 			// get any saved group definition
-			var project_groups = this.form.fields["grouping"].val();
+			var project_groups = this.form.inputs["grouping"].val();
 			this.project_groups = project_groups ? JSON.parse(decodeURIComponent(project_groups)) : "";
 
 			this.project_name = decodeURIComponent(this.div_customize.getAttribute("data-project-name"));
@@ -233,12 +233,12 @@ Util.Objects["build"] = new function() {
 					form.div = this.div;
 
 					// add field and button
-					u.f.addField(form, {name:"csrf-token", type:"hidden", value:this.div.form.fields["csrf-token"].val()});
+					u.f.addField(form, {name:"csrf-token", type:"hidden", value:this.div.form.inputs["csrf-token"].val()});
 					u.f.addField(form, {name:"name", type:"string", label:"Name of project"})
 					u.f.addAction(form, {value:"Save", class:"button primary"});
 
 					u.f.init(form);
-					form.fields["name"].focus();
+					form.inputs["name"].focus();
 
 					form.submitted = function() {
 
@@ -284,7 +284,7 @@ Util.Objects["build"] = new function() {
 
 
 			// update language on change
-			this.form.fields["language"].changed = function(event) {
+			this.form.inputs["language"].changed = function(event) {
 
 				var form = new FormData();
 				form.append("project_language", this.val());
@@ -513,9 +513,9 @@ Util.Objects["build"] = new function() {
 				// only update language if project has one defined
 				var projects_language = this.getAttribute("data-project-language");
 				if(projects_language) {
-					this.div.form.fields["language"].val(projects_language);
+					this.div.form.inputs["language"].val(projects_language);
 					// make sure language is updated in session
-					this.div.form.fields["language"].changed();
+					this.div.form.inputs["language"].changed();
 				}
 
 				// add selected state
@@ -562,13 +562,13 @@ Util.Objects["build"] = new function() {
 
 					// update date on related project button to keep things aligned
 					this.div.current_project.setAttribute("data-project-groups", encodeURIComponent(JSON.stringify(this.div.project_groups)));
-					this.div.current_project.setAttribute("data-project-language", this.div.form.fields["language"].val());
+					this.div.current_project.setAttribute("data-project-language", this.div.form.inputs["language"].val());
 
 					this.response = function(response) {
 						page.notify(response);
 					}
 					u.request(this, this.div.project_save_url+"/"+this.div.project_id, {"method":"post", 
-						data:"grouping="+JSON.stringify(this.div.project_groups)+"&language="+this.div.form.fields["language"].val()+"&csrf-token="+this.div.form.fields["csrf-token"].val()
+						data:"grouping="+JSON.stringify(this.div.project_groups)+"&language="+this.div.form.inputs["language"].val()+"&csrf-token="+this.div.form.inputs["csrf-token"].val()
 					});
 
 				}
@@ -825,7 +825,7 @@ Util.Objects["build"] = new function() {
 			}
 
 			// update grouping input for download
-			this.form.fields["grouping"].val(encodeURIComponent(JSON.stringify(this.project_groups)));
+			this.form.inputs["grouping"].val(encodeURIComponent(JSON.stringify(this.project_groups)));
 
 			// submit definitions to server
 			var form = new FormData();
