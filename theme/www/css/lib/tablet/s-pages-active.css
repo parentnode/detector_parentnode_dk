@@ -1,3 +1,4 @@
 ul.actions input.button.primary:active,
 ul.actions a.button.primary:active,
-#content ul.actions a.button.primary:active {background-color: #cccccc;}
+#content ul.actions a.button.primary:active,
+#header ul.servicenavigation li.github:active {background-color: #cccccc; color: #333333;}
