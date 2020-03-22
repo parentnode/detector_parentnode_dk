@@ -14,7 +14,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "order" => "status DESC, m
 		<?= $JML->listNew(array("label" => "New project")) ?>
 	</ul>
 
-	<div class="all_items i:defaultList taggable filters"<?= $JML->jsData(["tags", "search"]) ?>>
+	<div class="all_items i:defaultList taggable filters"<?= $HTML->jsData(["tags", "search"]) ?>>
 <?		if($items): ?>
 		<ul class="items">
 <?			foreach($items as $item): ?>

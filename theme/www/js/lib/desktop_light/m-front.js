@@ -1,18 +1,18 @@
-Util.Objects["front"] = new function() {
+Util.Modules["front"] = new function() {
 	this.init = function(scene) {
-//		u.bug("scene init:" + u.nodeId(scene))
+		// u.bug("scene init:", scene);
 
 		scene.resized = function() {
-//			u.bug("scene.resized:" + u.nodeId(this));
+			// u.bug("scene.resized:", this);
 
 		}
 
 		scene.scrolled = function() {
-//			u.bug("scrolled:" + u.nodeId(this))
+			// u.bug("scene.scrolled:", this);
 		}
 
 		scene.ready = function() {
-//			u.bug("scene.ready:" + u.nodeId(this));
+			// u.bug("scene.ready:", this);
 
 			page.cN.scene = this;
 
@@ -23,13 +23,6 @@ Util.Objects["front"] = new function() {
 			if(ul_actions && place_holder) {
 				place_holder.parentNode.replaceChild(ul_actions, place_holder);
 			}
-
-			u.showScene(this);
-
-			// accept cookies?
-			page.acceptCookies();
-
-			page.resized();
 
 		}
 

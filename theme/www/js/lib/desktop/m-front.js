@@ -1,21 +1,18 @@
-Util.Objects["front"] = new function() {
+Util.Modules["front"] = new function() {
 	this.init = function(scene) {
-//		u.bug("scene init:" + u.nodeId(scene))
+		// u.bug("scene init:", scene);
 
 		scene.resized = function() {
-//			u.bug("scene.resized:" + u.nodeId(this));
+			// u.bug("scene.resized:", this);
 
 		}
 
 		scene.scrolled = function() {
-//			u.bug("scrolled:" + u.nodeId(this))
+			// u.bug("scene.scrolled:", this);
 		}
 
 		scene.ready = function() {
-//			u.bug("scene.ready:" + u.nodeId(this));
-
-			page.cN.scene = this;
-
+			// u.bug("scene.ready:", this);
 
 			var ul_actions = u.qs("ul.actions", this);
 			var place_holder = u.qs("div.articlebody .placeholder.build", this);
@@ -24,11 +21,13 @@ Util.Objects["front"] = new function() {
 				place_holder.parentNode.replaceChild(ul_actions, place_holder);
 			}
 
+			u.showScene(this);
+
 		}
 
 
-		// scene is ready
-		scene.ready();
+		// Register scene
+		page.cN.scene = scene;
 
 	}
 

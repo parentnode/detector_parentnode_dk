@@ -1,10 +1,9 @@
-Util.Objects["build"] = new function() {
+Util.Modules["build"] = new function() {
 	this.init = function(scene) {
-//		u.bug("scene init:" + u.nodeId(scene));
-		
+		// u.bug("scene init:", scene);
 
 		scene.resized = function() {
-//			u.bug("scene.resized:" + u.nodeId(this));;
+			// u.bug("scene.resized:", this);
 
 
 			// refresh dom
@@ -12,11 +11,11 @@ Util.Objects["build"] = new function() {
 		}
 
 		scene.scrolled = function() {
-//			u.bug("scrolled:" + u.nodeId(this));
+			// u.bug("scene.scrolled:", this);
 		}
 
 		scene.ready = function() {
-//			u.bug("scene.ready:" + u.nodeId(this));
+			// u.bug("scene.ready:", this);
 
 			var i, segment, draggable, li, _default, x;
 
@@ -465,15 +464,8 @@ Util.Objects["build"] = new function() {
 			u.t.setInterval(this, "keepAlive", 60000);
 
 
-			page.cN.scene = this;
-
 
 			u.showScene(this);
-
-			// accept cookies?
-			page.acceptCookies();
-
-			page.resized();
 
 		}
 
@@ -857,8 +849,8 @@ Util.Objects["build"] = new function() {
 			}
 		}
 
-		// scene is ready
-		scene.ready();
+		// Register scene
+		page.cN.scene = scene;
 
 	}
 
