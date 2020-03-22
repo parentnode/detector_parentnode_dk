@@ -1,6 +1,6 @@
 /*
-Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-asset-builder @ 2019-10-13 20:05:24
+Manipulator v0.9.3 Copyright 2020 http://manipulator.parentnode.dk
+asset-builder @ 2020-03-22 20:34:34
 */
 
 /*seg_smartphone_include.js*/
@@ -758,7 +758,7 @@ Util.clickableElement = u.ce = function(node, _options) {
 				if(fun(node.preClicked)) {
 					node.preClicked();
 				}
-				if(event && (event.metaKey || event.ctrlKey)) {
+				if(event && (event.metaKey || event.ctrlKey || (this._a && this._a.target))) {
 					window.open(this.url);
 				}
 				else {
@@ -2127,6 +2127,7 @@ Util.Form = u.f = new function() {
 				field.filelist.field = field;
 				field.uploaded_files = u.qsa("li.uploaded", field.filelist);
 				this._update_filelist.bind(field.input)();
+				u.e.addEvent(field.input, "change", this._update_filelist);
 				u.e.addEvent(field.input, "change", this._updated);
 				u.e.addEvent(field.input, "change", this._changed);
 				if(u.e.event_support != "touch") {
@@ -2134,7 +2135,6 @@ Util.Form = u.f = new function() {
 					u.e.addEvent(field.input, "dragleave", this._blur);
 					u.e.addEvent(field.input, "drop", this._blur);
 				}
-				u.e.addEvent(field.input, "change", this._update_filelist);
 				this.activateInput(field.input);
 			}
 			else {
@@ -2338,6 +2338,9 @@ Util.Form = u.f = new function() {
 					u.ae(this.field.filelist, this.field.uploaded_files[i]);
 				}
 			}
+			else {
+				this.field.uploaded_files = [];
+			}
 		}
 		else if(this.field.uploaded_files && this.field.uploaded_files.length) {
 			u.rc(this.field, "has_new_files");
@@ -2504,7 +2507,7 @@ Util.Form = u.f = new function() {
 				}
 			}
 		}
-		var action_name = action.name ? action.name : (action.parentNode.className ? u.normalize(action.parentNode.className) : (action.value ? u.normalize(action.value) : u.normalize(u.text(action))));
+		var action_name = action.name ? action.name : (action.parentNode.className ? u.superNormalize(action.parentNode.className) : (action.value ? u.superNormalize(action.value) : u.superNormalize(u.text(action))));
 		if(action_name && !action._form.actions[action_name]) {
 			action._form.actions[action_name] = action;
 		}
@@ -3128,17 +3131,17 @@ Util.pageScrollX = u.scrollX = function() {
 Util.pageScrollY = u.scrollY = function() {
 	return window.pageYOffset;
 }
-Util.Objects = u.o = new Object();
+Util.Modules = u.m = new Object();
 Util.init = function(scope) {
-	var i, node, nodes, object;
+	var i, node, nodes, module;
 	scope = scope && scope.nodeName ? scope : document;
 	nodes = u.ges("i\:([_a-zA-Z0-9])+", scope);
 	for(i = 0; i < nodes.length; i++) {
 		node = nodes[i];
-		while((object = u.cv(node, "i"))) {
-			u.rc(node, "i:"+object);
-			if(object && obj(u.o[object])) {
-				u.o[object].init(node);
+		while((module = u.cv(node, "i"))) {
+			u.rc(node, "i:"+module);
+			if(module && obj(u.m[module])) {
+				u.m[module].init(node);
 			}
 		}
 	}
@@ -3387,9 +3390,10 @@ Util.request = function(node, url, _options) {
 						node[request_id].HTTPRequest.setRequestHeader(header, node[request_id].request_headers[header]);
 					}
 				}
+				node[request_id].HTTPRequest.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 				node[request_id].HTTPRequest.send("");
 			}
-			else if(node[request_id].request_method.match(/POST|PUT|PATCH/i)) {
+			else if(node[request_id].request_method.match(/POST|PUT|PATCH|DELETE/i)) {
 				var params;
 				if(obj(node[request_id].request_data) && node[request_id].request_data.constructor.toString().match(/function Object/i)) {
 					params = JSON.stringify(node[request_id].request_data);
@@ -3416,6 +3420,7 @@ Util.request = function(node, url, _options) {
 						node[request_id].HTTPRequest.setRequestHeader(header, node[request_id].request_headers[header]);
 					}
 				}
+				node[request_id].HTTPRequest.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 				node[request_id].HTTPRequest.send(params);
 			}
 		}
@@ -3751,11 +3756,89 @@ Util.lowerCaseFirst = u.lcfirst = function(string) {
 	return string.replace(/^(.){1}/, function($1) {return $1.toLowerCase()});
 }
 Util.normalize = function(string) {
+	var table = {
+		'À':'A',  'à':'a',
+		'Á':'A',  'á':'a',
+		'Â':'A',  'â':'a',
+		'Ã':'A',  'ã':'a',
+		'Ä':'A',  'ä':'a',
+		'Å':'Aa', 'å':'aa',
+		'Æ':'Ae', 'æ':'ae',
+		'Ç':'C',  'ç':'c',
+		'Č':'C',  'ć':'c',
+		'Ć':'C',  'č':'c',
+		'Đ':'D',  'đ':'d',  'ð':'d',
+		'È':'E',  'è':'e',
+		'É':'E',  'é':'e',
+		'Ê':'E',  'ê':'e',
+		'Ë':'E',  'ë':'e',
+		'Ģ':'G',  'ģ':'g',
+		'Ğ':'G',  'ğ':'g',
+		'Ì':'I',  'ì':'i',
+		'Í':'I',  'í':'i',
+		'Î':'I',  'î':'i',
+		'Ï':'I',  'ï':'i',
+		'Ī':'I',  'ī':'i',
+		'Ķ':'K',  'ķ':'k',
+		'Ļ':'L',  'ļ':'l',
+		'Ñ':'N',  'ñ':'n',
+		'Ņ':'N',  'ņ':'n',
+		'Ò':'O',  'ò':'o',
+		'Ó':'O',  'ó':'o',
+		'Ô':'O',  'ô':'o',
+		'Õ':'O',  'õ':'o',
+		'Ö':'O',  'ö':'o',
+		'Ō':'O',  'ō':'o',
+		'Ø':'Oe', 'ø':'oe',
+		'Ŕ':'R',  'ŕ':'r',
+		'Š':'S',  'š':'s',
+		'Ş':'S',  'ş':'s',
+		'Ṩ':'S',  'ṩ':'s',
+		'Ù':'U',  'ù':'u',
+		'Ú':'U',  'ú':'u',
+		'Û':'U',  'û':'u',
+		'Ü':'U',  'ü':'u',
+		'Ū':'U',  'ū':'u',
+		'Ų':'U',  'ų':'u',
+		'Ŭ':'U',  'ŭ':'u',
+		'Ý':'Y',  'ý':'y',
+		'Ÿ':'Y',  'ÿ':'y',
+		'Ž':'Z',  'ž':'z',
+		'Þ':'B',  'þ':'b',
+		'ß':'Ss',
+		'@':' at ',
+		'&':'and',
+		'%':' percent',
+		'\\$':'USD',
+		'¥':'JPY',
+		'€':'EUR',
+		'£':'GBP',
+		'™':'trademark',
+		'©':'copyright',
+		'§':'s',
+		'\\*':'x',
+		'×':'x'
+	}
+	var char, regex;
+	for(char in table) {
+		regex = new RegExp(char, "g");
+		string = string.replace(regex, table[char]);
+	}
+	return string;
+}
+Util.superNormalize = function(string) {
+	string = u.normalize(string);
 	string = string.toLowerCase();
+	string = u.stripTags(string);
 	string = string.replace(/[^a-z0-9\_]/g, '-');
 	string = string.replace(/-+/g, '-');
 	string = string.replace(/^-|-$/g, '');
 	return string;
+}
+Util.stripTags = function(string) {
+	var node = document.createElement("div");
+	node.innerHTML = string;
+	return u.text(node);
 }
 Util.pluralize = function(count, singular, plural) {
 	if(count != 1) {
@@ -4115,17 +4198,27 @@ Util.History = u.h = new function() {
 	this.is_listening = false;
 	this.navigate = function(url, node, silent) {
 		silent = silent || false;
-		if(this.popstate) {
-			history.pushState({}, url, url);
-			if(!silent) {
-				this.callback(url);
+		if((!url.match(/^http[s]?\:\/\//) || url.match(document.domain)) && (!node || !node._a || !node._a.target)) {
+			if(this.popstate) {
+				history.pushState({}, url, url);
+				if(!silent) {
+					this.callback(url);
+				}
+			}
+			else {
+				if(silent) {
+					this.next_hash_is_silent = true;
+				}
+				location.hash = u.h.getCleanUrl(url);
 			}
 		}
 		else {
-			if(silent) {
-				this.next_hash_is_silent = true;
+			if(!node || !node._a || !node._a.target) {
+				location.href = url;
 			}
-			location.hash = u.h.getCleanUrl(url);
+			else {
+				window.open(this.url);
+			}
 		}
 	}
 	this.callback = function(url) {
@@ -4215,7 +4308,7 @@ Util.History = u.h = new function() {
 		this.trail.push({"url":url, "node":node});
 	}
 	this.getCleanUrl = function(string, levels) {
-		string = string.replace(location.protocol+"//"+document.domain, "").match(/[^#$]+/)[0];
+		string = string.replace(location.protocol+"//"+document.domain, "") ? string.replace(location.protocol+"//"+document.domain, "").match(/[^#$]+/)[0] : "/";
 		if(!levels) {
 			return string;
 		}
@@ -4350,76 +4443,6 @@ u.txt["assign"] = function(obj) {
 		u.txt[x] = obj[x];
 	}
 }
-u.smartphoneSwitch = new function() {
-	this.state = 0;
-	this.init = function(node) {
-		this.callback_node = node;
-		this.event_id = u.e.addWindowEvent(this, "resize", this.resized);
-		this.resized();
-	}
-	this.resized = function() {
-		if(u.browserW() < 500 && !this.state) {
-			this.switchOn();
-		}
-		else if(u.browserW() > 500 && this.state) {
-			this.switchOff();
-		}
-	}
-	this.switchOn = function() {
-		if(!this.panel) {
-			this.state = true;
-			this.panel = u.ae(document.body, "div", {"id":"smartphone_switch"});
-			u.ass(this.panel, {
-				opacity: 0
-			});
-			u.ae(this.panel, "h1", {html:u.stringOr(u.txt["smartphone-switch-headline"], "Hello curious")});
-			if(u.txt["smartphone-switch-text"].length) {
-				for(i = 0; i < u.txt["smartphone-switch-text"].length; i++) {
-					u.ae(this.panel, "p", {html:u.txt["smartphone-switch-text"][i]});
-				}
-			}
-			var ul_actions = u.ae(this.panel, "ul", {class:"actions"});
-			var li; 
-			li = u.ae(ul_actions, "li", {class:"hide"});
-			var bn_hide = u.ae(li, "a", {class:"hide button", html:u.txt["smartphone-switch-bn-hide"]});
-			li = u.ae(ul_actions, "li", {class:"switch"});
-			var bn_switch = u.ae(li, "a", {class:"switch button primary", html:u.txt["smartphone-switch-bn-switch"]});
-			u.e.click(bn_switch);
-			bn_switch.clicked = function() {
-				u.saveCookie("smartphoneSwitch", "on");
-				location.href = location.href.replace(/[&]segment\=desktop|segment\=desktop[&]?/, "") + (location.href.match(/\?/) ? "&" : "?") + "segment=smartphone";
-			}
-			u.e.click(bn_hide);
-			bn_hide.clicked = function() {
-				u.e.removeWindowEvent(u.smartphoneSwitch, "resize", u.smartphoneSwitch.event_id);
-				u.smartphoneSwitch.switchOff();
-			}
-			u.a.transition(this.panel, "all 0.5s ease-in-out");
-			u.ass(this.panel, {
-				opacity: 1
-			});
-			if(this.callback_node && typeof(this.callback_node.smartphoneSwitchedOn) == "function") {
-				this.callback_node.smartphoneSwitchedOn();
-			}
-		}
-	}
-	this.switchOff = function() {
-		if(this.panel) {
-			this.state = false;
-			this.panel.transitioned = function() {
-				this.parentNode.removeChild(this);
-				delete u.smartphoneSwitch.panel;
-			}
-			u.a.transition(this.panel, "all 0.5s ease-in-out");
-			u.ass(this.panel, {
-				opacity: 0
-			});
-			if(this.callback_node && typeof(this.callback_node.smartphoneSwitchedOff) == "function") {
-				this.callback_node.smartphoneSwitchedOff();
-			}
-		}
-	}
-}
 u.showScene = function(scene) {
 	var i, node;
 	var nodes = u.cn(scene);
@@ -4458,16 +4481,39 @@ u.showScene = function(scene) {
 	}
 }
 u._stepA1 = function() {
+	var svg_icon = u.qs("svg", this);
+	if(svg_icon) {
+		this.removeChild(svg_icon);
+	}
 	this.innerHTML = this.innerHTML.replace(/[ ]?<br[ \/]?>[ ]?/, " <br /> ");
 	this.innerHTML = '<span class="word">'+this.innerHTML.split(" ").join('</span> <span class="word">')+'</span>'; 
 	var word_spans = u.qsa("span.word", this);
-	var i, span;
+	var i, span, letters, spanned_word;
 	for(i = 0; span = word_spans[i]; i++) {
 		if(span.innerHTML.match(/<br[ \/]?>/)) {
 			span.parentNode.replaceChild(document.createElement("br"), span);
 		}
 		else {
-			span.innerHTML = "<span>"+span.innerHTML.split("").join("</span><span>")+"</span>";
+			if(span.innerHTML.match(/&[a-zA-Z0-9#]+;/)) {
+				letters = span.innerHTML.split("");
+				span.innerHTML = "";
+				for(j = 0; j < letters.length; j++) {
+					if(letters[j] === "&") {
+						spanned_word = letters[j];
+						while(letters[++j] !== ";") {
+							spanned_word += letters[j];
+						}
+						spanned_word += letters[j];
+						span.innerHTML += "<span>" + spanned_word + "</span>";
+					}
+					else {
+						span.innerHTML += "<span>" + letters[j] + "</span>";
+					}
+				}
+			}
+			else {
+				span.innerHTML = "<span>"+span.innerHTML.split("").join("</span><span>")+"</span>";
+			}
 		}
 	}
 	this.spans = u.qsa("span:not(.word)", this);
@@ -4497,6 +4543,9 @@ u._stepA1 = function() {
 			}
 		}
 	}
+	if(svg_icon) {
+		this.appendChild(svg_icon);
+	}
 }
 u._stepA2 = function() {
 	if(this.spans) {
@@ -4514,11 +4563,13 @@ u.txt["share"] = "Share this page";
 u.txt["share-info-headline"] = "(How do I share?)";
 u.txt["share-info-txt"] = "We have not included social media plugins on this site, because they are frequently abused to collect data about you. Also we don't want to promote some channels over others. Instead, just copy the link and share it wherever you find relevant.";
 u.txt["share-info-ok"] = "OK";
-u.txt["readmore"] = "Read more.";
+u.txt["readmore"] = "Read more ...";
 u.txt["readstate-not_read"] = "Click to mark as read";
 u.txt["readstate-read"] = "Read";
 u.txt["add_comment"] = "Add comment";
 u.txt["comment"] = "Comment";
+u.txt["add_question"] = "Send question";
+u.txt["question"] = "Ask a question. Try to be precise :-)";
 u.txt["cancel"] = "Cancel";
 u.txt["login_to_comment"] = '<a href="/login">Login</a> or <a href="/signup">Sign up</a> to add comments.';
 u.txt["relogin"] = "Your session timed out - please login to continue.";
@@ -4533,24 +4584,168 @@ u.txt["smartphone-switch-text"] = [
 ];
 u.txt["smartphone-switch-bn-hide"] = "Hide";
 u.txt["smartphone-switch-bn-switch"] = "Go to Smartphone version";
+u.fontsReady = function(node, fonts, _options) {
+	var callback_loaded = "fontsLoaded";
+	var callback_timeout = "fontsNotLoaded";
+	var max_time = 3000;
+	if(obj(_options)) {
+		var _argument;
+		for(_argument in _options) {
+			switch(_argument) {
+				case "callback"					: callback_loaded		= _options[_argument]; break;
+				case "timeout"					: callback_timeout		= _options[_argument]; break;
+				case "max"						: max_time				= _options[_argument]; break;
+			}
+		}
+	}
+	window["_man_fonts_"] = window["_man_fonts_"] || {};
+	window["_man_fonts_"].fontApi = document.fonts && fun(document.fonts.check) ? true : false;
+	window["_man_fonts_"].fonts = window["_man_fonts_"].fonts || {};
+	var font, node, i;
+	if(typeof(fonts.length) == "undefined") {
+		font = fonts;
+		fonts = new Array();
+		fonts.push(font);
+	}
+	var loadkey = u.randomString(8);
+	if(window["_man_fonts_"].fontApi) {
+		window["_man_fonts_"+loadkey] = {};
+	}
+	else {
+		window["_man_fonts_"+loadkey] = u.ae(document.body, "div");
+		window["_man_fonts_"+loadkey].basenodes = {};
+	}
+	window["_man_fonts_"+loadkey].nodes = [];
+	window["_man_fonts_"+loadkey].t_timeout = u.t.setTimer(window["_man_fonts_"+loadkey], "fontCheckTimeout", max_time);
+	window["_man_fonts_"+loadkey].loadkey = loadkey;
+	window["_man_fonts_"+loadkey].callback_node = node;
+	window["_man_fonts_"+loadkey].callback_loaded = callback_loaded;
+	window["_man_fonts_"+loadkey].callback_timeout = callback_timeout;
+	for(i = 0; i < fonts.length; i++) {
+		font = fonts[i];
+		font.style = font.style || "normal";
+		font.weight = font.weight || "400";
+		font.size = font.size || "16px";
+		font.status = "waiting";
+		font.id = u.superNormalize(font.family+font.style+font.weight);
+		if(!window["_man_fonts_"].fonts[font.id]) {
+			window["_man_fonts_"].fonts[font.id] = font;
+		}
+		if(window["_man_fonts_"].fontApi) {
+			node = {};
+		}
+		else {
+			if(!window["_man_fonts_"+loadkey].basenodes[u.superNormalize(font.style+font.weight)]) {
+				window["_man_fonts_"+loadkey].basenodes[u.superNormalize(font.style+font.weight)] = u.ae(window["_man_fonts_"+loadkey], "span", {"html":"I'm waiting for your fonts to load!","style":"font-family: Times !important; font-style: "+font.style+" !important; font-weight: "+font.weight+" !important; font-size: "+font.size+" !important; line-height: 1em !important; opacity: 0 !important;"});
+			}
+			node = u.ae(window["_man_fonts_"+loadkey], "span", {"html":"I'm waiting for your fonts to load!","style":"font-family: '"+font.family+"', Times !important; font-style: "+font.style+" !important; font-weight: "+font.weight+" !important; font-size: "+font.size+" !important; line-height: 1em !important; opacity: 0 !important;"});
+		}
+		node.font_size = font.size;
+		node.font_family = font.family;
+		node.font_weight = font.weight;
+		node.font_style = font.style;
+		node.font_id = font.id;
+		node.loadkey = loadkey;
+		window["_man_fonts_"+loadkey].nodes.push(node);
+	}
+	window["_man_fonts_"+loadkey].checkFontsAPI = function() {
+		var i, node, font_string;
+		for(i = 0; i < this.nodes.length; i++) {
+			node = this.nodes[i];
+			if(window["_man_fonts_"].fonts[node.font_id] && window["_man_fonts_"].fonts[node.font_id].status == "waiting") {
+				font_string = node.font_style + " " + node.font_weight + " " + node.font_size + " " + node.font_family;
+				document.fonts.load(font_string).then(function(fontFaceSetEvent) {
+					if(fontFaceSetEvent && fontFaceSetEvent.length && fontFaceSetEvent[0].status == "loaded") {
+						window["_man_fonts_"].fonts[this.font_id].status = "loaded";
+					}
+					else {
+						window["_man_fonts_"].fonts[this.font_id].status = "failed";
+					}
+					if(window["_man_fonts_"+this.loadkey] && fun(window["_man_fonts_"+this.loadkey].checkFontsStatus)) {
+						window["_man_fonts_"+this.loadkey].checkFontsStatus();
+					}
+				}.bind(node));
+			}
+		}
+		if(fun(this.checkFontsStatus)) {
+			this.checkFontsStatus();
+		}
+	}
+	window["_man_fonts_"+loadkey].checkFontsFallback = function() {
+		var basenode, i, node;
+		for(i = 0; i < this.nodes.length; i++) {
+			node = this.nodes[i];
+			basenode = this.basenodes[u.superNormalize(node.font_style+node.font_weight)];
+			if(node.offsetWidth != basenode.offsetWidth || node.offsetHeight != basenode.offsetHeight) {
+				window["_man_fonts_"].fonts[node.font_id].status = "loaded";
+			}
+		}
+		this.t_fallback = u.t.setTimer(this, "checkFontsFallback", 30);
+		if(fun(this.checkFontsStatus)) {
+			this.checkFontsStatus();
+		}
+	}
+	window["_man_fonts_"+loadkey].fontCheckTimeout = function(event) {
+		u.t.resetTimer(this.t_fallback);
+		delete window["_man_fonts_"+this.loadkey];
+		if(this.parentNode) {
+			this.parentNode.removeChild(this);
+		}
+		if(fun(this.callback_node[this.callback_timeout])) {
+			this.callback_node[this.callback_timeout](this.nodes);
+		}
+		else if(fun(this.callback_node[this.callback_loaded])) {
+			this.callback_node[this.callback_loaded](this.nodes);
+		}
+	}
+	window["_man_fonts_"+loadkey].checkFontsStatus = function(event) {
+		var i, node;
+		for(i = 0; i < this.nodes.length; i++) {
+			node = this.nodes[i];
+			if(window["_man_fonts_"].fonts[node.font_id].status == "waiting") {
+				return;
+			}
+		}
+		u.t.resetTimer(this.t_timeout);
+		u.t.resetTimer(this.t_fallback);
+		delete window["_man_fonts_"+this.loadkey];
+		if(this.parentNode) {
+			this.parentNode.removeChild(this);
+		}
+		if(fun(this.callback_node[this.callback_loaded])) {
+			if(this.fontApi) {
+				this.callback_node[this.callback_loaded](this.nodes);
+			}
+			else {
+				setTimeout(function() {
+					this.callback_node[this.callback_loaded](this.nodes); 
+				}.bind(this), 250);
+			}
+		}
+	}
+	if(window["_man_fonts_"].fontApi) {
+		window["_man_fonts_"+loadkey].checkFontsAPI();
+	}
+	else {
+		window["_man_fonts_"+loadkey].checkFontsFallback();
+	}
+}
 u.f.fixFieldHTML = function(field) {
 	if(field.indicator && field.label) {
 		u.ae(field.label, field.indicator);
 	}
 }
-u.bug_console_only = true;
-Util.Objects["page"] = new function() {
+Util.Modules["page"] = new function() {
 	this.init = function(page) {
-		window.page = page;
 		u.bug_force = true;
 		u.bug("This site is built using the combined powers of body, mind and spirit. Well, and also Manipulator, Janitor and Detector");
-		u.bug("Visit https://parentnode.dk for more information");
+		if(document.domain !== "parentnode.dk") {
+			u.bug("Visit https://parentnode.dk for more information");
+		}
 		u.bug_force = false;
 		page.hN = u.qs("#header");
 		page.hN.service = u.qs(".servicenavigation", page.hN);
 		u.e.drag(page.hN, page.hN);
-		page.logo = u.ie(page.hN, "a", {"class":"logo", "html":u.eitherOr(u.site_name, "Frontpage")});
-		page.logo.url = '/';
 		page.cN = u.qs("#content", page);
 		page.nN = u.qs("#navigation", page);
 		page.nN = u.ie(page.hN, page.nN);
@@ -4599,8 +4794,21 @@ Util.Objects["page"] = new function() {
 			}
 		}
 		page.orientationchanged = function() {
-			if(page.cN && page.cN.scene && typeof(page.cN.scene.orientationchanged) == "function") {
-				page.cN.scene.orientationchanged();
+			if(this.cN && this.cN.scene && typeof(this.cN.scene.orientationchanged) == "function") {
+				this.cN.scene.orientationchanged();
+			}
+		}
+		page.preload = function() {
+			if(fun(u.pagePreloader)) {
+				u.pagePreloader();
+			}
+			else {
+				u.fontsReady(this, [
+					{"family":"OpenSans", "weight":"normal", "style":"normal"},
+					{"family":"OpenSans", "weight":"bold", "style":"normal"},
+					{"family":"OpenSans", "weight":"normal", "style":"italic"},
+					{"family":"PT Serif", "weight":"normal", "style":"normal"}
+				], {"callback": "ready"});
 			}
 		}
 		page.ready = function() {
@@ -4609,11 +4817,10 @@ Util.Objects["page"] = new function() {
 				u.e.addWindowEvent(this, "resize", this.resized);
 				u.e.addWindowEvent(this, "scroll", this.scrolled);
 				u.e.addWindowEvent(this, "orientationchange", this.orientationchanged);
-				if(typeof(u.notifier) == "function") {
+				if(fun(u.notifier)) {
 					u.notifier(this);
 				}
 				if(u.getCookie("smartphoneSwitch") == "on") {
-					console.log("Back to desktop")
 					var bn_switch = u.ae(document.body, "div", {id:"desktop_switch", html:"Back to desktop"});
 					u.ce(bn_switch);
 					bn_switch.clicked = function() {
@@ -4621,8 +4828,14 @@ Util.Objects["page"] = new function() {
 						location.href = location.href.replace(/[&]segment\=smartphone|segment\=smartphone[&]?/, "") + (location.href.match(/\?/) ? "&" : "?") + "segment=desktop";
 					}
 				}
+				this.initHeader();
 				this.initNavigation();
 				this.resized();
+				this.scrolled();
+				if(!fun(this.cN.scene.revealPage)) {
+					this.revealPage();
+				}
+				this.cN.scene.ready();
 			}
 		}
 		page.acceptCookies = function() {
@@ -4649,6 +4862,10 @@ Util.Objects["page"] = new function() {
 					});
 				}
 			}
+		}
+		page.initHeader = function() {
+			this.logo = u.ie(this.hN, "a", {"class":"logo", "html":u.eitherOr(u.site_name, "Frontpage")});
+			this.logo.url = '/';
 		}
 		page.initNavigation = function() {
 			this.nN.list = u.qs("ul.navigation", this.nN);
@@ -4726,6 +4943,7 @@ Util.Objects["page"] = new function() {
 				}
 				u.e.drag(this.nN.nav, this.nN, {"strict":false, "elastica":200, "vertical_lock":true, "overflow":"scroll"});
 			}
+			var i, node;
 			if(page.fN.service) {
 				nodes = u.qsa("li", page.fN.service);
 				for(i = 0; node = nodes[i]; i++) {
@@ -4773,12 +4991,30 @@ Util.Objects["page"] = new function() {
 					"opacity":1
 				});
 			}
+			if(fun(u.logoInjected)) {
+				u.logoInjected();
+			}
 		}
-		page.ready();
+		page.revealPage = function() {
+			u.a.transition(page.hN, "all 0.3s ease-in");
+			u.ass(page.hN, {
+				"opacity":1
+			});
+			u.a.transition(page.nN, "all 0.3s ease-in");
+			u.ass(page.nN, {
+				"opacity":1
+			});
+			u.a.transition(page.fN, "all 0.3s ease-in");
+			u.ass(page.fN, {
+				"opacity":1
+			});
+			this.acceptCookies();
+		}
+		page.preload();
 	}
 }
 u.e.addDOMReadyEvent(u.init);
-Util.Objects["login"] = new function() {
+Util.Modules["login"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
 		}
@@ -4787,33 +5023,25 @@ Util.Objects["login"] = new function() {
 		scene.ready = function() {
 			this._form = u.qs("form", this);
 			u.f.init(this._form);
-			page.cN.scene = this;
 			u.showScene(this);
-			page.acceptCookies();
-			page.resized();
 		}
-		scene.ready();
+		page.cN.scene = scene;
 	}
 }
-Util.Objects["scene"] = new function() {
+Util.Modules["scene"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
-			this.offsetHeight;
 		}
 		scene.scrolled = function() {
 		}
 		scene.ready = function() {
-			page.cN.scene = this;
 			u.showScene(this);
-			page.acceptCookies();
-			page.resized();
 		}
-		scene.ready();
+		page.cN.scene = scene;
 	}
 }
-Util.Objects["article"] = new function() {
+Util.Modules["article"] = new function() {
 	this.init = function(article) {
-		u.bug("article init:", article);
 		article.csrf_token = article.getAttribute("data-csrf-token");
 		article.header = u.qs("h1,h2,h3", article);
 		article.header.article = article;
@@ -4853,6 +5081,56 @@ Util.Objects["article"] = new function() {
 		if(article.geolocation && typeof(u.injectGeolocation) == "function") {
 			u.injectGeolocation(article);
 		}
+	}
+}
+u.addCheckmark = function(node) {
+	node.checkmark = u.svg({
+		"name":"checkmark",
+		"node":node,
+		"class":"checkmark "+(node.current_readstate ? "read" : "not_read"),
+		"width":17,
+		"height":17,
+		"shapes":[
+			{
+				"type": "line",
+				"x1": 2,
+				"y1": 8,
+				"x2": 7,
+				"y2": 15
+			},
+			{
+				"type": "line",
+				"x1": 6,
+				"y1": 15,
+				"x2": 12,
+				"y2": 2
+			}
+		]
+	});
+	node.checkmark.hint_txt = (node.current_readstate ? (u.txt["readstate-read"] + ", " + u.date("Y-m-d H:i:s", node.current_readstate)) : u.txt["readstate-not_read"]),
+	node.checkmark.node = node;
+	u.e.hover(node.checkmark);
+	node.checkmark.over = function(event) {
+		this.hint = u.ae(document.body, "div", {"class":"hint", "html":this.hint_txt});
+		u.ass(this.hint, {
+			"top":(u.absY(this.parentNode)+parseInt(u.gcs(this, "top"))+(Number(this.getAttribute("height")))) + "px",
+			"left":(u.absX(this.parentNode)+parseInt(u.gcs(this, "left"))+Number(this.getAttribute("width"))) + "px"
+		});
+	}
+	node.checkmark.out = function(event) {
+		if(this.hint) {
+			this.hint.parentNode.removeChild(this.hint);
+			delete this.hint;
+		}
+	}
+}
+u.removeCheckmark = function(node) {
+	if(node.checkmark.hint) {
+		node.checkmark.hint.parentNode.removeChild(node.checkmark.hint);
+	}
+	if(node.checkmark) {
+		node.checkmark.parentNode.removeChild(node.checkmark);
+		node.checkmark = false;
 	}
 }
 u.injectGeolocation = function(node) {
@@ -4913,15 +5191,82 @@ u.ga_account = 'UA-49732426-1';
 u.ga_domain = 'detector.parentnode.dk';
 
 
-/*i-signup.js*/
-Util.Objects["signup"] = new function() {
+/*u-googleanalytics.js*/
+if(u.ga_account) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.defer=true;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', u.ga_account, u.ga_domain);
+    ga('send', 'pageview');
+	u.stats = new function() {
+		this.pageView = function(url) {
+			ga('send', 'pageview', url);
+		}
+		this.event = function(node, _options) {
+			var event = false;
+			var eventCategory = "Uncategorized";
+			var eventAction = null;
+			var eventLabel = null;
+			var eventValue = null;
+			var nonInteraction = false;
+			var hitCallback = null;
+			if(obj(_options)) {
+				var _argument;
+				for(_argument in _options) {
+					switch(_argument) {
+						case "event"				: event					= _options[_argument]; break;
+						case "eventCategory"		: eventCategory			= _options[_argument]; break;
+						case "eventAction"			: eventAction			= _options[_argument]; break;
+						case "eventLabel"			: eventLabel			= _options[_argument]; break;
+						case "eventValue"			: eventValue			= _options[_argument]; break;
+						case "nonInteraction"		: nonInteraction		= _options[_argument]; break;
+						case "hitCallback"			: hitCallback			= _options[_argument]; break;
+					}
+				}
+			}
+			if(!eventAction && event && event.type) {
+				eventAction = event.type;
+			}
+			else if(!eventAction) {
+				eventAction = "Unknown";
+			}
+			if(!eventLabel && event && event.currentTarget && event.currentTarget.url) {
+				eventLabel = event.currentTarget.url;
+			}
+			else if(!eventLabel) {
+				eventLabel = this.nodeSnippet(node);
+			}
+			ga('send', 'event', {
+				"eventCategory": eventCategory, 
+				"eventAction": eventAction,
+				"eventLabel": eventLabel,
+				"eventValue": eventValue,
+				"nonInteraction": nonInteraction,
+				"hitCallback": hitCallback
+			});
+		}
+		// 	
+		// 	//       slot,		
+		// 	//       name,		
+		// 	//       value,	
+		// 	//       scope		
+		// 	
+		this.nodeSnippet = function(node) {
+			return u.cutString(u.text(node).trim(), 20) + "(<"+node.nodeName+">)";
+		}
+	}
+}
+
+
+/*m-signup.js*/
+Util.Modules["signup"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
 		}
 		scene.scrolled = function() {
 		}
 		scene.ready = function() {
-			page.cN.scene = this;
 			var form_signup = u.qs("form.signup", this);
 			var place_holder = u.qs("div.articlebody .placeholder.signup", this);
 			if(form_signup && place_holder) {
@@ -4965,15 +5310,14 @@ Util.Objects["signup"] = new function() {
 				}
 				u.request(this, this.action, {"data":data, "method":"POST"});
 			}
-			page.acceptCookies();
 			u.showScene(this);
-			page.resized();
 		}
 		scene.replaceScene = function(response) {
 			var current_scene = u.qs(".scene", page);
 			var new_scene = u.qs(".scene", response);
 			page.cN.replaceChild(new_scene, current_scene); 
 			u.init();
+			new_scene.ready();
 			return new_scene;
 		}
 		scene.showMessage = function(form, response) {
@@ -4987,20 +5331,19 @@ Util.Objects["signup"] = new function() {
 			}
 			return new_error;
 		}
-		scene.ready();
+		page.cN.scene = scene;
 	}
 }
 
 
-/*i-verify.js*/
-Util.Objects["verify"] = new function() {
+/*m-verify.js*/
+Util.Modules["verify"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
 		}
 		scene.scrolled = function() {
 		}
 		scene.ready = function() {
-			page.cN.scene = this;
 			var form_verify = u.qs("form.verify_code", this);
 			if(form_verify) {
 				u.f.init(form_verify);
@@ -5054,6 +5397,7 @@ Util.Objects["verify"] = new function() {
 			var new_scene = u.qs(".scene", response);
 			page.cN.replaceChild(new_scene, current_scene); 
 			u.init();
+			new_scene.ready();
 			return new_scene;
 		}
 		scene.showMessage = function(form, response) {
@@ -5067,13 +5411,13 @@ Util.Objects["verify"] = new function() {
 			}
 			return new_error;
 		}
-		scene.ready();
+		page.cN.scene = scene;
 	}
 }
 
 
-/*i-build.js*/
-Util.Objects["build"] = new function() {
+/*m-build.js*/
+Util.Modules["build"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
 		}
@@ -5090,8 +5434,8 @@ Util.Objects["build"] = new function() {
 }
 
 
-/*i-front.js*/
-Util.Objects["front"] = new function() {
+/*m-front.js*/
+Util.Modules["front"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
 		}
