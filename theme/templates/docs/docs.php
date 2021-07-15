@@ -10,8 +10,8 @@ $this->pageTitle("Documentation");
 		<li><a href="/docs/changelog">Changelog</a></li>
 	</ul>
 
-	<h2>Version 4 (v4.0)</h2>
-	<p class="note">Released: January, 2018</p>
+	<h2>Version 4+ (v4.0, v4.1)</h2>
+	<p class="note">Released: January, 2018. Updated: June, 2021.</p>
 	<ul class="topics">
 		<li><a href="/docs/v4/segments">Segments</a></li>
 		<li><a href="/docs/v4/apis">APIs</a></li>
