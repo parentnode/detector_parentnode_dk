@@ -87,7 +87,7 @@ $all_segments = array("desktop", "desktop_ie11", "desktop_ie10", "desktop_ie9", 
 			data-project-id="<?= $project_id ?>"
 			data-project-name="<?= rawurlencode($project_name) ?>"
 			data-project-language="<?= $project_language ?>"
-			data-save-project-url="<?= $this->validPath("/build/saveProject") ?>"
+			data-save-project-url="<?= security()->validPath("/build/saveProject") ?>"
 			>
 
 			<div class="segments">
@@ -115,7 +115,7 @@ $all_segments = array("desktop", "desktop_ie11", "desktop_ie10", "desktop_ie9", 
 <? if(session()->value("user_id") == 1): ?>
 			<p class="note">
 				You don't have any project yet.
-				If you <a href="/login">login</a> or <a href="<?= SITE_SIGNUP ?>">sign up</a>, you can save your project on our server.
+				If you <a href="/login">login</a> or <a href="<?= SITE_SIGNUP_URL ?>">sign up</a>, you can save your project on our server.
 			</p>
 <? else: ?>
 			<ul class="projects actions">

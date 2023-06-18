@@ -6,6 +6,11 @@
 
 class TypeProject extends Itemtype {
 
+
+	public $db;
+	public $languages;
+
+
 	/**
 	* Init, set varnames, validation rules
 	*/

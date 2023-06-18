@@ -40,7 +40,7 @@ if(count($action) > 0) {
 	}
 	else if(count($action) > 0 && $action[0] == "saveProject") {
 
-		if($page->validateCsrfToken() && preg_match("/^(saveProject)$/", $action[0])) {
+		if(security()->validateCsrfToken() && preg_match("/^(saveProject)$/", $action[0])) {
 
 			// check if custom function exists on User class
 			if($model && method_exists($model, $action[0])) {
