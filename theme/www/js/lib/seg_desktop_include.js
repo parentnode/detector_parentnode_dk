@@ -6,6 +6,7 @@ document.write('<script type="text/javascript" src="/assets/parentnode-skin-defa
 
 document.write('<script type="text/javascript" src="/assets/parentnode-skin-default/js/manipulator/src/u-events-movements.js"></script>');
 document.write('<script type="text/javascript" src="/assets/parentnode-skin-default/js/manipulator/src/u-sortable.js"></script>');
+document.write('<script type="text/javascript" src="/assets/parentnode-skin-default/js/manipulator/src/u-form-builder.js"></script>');
 document.write('<script type="text/javascript" src="/assets/parentnode-skin-default/js/manipulator/src/beta-u-animation-to.js"></script>');
 
 
