@@ -9,7 +9,7 @@ header("Content-type: text/html; charset=UTF-8");
 error_reporting(E_ALL);
 
 define("VERSION", "0.7.9.2");
-define("UI_BUILD", "20230618-224640");
+define("UI_BUILD", "20230704-132430");
 
 define("SITE_UID", "DTCR");
 define("SITE_NAME", "Detector");
@@ -38,5 +38,4 @@ define("SITE_SUBSCRIPTIONS", false);
 define("SITE_MEMBERS", false);
 
 define("SITE_COLLECT_NOTIFICATIONS", 50);
-
 
