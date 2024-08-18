@@ -133,7 +133,7 @@ if(count($action) > 0) {
 			print $result;
 
 			// notify admin
-			mailer()->send(["message" => "Detector was downloaded.\n\n".print_r(json_decode(urldecode($values["grouping"]), true), true)."\n\nLanguage: ".$values["language"]]);
+			// mailer()->send(["message" => "Detector was downloaded.\n\n".print_r(json_decode(urldecode($values["grouping"]), true), true)."\n\nLanguage: ".$values["language"]]);
 
 			exit();
 		}
